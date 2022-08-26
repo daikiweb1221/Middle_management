@@ -41,3 +41,10 @@ README〜ER図作成：8/31 〆切
 メイン機能実装：9/1 - 10/15
 β版をRUNTEQ内リリース（MVP）：10/16〆切
 本番リリース：11/1
+
+【画面遷移図URL】
+・スマホ
+https://www.figma.com/file/Q3IMKs1x5m5yrYaX7aaytE/Middle-Management%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3(%E3%82%B9%E3%83%9E%E3%83%9B)
+
+・PC
+https://www.figma.com/file/7TwJSRukq9qBRwOKNFlakm/Middle-Management%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3(PC)
