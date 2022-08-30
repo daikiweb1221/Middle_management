@@ -48,3 +48,6 @@ https://www.figma.com/file/Q3IMKs1x5m5yrYaX7aaytE/Middle-Management%E7%94%BB%E9%
 
 ・PC
 https://www.figma.com/file/7TwJSRukq9qBRwOKNFlakm/Middle-Management%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3(PC)
+
+【ER図】
+https://drive.google.com/file/d/1NTRkf9m4Mc5rh_h9QC9J6aFrLiBpLUJY/view?usp=sharing
