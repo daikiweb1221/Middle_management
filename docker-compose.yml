@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+
+  api:
+    build: ./api
+    volumes:
+      - ./api:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  front:
+    build: ./front
+    volumes:
+      - ./front:/app
+    ports:
+      - "8080:8080"
+
+volumes:
