@@ -1,0 +1,2 @@
+class Subordinate < ApplicationRecord
+end
