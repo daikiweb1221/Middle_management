@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2022_10_24_031207) do
 
   create_table "subordinates", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email", null: false
-    t.date "birthday", null: false
+    t.string "email"
+    t.date "birthday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

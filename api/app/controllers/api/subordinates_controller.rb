@@ -1,4 +1,4 @@
-class Api::SubordinateController < ApplicationController
+class Api::SubordinatesController < ApplicationController
   before_action :set_subordinates, only: [:show, :update, :destroy]
 
   def index
