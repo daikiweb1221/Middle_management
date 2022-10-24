@@ -16,12 +16,5 @@ services:
     depends_on:
       - db
 
-  front:
-    build: ./front
-    volumes:
-      - ./front:/app
-    ports:
-      - "8080:8080"
-
 volumes:
   postgresql_data:
