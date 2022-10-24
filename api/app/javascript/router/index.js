@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import TopIndex from "../pages/top/index";
-// import TaskIndex from "../pages/task/index";
+import TopIndex from "../pages/top";
+import  SignUpIndex from "../pages/signup";
 
 Vue.use(Router)
 
@@ -13,6 +13,11 @@ const router = new Router({
       path: "/",
       component: TopIndex,
       name: "TopIndex",
+    },
+    {
+      path: "/signup",
+      component: SignUpIndex,
+      name: "SignUpIndex"
     }
   ],
 })
