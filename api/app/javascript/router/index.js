@@ -21,7 +21,7 @@ const router = new Router({
       name: "SignUpIndex"
     },
     {
-      path: "/subordinate",
+      path: "/subordinates",
       component: SubordinateIndex,
       name: "SubordinateIndex"
     },

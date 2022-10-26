@@ -39,6 +39,6 @@ class Api::SubordinatesController < ApplicationController
   end
 
   def subordinates_params
-    params.require(:subordinates).permit(:name, :email, :birthday)
+    params.require(:subordinate).permit(:name, :email, :birthday)
   end
 end
