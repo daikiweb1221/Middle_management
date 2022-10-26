@@ -50,7 +50,8 @@ export default {
     return {
       subordinate: {
         name: '',
-        email: ''
+        email: '',
+        birthday: ''
       }
     }
   },
