@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import SubordinateDetailItem from "./components/SubordinateDetailItem";
+import SubordinateDetailItem from "../components/SubordinateDetailItem";
 
 export default {
   components: { SubordinateDetailItem },

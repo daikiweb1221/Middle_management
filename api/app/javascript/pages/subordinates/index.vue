@@ -28,7 +28,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import SubordinateCreateModal from "./components/SubordinateCreateModal";
+import SubordinateCreateModal from "../components/SubordinateCreateModal";
 
 export default {
   name: "SubordinateIndex",
