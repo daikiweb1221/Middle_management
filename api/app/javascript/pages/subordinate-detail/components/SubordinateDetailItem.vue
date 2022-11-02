@@ -11,6 +11,7 @@ export default {
   name: "SubordinateDetailItem",
   props: {
     subordinate: Object,
+    require: true,
   },
 };
 </script>

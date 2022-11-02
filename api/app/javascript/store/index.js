@@ -7,13 +7,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     subordinates: [],
-    subordinate: {
-    },
   },
 
   getters: {
     subordinates: (state) => state.subordinates,
-    subordinate: (state) => state.subordinate,
   },
 
   mutations: {

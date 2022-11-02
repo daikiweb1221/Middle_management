@@ -1,5 +1,5 @@
 class Api::SubordinatesController < ApplicationController
-  before_action :set_subordinates, only: [:show, :update, :destroy]
+  before_action :set_subordinate, only: [:show, :update, :destroy]
 
   def index
     @subordinates = Subordinate.all
@@ -7,38 +7,38 @@ class Api::SubordinatesController < ApplicationController
   end
 
   def show
-    render json: @subordinates
+    render json: @subordinate
   end
 
   def create
-    @subordinates = Subordinate.new(subordinates_params)
+    @subordinate = Subordinate.new(subordinate_params)
 
-    if @subordinates.save
-      render json: @subordinates
+    if @subordinate.save
+      render json: @subordinate
     else
-      render json: @subordinates.errors, status: :bad_request
+      render json: @subordinate.errors, status: :bad_request
     end
   end
 
   def update
-    if @subordinates.update(subordinates_params)
-      render json: @subordinates
+    if @subordinate.update(subordinate_params)
+      render json: @subordinate
     else
-      render json: @subordinates.errors, status: :bad_request
+      render json: @subordinate.errors, status: :bad_request
     end
   end
 
   def destroy
-    @subordinates.destroy!
-    render json: @subordinates
+    @subordinate.destroy!
+    render json: @subordinate
   end
 
   private
-  def set_subordinates
-    @subordinates = Subordinate.find(params[:id])
+  def set_subordinate
+    @subordinate = Subordinate.find(params[:id])
   end
 
-  def subordinates_params
+  def subordinate_params
     params.require(:subordinate).permit(:name, :email, :birthday)
   end
 end

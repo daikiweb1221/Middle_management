@@ -6,31 +6,37 @@
         >部下一覧へ</router-link
       >
     </div>
-    <!-- <subordinate-detail-item
+    <subordinate-detail-item
       :subordinate="subordinate"
-    ></subordinate-detail-item> -->
-    <div>{{ subordinates }}</div>
+    ></subordinate-detail-item>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 import SubordinateDetailItem from "./components/SubordinateDetailItem";
 
 export default {
   components: { SubordinateDetailItem },
   name: "SubordinateDetail",
 
-  computed: {
-    ...mapGetters(["subordinates", "subordinate"]),
+  data() {
+    return {
+      subordinate: {},
+    };
   },
 
   created() {
-    this.fetchSubordinates();
+    this.showSubordinate();
   },
 
   methods: {
-    ...mapActions(["fetchSubordinates"]),
+    showSubordinate() {
+      const id = parseInt(this.$route.params.id, 10);
+      this.$axios
+        .get("subordinates/" + id)
+        .then((res) => (this.subordinate = res.data))
+        .catch((err) => console.log(err.status));
+    },
   },
 };
 </script>

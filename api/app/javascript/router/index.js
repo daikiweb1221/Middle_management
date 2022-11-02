@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 import TopIndex from "../pages/top";
 import  SignUpIndex from "../pages/signup";
-import  SubordinateIndex from "../pages/subordinate";
+import  SubordinateIndex from "../pages/subordinates";
 import  SubordinateDetail from "../pages/subordinate-detail";
 
 Vue.use(Router)
@@ -27,7 +27,7 @@ const router = new Router({
       name: "SubordinateIndex"
     },
     {
-      path: "/subordinates/:id",
+      path: "/:id",
       component: SubordinateDetail,
       name: "SubordinateDetail"
     }
