@@ -20,6 +20,12 @@ export default new Vuex.Store({
     addSubordinate: (state, subordinate) => {
       state.subordinates.push(subordinate);
     },
+    updateSubordinate: (state, updateSubordinate) => {
+      const index = state.subordinates.findIndex((subordinate) => {
+        return subordinate.id == updateSubordinate.id;
+      });
+      state.subordinates.splice(index, 1, updateSubordinate);
+    },
   },
 
   actions: {

@@ -6,22 +6,44 @@
         >部下一覧へ</router-link
       >
     </div>
-    <subordinate-detail-item
-      :subordinate="subordinate"
-    ></subordinate-detail-item>
+    <div>
+      <SubordinateDetailItem :subordinate="subordinate" />
+    </div>
+    <button
+      type="button"
+      class="btn btn-success"
+      @click="handleShowSubordinateEditModal"
+    >
+      編集
+    </button>
+    <div>
+      <SubordinateEditModal
+        :subordinate="subordinateEdit"
+        v-if="isVisibleSubordinateEditModal"
+        @close-modal="handleCloseSubordinateEditModal"
+        @update-subordinate="handleUpdateSubordinate"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import SubordinateDetailItem from "../components/SubordinateDetailItem";
+import SubordinateEditModal from "../components/SubordinateEditModal";
 
 export default {
-  components: { SubordinateDetailItem },
+  components: {
+    SubordinateDetailItem,
+    SubordinateEditModal,
+  },
+
   name: "SubordinateDetail",
 
   data() {
     return {
       subordinate: {},
+      isVisibleSubordinateEditModal: false,
+      subordinateEdit: {},
     };
   },
 
@@ -36,6 +58,34 @@ export default {
         .get("subordinates/" + id)
         .then((res) => (this.subordinate = res.data))
         .catch((err) => console.log(err.status));
+    },
+    handleShowSubordinateEditModal(subordinate) {
+      this.subordinateEdit = Object.assign({}, subordinate);
+      this.isVisibleSubordinateEditModal = true;
+    },
+    handleCloseSubordinateEditModal() {
+      this.isVisibleSubordinateEditModal = false;
+      this.subordinateEdit = {};
+    },
+    updateSubordinate(subordinate) {
+      const target_subordinate = this.subordinate.id;
+      this.$axios
+        .patch("subordinates/" + target_subordinate, subordinate)
+        .then((res) => {
+          this.$store.commit("updateSubordinate", res.data);
+          this.$router.go({
+            path: this.$router.currentRoute.path,
+            force: true,
+          });
+        });
+    },
+    async handleUpdateSubordinate(subordinate) {
+      try {
+        await this.updateSubordinate(subordinate);
+        this.handleCloseSubordinateEditModal();
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
