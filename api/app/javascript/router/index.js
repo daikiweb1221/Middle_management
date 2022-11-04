@@ -2,10 +2,11 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import TopIndex from "../pages/top";
-import  SignUpIndex from "../pages/signup";
-import  SubordinateIndex from "../pages/subordinate";
+import SignUpIndex from "../pages/signup";
+import SubordinateIndex from "../pages/subordinates";
+import SubordinateDetail from "../pages/subordinate";
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: "history",
@@ -18,14 +19,19 @@ const router = new Router({
     {
       path: "/signup",
       component: SignUpIndex,
-      name: "SignUpIndex"
+      name: "SignUpIndex",
     },
     {
       path: "/subordinates",
       component: SubordinateIndex,
-      name: "SubordinateIndex"
+      name: "SubordinateIndex",
+    },
+    {
+      path: "/:id",
+      component: SubordinateDetail,
+      name: "SubordinateDetail",
     },
   ],
-})
+});
 
-export default router
+export default router;

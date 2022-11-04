@@ -1,65 +1,109 @@
 <template>
   <div>
-    <div v-for="subordinate in subordinates" :key="subordinate.id">
-      <span>{{ subordinate.name }}</span>
-      <span>{{ subordinate.email }}</span>
-      <span>{{ subordinate.birthday }}</span>
-    </div>
-    <div class="text-center">
-      <p>部下一覧</p>
-      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
-        >戻る</router-link
+    <h1>部下詳細ページ</h1>
+    <div>
+      <router-link :to="{ name: 'SubordinateIndex' }" class="btn btn-dark mt-5"
+        >部下一覧へ</router-link
       >
     </div>
-    <button class="btn btn-secondary" @click="handleShowSubordinateCreateModal">
-      部下を追加
+    <div>
+      <SubordinateDetailItem :subordinate="subordinate" />
+    </div>
+    <button
+      type="button"
+      class="btn btn-success"
+      @click="handleShowSubordinateEditModal"
+    >
+      編集
     </button>
-    <transition name="fade">
-      <SubordinateCreateModal
-        v-if="isVisibleSubordinateCreateModal"
-        @close-modal="handleCloseSubordinateCreateModal"
-        @create-subordinate="handleCreateSubordinate"
+    <button
+      type="button"
+      class="btn btn-danger"
+      @click="handleDeleteSubordinate"
+    >
+      削除
+    </button>
+    <div>
+      <SubordinateEditModal
+        :subordinate="subordinateEdit"
+        v-if="isVisibleSubordinateEditModal"
+        @close-modal="handleCloseSubordinateEditModal"
+        @update-subordinate="handleUpdateSubordinate"
       />
-    </transition>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import SubordinateCreateModal from "./components/SubordinateCreateModal";
+import SubordinateDetailItem from "../components/SubordinateDetailItem";
+import SubordinateEditModal from "../components/SubordinateEditModal";
 
 export default {
-  name: "SubordinateIndex",
   components: {
-    // SubordinateDetailModal,
-    SubordinateCreateModal,
+    SubordinateDetailItem,
+    SubordinateEditModal,
   },
+
+  name: "SubordinateDetail",
+
   data() {
     return {
-      // isVisibleSubordinateDetailModal: false,
-      isVisibleSubordinateCreateModal: false,
+      subordinate: {},
+      isVisibleSubordinateEditModal: false,
+      subordinateEdit: {},
     };
-  },
-  computed: {
-    ...mapGetters(["subordinates"]),
   },
 
   created() {
-    this.fetchSubordinates();
+    this.showSubordinate();
   },
 
   methods: {
-    ...mapActions(["fetchSubordinates", "createSubordinate"]),
-    handleShowSubordinateCreateModal() {
-      this.isVisibleSubordinateCreateModal = true;
+    showSubordinate() {
+      const id = parseInt(this.$route.params.id, 10);
+      this.$axios
+        .get("subordinates/" + id)
+        .then((res) => (this.subordinate = res.data))
+        .catch((err) => console.log(err.status));
     },
-    handleCloseSubordinateCreateModal() {
-      this.isVisibleSubordinateCreateModal = false;
+    handleShowSubordinateEditModal(subordinate) {
+      this.subordinateEdit = Object.assign({}, subordinate);
+      this.isVisibleSubordinateEditModal = true;
     },
-    async handleCreateSubordinate(subordinate) {
+    handleCloseSubordinateEditModal() {
+      this.isVisibleSubordinateEditModal = false;
+      this.subordinateEdit = {};
+    },
+    updateSubordinate(subordinate) {
+      const target_subordinate = this.subordinate.id;
+      this.$axios
+        .patch("subordinates/" + target_subordinate, subordinate)
+        .then((res) => {
+          this.$store.commit("updateSubordinate", res.data);
+          this.$router.go({
+            path: this.$router.currentRoute.path,
+            force: true,
+          });
+        });
+    },
+    async handleUpdateSubordinate(subordinate) {
       try {
-        await this.createSubordinate(subordinate);
-        this.handleCloseSubordinateCreateModal();
+        await this.updateSubordinate(subordinate);
+        this.handleCloseSubordinateEditModal();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteSubordinate() {
+      const target_subordinate = this.subordinate.id;
+      this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
+        this.$store.commit("deleteSubordinate", res.data);
+        this.$router.back();
+      });
+    },
+    async handleDeleteSubordinate() {
+      try {
+        await this.deleteSubordinate();
       } catch (error) {
         console.log(error);
       }
@@ -67,3 +111,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
