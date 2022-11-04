@@ -12,4 +12,7 @@ export default {
 
 <style scoped>
 
+h1 {
+  border: bold 1px;
+}
 </style>
