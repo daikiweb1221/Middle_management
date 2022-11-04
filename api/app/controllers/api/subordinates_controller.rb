@@ -1,4 +1,5 @@
 class Api::SubordinatesController < ApplicationController
+  before_action :authenticate!
   before_action :set_subordinate, only: [:show, :update, :destroy]
 
   def index
@@ -11,7 +12,7 @@ class Api::SubordinatesController < ApplicationController
   end
 
   def create
-    @subordinate = Subordinate.new(subordinate_params)
+    @subordinate = current_user.Subordinate.build(subordinate_params)
 
     if @subordinate.save
       render json: @subordinate
