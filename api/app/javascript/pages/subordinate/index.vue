@@ -16,6 +16,13 @@
     >
       編集
     </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      @click="handleDeleteSubordinate"
+    >
+      削除
+    </button>
     <div>
       <SubordinateEditModal
         :subordinate="subordinateEdit"
@@ -83,6 +90,20 @@ export default {
       try {
         await this.updateSubordinate(subordinate);
         this.handleCloseSubordinateEditModal();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteSubordinate() {
+      const target_subordinate = this.subordinate.id;
+      this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
+        this.$store.commit("deleteSubordinate", res.data);
+        this.$router.back();
+      });
+    },
+    async handleDeleteSubordinate() {
+      try {
+        await this.deleteSubordinate();
       } catch (error) {
         console.log(error);
       }

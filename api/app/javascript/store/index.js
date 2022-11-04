@@ -26,6 +26,11 @@ export default new Vuex.Store({
       });
       state.subordinates.splice(index, 1, updateSubordinate);
     },
+    deleteSubordinate: (state, deleteSubordinate) => {
+      state.subordinates = state.subordinates.filter((subordinate) => {
+        return subordinate.id != deleteSubordinate.id;
+      });
+    },
   },
 
   actions: {
