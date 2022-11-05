@@ -2,12 +2,14 @@
   <div>
     <h1>部下一覧ページ</h1>
     <div v-for="subordinate in subordinates" :key="subordinate.id">
-      <router-link
-        :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
-        class="btn btn-dark mt-5"
-        >{{ subordinate.name }}</router-link
-      >
-    </div>
+      <!-- <div v-if="subordinate.user_id === authUser.id"> -->
+        <router-link
+          :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
+          class="btn btn-dark mt-5"
+          >{{ subordinate.name }}</router-link
+        >
+      </div>
+    <!-- </div> -->
     <div class="text-center">
       <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
         >戻る</router-link
@@ -42,6 +44,7 @@ export default {
   },
   computed: {
     ...mapGetters(["subordinates"]),
+    ...mapGetters("users", ["authUser"]),
   },
 
   created() {
