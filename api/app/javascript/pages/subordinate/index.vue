@@ -79,7 +79,7 @@ export default {
       this.$axios
         .patch("subordinates/" + target_subordinate, subordinate)
         .then((res) => {
-          this.$store.commit("updateSubordinate", res.data);
+          this.$store.commit("subordinates/updateSubordinate", res.data);
           this.$router.go({
             path: this.$router.currentRoute.path,
             force: true,
@@ -97,7 +97,7 @@ export default {
     deleteSubordinate() {
       const target_subordinate = this.subordinate.id;
       this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
-        this.$store.commit("deleteSubordinate", res.data);
+        this.$store.commit("subordinates/deleteSubordinate", res.data);
         this.$router.back();
       });
     },
