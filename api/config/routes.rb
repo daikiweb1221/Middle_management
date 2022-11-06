@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :subordinates
+    resources :everyday_behaviors
     resources :sessions
     resources :users do
       collection do
