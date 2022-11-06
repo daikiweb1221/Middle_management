@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :subordinates
+    resources :sessions
+    resources :users do
+      collection do
+        get 'me'
+      end
+    end
   end
 
   get '*path', to: 'home#index'
