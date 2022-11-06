@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_04_214123) do
+ActiveRecord::Schema.define(version: 2022_11_06_213225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "everyday_behaviors", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "behaviors_one", null: false
+    t.string "behaviors_two", null: false
+    t.string "behaviors_three", null: false
+    t.string "behaviors_four", null: false
+    t.string "behaviors_five", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_everyday_behaviors_on_user_id"
+  end
 
   create_table "subordinates", force: :cascade do |t|
     t.string "name", null: false
@@ -35,5 +47,6 @@ ActiveRecord::Schema.define(version: 2022_11_04_214123) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "everyday_behaviors", "users"
   add_foreign_key "subordinates", "users"
 end
