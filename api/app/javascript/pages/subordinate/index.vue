@@ -96,10 +96,14 @@ export default {
     },
     deleteSubordinate() {
       const target_subordinate = this.subordinate.id;
-      this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
-        this.$store.commit("subordinates/deleteSubordinate", res.data);
-        this.$router.back();
-      });
+      if (confirm("削除してよろしいですか?")) {
+        this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
+          this.$store.commit("subordinates/deleteSubordinate", res.data);
+          this.$router.back();
+        });
+      } else {
+        this.$router.push({ name: "SubordinateIndex" });
+      }
     },
     async handleDeleteSubordinate() {
       try {
