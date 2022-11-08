@@ -12,7 +12,7 @@
     <button
       type="button"
       class="btn btn-success"
-      @click="handleShowSubordinateEditModal"
+      @click="handleShowSubordinateEditModal(subordinate)"
     >
       編集
     </button>

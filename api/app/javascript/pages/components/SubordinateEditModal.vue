@@ -1,5 +1,5 @@
 <template>
-  <div id="subordinate-edit-modal">
+  <div :id="'subordinate-edit-modal-' + subordinate.id">
     <div class="modal" @click.self="handleCloseModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -63,6 +63,12 @@ export default {
   name: "SubordinateEditModal",
   props: {
     subordinate: {
+      type: Object,
+      required: true,
+      id: {
+        type: Number,
+        required: true,
+      },
       name: {
         type: String,
         required: true,
