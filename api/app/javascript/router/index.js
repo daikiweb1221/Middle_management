@@ -6,6 +6,8 @@ import SubordinateIndex from "../pages/subordinates";
 import SubordinateDetail from "../pages/subordinate";
 import RegisterIndex from "../pages/register/index";
 import LoginIndex from "../pages/login/index";
+import EverydayBehaviorRegister from "../pages/everyday_behaviors/register";
+import EverydayBehaviorIndex from "../pages/everyday_behaviors/index";
 
 Vue.use(Router);
 
@@ -21,6 +23,18 @@ const router = new Router({
       path: "/subordinates",
       component: SubordinateIndex,
       name: "SubordinateIndex",
+      meta: { requiredAuth: true },
+    },
+    {
+      path: "/everyday_behavior_register",
+      component: EverydayBehaviorRegister,
+      name: "EverydayBehaviorRegister",
+      meta: { requiredAuth: true },
+    },
+    {
+      path: "/everyday_behavior_index",
+      component: EverydayBehaviorIndex,
+      name: "EverydayBehaviorIndex",
       meta: { requiredAuth: true },
     },
     {
