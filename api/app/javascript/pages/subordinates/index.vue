@@ -1,15 +1,18 @@
 <template>
   <div>
     <h1>部下一覧ページ</h1>
+    <div>
+      <router-link :to="{ name: 'EverydayBehaviorIndex' }" class="btn btn-dark mt-5"
+        >日々の立ち振る舞い</router-link
+      >
+    </div>
     <div v-for="subordinate in subordinates" :key="subordinate.id">
-      <!-- <div v-if="subordinate.user_id === authUser.id"> -->
       <router-link
         :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
         class="btn btn-dark mt-5"
         >{{ subordinate.name }}</router-link
       >
     </div>
-    <!-- </div> -->
     <div class="text-center">
       <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
         >戻る</router-link
