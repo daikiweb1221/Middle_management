@@ -1,16 +1,19 @@
 import axios from "../../plugins/axios";
 
 const state = {
-  everyday_behaviors: {},
+  everyday_behaviors: [],
+  everyday_behavior: {},
 };
 
 const getters = {
   everyday_behaviors: (state) => state.everyday_behaviors,
+  everyday_behavior: (state) => state.everyday_behavior,
 };
 
 const mutations = {
   setEverydayBehaviors: (state, everyday_behaviors) => {
-    state.everyday_behaviors = everyday_behaviors[0];
+    state.everyday_behaviors = everyday_behaviors;
+    return (state.everyday_behavior = state.everyday_behaviors[0]);
   },
   addEverydayBehavior: (state, everyday_behavior) => {
     state.everyday_behaviors.push(everyday_behavior);

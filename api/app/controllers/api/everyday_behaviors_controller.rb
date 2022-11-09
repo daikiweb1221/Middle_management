@@ -31,7 +31,7 @@ class Api::EverydayBehaviorsController < ApplicationController
   end
 
   def everyday_behavior_params
-    params.require(:everyday_behavior).permit(:behaviors_one, :behaviors_two, :behaviors_three, :behaviors_four, :behaviors_five)
+    params.require(:everyday_behavior).permit(:behaviors_one, :behaviors_two, :behaviors_three, :behaviors_four, :behaviors_five, :user_id)
   end
 end
 

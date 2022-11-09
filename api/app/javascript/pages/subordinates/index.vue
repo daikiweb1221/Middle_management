@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1>部下一覧ページ</h1>
+    <div>
+      <router-link :to="{ name: 'EverydayBehaviorIndex' }" class="btn btn-dark mt-5"
+        >日々の立ち振る舞い</router-link
+      >
+    </div>
     <div v-for="subordinate in subordinates" :key="subordinate.id">
       <router-link
         :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
