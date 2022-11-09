@@ -6,6 +6,7 @@ import SubordinateIndex from "../pages/subordinates";
 import SubordinateDetail from "../pages/subordinate";
 import RegisterIndex from "../pages/register/index";
 import LoginIndex from "../pages/login/index";
+import ProfileEdit from "../pages/profile/edit";
 import EverydayBehaviorRegister from "../pages/everyday_behaviors/register";
 import EverydayBehaviorIndex from "../pages/everyday_behaviors/index";
 
@@ -46,6 +47,12 @@ const router = new Router({
       path: "/login",
       component: LoginIndex,
       name: "LoginIndex",
+    },
+    {
+      path: "/profile_edit",
+      component: ProfileEdit,
+      name: "ProfileEdit",
+      meta: { requiredAuth: true },
     },
     {
       path: "/:id",
