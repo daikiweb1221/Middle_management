@@ -13,12 +13,12 @@ class Api::UsersController < ApplicationController
 
 	# HTTPヘッダー中のトークン情報を用いて、ログインユーザーの情報を返すためのエンドポイント
   def me
-    render json: current_user
+    render json: current_user, methods: [:avatar_url]
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :avatar)
   end
 end
