@@ -21,11 +21,11 @@
           <li class="nav-item active avatar-image-wrapper">
             <img :src="authUser.avatar_url" class="rounded avatar-image" />
           </li>
-          <!-- <li class="nav-item active">
+          <li class="nav-item active">
             <router-link :to="{ name: 'ProfileIndex' }" class="nav-link">
               プロフィール
             </router-link>
-          </li> -->
+          </li>
           <li class="nav-item active">
             <router-link :to="{ name: 'ProfileEdit' }" class="nav-link">
               プロフィール編集
@@ -70,6 +70,7 @@ export default {
   line-height: 40px;
 }
 .avatar-image {
-  width: 20px;
+  width: 50px;
+  border-radius: 50%;
 }
 </style>
