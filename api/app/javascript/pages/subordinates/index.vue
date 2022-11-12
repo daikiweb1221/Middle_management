@@ -1,34 +1,35 @@
 <template>
-  <div class="pr-3 pl-3">
-    <v-card
-      v-for="subordinate in subordinates"
-      :key="subordinate.id"
-      elevation="3"
-      class="mt-2 d-flex align-end"
-    >
-      <div>
-        <v-card-title
-          ><v-icon class="pr-2">mdi-account</v-icon
-          >{{ subordinate.name }}</v-card-title
-        >
-        <v-card-text class="pb-0"
-          ><v-icon class="pr-2">mdi-email</v-icon
-          >{{ subordinate.email }}</v-card-text
-        >
-        <v-card-text
-          ><v-icon class="pr-2">mdi-cake-layered</v-icon
-          >{{ subordinate.birthday }}</v-card-text
-        >
-      </div>
-      <v-spacer></v-spacer>
-      <div class="pa-4">
-        <router-link
-          :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
-          ><v-btn><v-icon>mdi-account-edit</v-icon></v-btn></router-link
-        >
-      </div>
-    </v-card>
-    <!-- <div>
+  <div>
+    <div class="px-3">
+      <v-card
+        v-for="subordinate in subordinates"
+        :key="subordinate.id"
+        elevation="3"
+        class="mt-2 d-flex align-end"
+      >
+        <div>
+          <v-card-title
+            ><v-icon class="pr-2">mdi-account</v-icon
+            >{{ subordinate.name }}</v-card-title
+          >
+          <v-card-text class="pb-0"
+            ><v-icon class="pr-2">mdi-email</v-icon
+            >{{ subordinate.email }}</v-card-text
+          >
+          <v-card-text
+            ><v-icon class="pr-2">mdi-cake-layered</v-icon
+            >{{ subordinate.birthday }}</v-card-text
+          >
+        </div>
+        <v-spacer></v-spacer>
+        <div class="pa-4">
+          <router-link
+            :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
+            ><v-btn><v-icon>mdi-account-edit</v-icon></v-btn></router-link
+          >
+        </div>
+      </v-card>
+      <!-- <div>
       <h1>部下一覧ページ</h1>
       <div>
         <router-link
@@ -48,21 +49,14 @@
         <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
           >戻る</router-link
         >
-      </div>
-      <button
-        class="btn btn-secondary"
-        @click="handleShowSubordinateCreateModal"
-      >
-        部下を追加
-      </button>
-      <transition name="fade">
-        <SubordinateCreateModal
-          v-if="isVisibleSubordinateCreateModal"
-          @close-modal="handleCloseSubordinateCreateModal"
-          @create-subordinate="handleCreateSubordinate"
-        />
-      </transition>
-    </div> -->
+      </div> -->
+    </div>
+    <div
+      class="mt-5"
+      style="position: fixed; right: 30px; z-index: 6; bottom: 52px"
+    >
+      <SubordinateCreateModal @create-subordinate="handleCreateSubordinate" />
+    </div>
   </div>
 </template>
 
@@ -75,11 +69,7 @@ export default {
   components: {
     SubordinateCreateModal,
   },
-  data() {
-    return {
-      isVisibleSubordinateCreateModal: false,
-    };
-  },
+
   computed: {
     ...mapGetters("subordinates", ["subordinates"]),
     ...mapGetters("users", ["authUser"]),
@@ -91,16 +81,9 @@ export default {
 
   methods: {
     ...mapActions("subordinates", ["fetchSubordinates", "createSubordinate"]),
-    handleShowSubordinateCreateModal() {
-      this.isVisibleSubordinateCreateModal = true;
-    },
-    handleCloseSubordinateCreateModal() {
-      this.isVisibleSubordinateCreateModal = false;
-    },
     async handleCreateSubordinate(subordinate) {
       try {
         await this.createSubordinate(subordinate);
-        this.handleCloseSubordinateCreateModal();
       } catch (error) {
         console.log(error);
       }
