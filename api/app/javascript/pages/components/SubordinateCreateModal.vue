@@ -26,6 +26,7 @@
                         type="text"
                         id="name"
                         name="name"
+                        clearable
                         v-model="subordinate.name"
                         :error-messages="errors"
                       ></v-text-field>
@@ -42,19 +43,28 @@
                         type="email"
                         id="email"
                         name="email"
+                        clearable
                         v-model="subordinate.email"
                         :error-messages="errors"
                       ></v-text-field>
                     </ValidationProvider>
                   </v-col>
                   <v-col cols="12">
-                    <v-text-field
-                      label="誕生日"
-                      type="date"
-                      id="birthday"
-                      name="birthday"
-                      v-model="subordinate.birthday"
-                    ></v-text-field>
+                    <ValidationProvider
+                      v-slot="{ errors }"
+                      rules="date"
+                      name="誕生日"
+                    >
+                      <v-text-field
+                        label="誕生日"
+                        type="date"
+                        id="birthday"
+                        name="birthday"
+                        clearable
+                        v-model="subordinate.birthday"
+                        :error-messages="errors"
+                      ></v-text-field>
+                    </ValidationProvider>
                   </v-col>
                 </v-row>
               </v-form>

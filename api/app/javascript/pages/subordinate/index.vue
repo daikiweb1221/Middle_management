@@ -1,28 +1,35 @@
 <template>
   <div>
-    <h1>部下詳細ページ</h1>
-    <div>
-      <router-link :to="{ name: 'SubordinateIndex' }" class="btn btn-dark mt-5"
-        >部下一覧へ</router-link
-      >
-    </div>
-    <div>
+    <div style="position: relative">
       <SubordinateDetailItem :subordinate="subordinate" />
+      <div style="position: absolute; right: 30px; top: 100px">
+        <div style="display: flex">
+          <div>
+            <v-btn
+              color="primary"
+              fab
+              small
+              dark
+              @click="handleShowSubordinateEditModal(subordinate)"
+            >
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+          </div>
+
+          <div class="ml-2">
+            <v-btn
+              color="error"
+              fab
+              small
+              dark
+              @click="handleDeleteSubordinate"
+            >
+              <v-icon>mdi-trash-can</v-icon>
+            </v-btn>
+          </div>
+        </div>
+      </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-success"
-      @click="handleShowSubordinateEditModal(subordinate)"
-    >
-      編集
-    </button>
-    <button
-      type="button"
-      class="btn btn-danger"
-      @click="handleDeleteSubordinate"
-    >
-      削除
-    </button>
     <div>
       <SubordinateEditModal
         :subordinate="subordinateEdit"

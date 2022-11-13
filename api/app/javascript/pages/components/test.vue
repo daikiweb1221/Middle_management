@@ -1,75 +1,119 @@
 <template>
-  <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="600px">
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">
-          Open Dialog
-        </v-btn>
-      </template>
-      <v-card>
-        <ValidationObserver v-slot="{ handleSubmit }">
-          <v-card-title>
-            <span class="text-h5">Subordinate Profile</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-col cols="12">
-                  <ValidationProvider
-                    v-slot="{ errors }"
-                    rules="required|max:20"
-                  >
-                    <v-text-field
-                      label="名前"
-                      type="text"
-                      v-model="subordinate.name"
-                      :error-messages="errors"
-                    ></v-text-field>
-                  </ValidationProvider>
-                </v-col>
-                <v-col cols="12">
-                  <ValidationProvider v-slot="{ errors }" rules="email">
-                    <v-text-field
-                      label="メールアドレス"
-                      type="email"
-                      v-model="subordinate.email"
-                      :error-messages="errors"
-                    ></v-text-field>
-                  </ValidationProvider>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    label="誕生日"
-                    type="date"
-                    v-model="subordinate.birthday"
-                  ></v-text-field>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="dialog = false">
-              閉じる
-            </v-btn>
-            <v-btn
-              color="blue darken-1"
-              text
-              @click="handleSubmit(handleCreateSubordinate)"
-            >
-              追加する
-            </v-btn>
-          </v-card-actions>
-        </ValidationObserver>
-      </v-card>
-    </v-dialog>
-  </v-row>
+  <div>
+    <h1>部下詳細ページ</h1>
+    <div>
+      <router-link :to="{ name: 'SubordinateIndex' }" class="btn btn-dark mt-5"
+        >部下一覧へ</router-link
+      >
+    </div>
+    <div>
+      <SubordinateDetailItem :subordinate="subordinate" />
+    </div>
+    <button
+      type="button"
+      class="btn btn-success"
+      @click="handleShowSubordinateEditModal(subordinate)"
+    >
+      編集
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      @click="handleDeleteSubordinate"
+    >
+      削除
+    </button>
+    <div>
+      <SubordinateEditModal
+        :subordinate="subordinateEdit"
+        v-if="isVisibleSubordinateEditModal"
+        @close-modal="handleCloseSubordinateEditModal"
+        @update-subordinate="handleUpdateSubordinate"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
+import SubordinateDetailItem from "../components/SubordinateDetailItem";
+import SubordinateEditModal from "../components/SubordinateEditModal";
+
 export default {
-  data: () => ({
-    dialog: false,
-  }),
+  components: {
+    SubordinateDetailItem,
+    SubordinateEditModal,
+  },
+
+  name: "SubordinateDetail",
+
+  data() {
+    return {
+      subordinate: {},
+      isVisibleSubordinateEditModal: false,
+      subordinateEdit: {},
+    };
+  },
+
+  created() {
+    this.showSubordinate();
+  },
+
+  methods: {
+    showSubordinate() {
+      const id = parseInt(this.$route.params.id, 10);
+      this.$axios
+        .get("subordinates/" + id)
+        .then((res) => (this.subordinate = res.data))
+        .catch((err) => console.log(err.status));
+    },
+    handleShowSubordinateEditModal(subordinate) {
+      this.subordinateEdit = Object.assign({}, subordinate);
+      this.isVisibleSubordinateEditModal = true;
+    },
+    handleCloseSubordinateEditModal() {
+      this.isVisibleSubordinateEditModal = false;
+      this.subordinateEdit = {};
+    },
+    updateSubordinate(subordinate) {
+      const target_subordinate = this.subordinate.id;
+      this.$axios
+        .patch("subordinates/" + target_subordinate, subordinate)
+        .then((res) => {
+          this.$store.commit("subordinates/updateSubordinate", res.data);
+          this.$router.go({
+            path: this.$router.currentRoute.path,
+            force: true,
+          });
+        });
+    },
+    async handleUpdateSubordinate(subordinate) {
+      try {
+        await this.updateSubordinate(subordinate);
+        this.handleCloseSubordinateEditModal();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteSubordinate() {
+      const target_subordinate = this.subordinate.id;
+      if (confirm("削除してよろしいですか?")) {
+        this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
+          this.$store.commit("subordinates/deleteSubordinate", res.data);
+          this.$router.back();
+        });
+      } else {
+        this.$router.push({ name: "SubordinateIndex" });
+      }
+    },
+    async handleDeleteSubordinate() {
+      try {
+        await this.deleteSubordinate();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>
+
+<style scoped></style>
