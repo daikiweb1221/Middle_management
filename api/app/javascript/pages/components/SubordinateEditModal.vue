@@ -1,67 +1,89 @@
 <template>
-  <div :id="'subordinate-edit-modal-' + subordinate.id">
-    <div class="modal" @click.self="handleCloseModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <ValidationObserver v-slot="{ handleSubmit }">
-              <div class="form-group">
-                <ValidationProvider v-slot="{ errors }" rules="required|max:20">
-                  <label for="name">名前</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    v-model="subordinate.name"
-                  />
-                  <span class="text-danger">{{ errors[0] }}</span>
-                </ValidationProvider>
-              </div>
-              <div class="form-group">
-                <ValidationProvider v-slot="{ errors }" rules="email">
-                  <label for="email">メールアドレス</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    v-model="subordinate.email"
-                  />
-                  <span class="text-danger">{{ errors[0] }}</span>
-                </ValidationProvider>
-              </div>
-              <div class="form-group">
-                <label for="birthday">誕生日</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="birthday"
-                  v-model="subordinate.birthday"
-                />
-              </div>
-              <div class="d-flex justify-content-between">
-                <button
-                  class="btn btn-success"
-                  @click="handleSubmit(handleUpdateSubordinate)"
+  <v-card>
+    <ValidationObserver v-slot="{ handleSubmit }">
+      <v-card-title>
+        <span class="text-h5">Subordinate Edit</span>
+      </v-card-title>
+      <v-card-text>
+        <v-container>
+          <v-form>
+            <v-row>
+              <v-col cols="12">
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  rules="required|max:20"
+                  name="名前"
                 >
-                  更新する
-                </button>
-                <button class="btn btn-secondary" @click="handleCloseModal">
-                  閉じる
-                </button>
-              </div>
-            </ValidationObserver>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-backdrop show"></div>
-  </div>
+                  <v-text-field
+                    label="名前"
+                    type="text"
+                    id="name"
+                    name="name"
+                    clearable
+                    v-model="subordinate.name"
+                    :error-messages="errors"
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+              <v-col cols="12">
+                <ValidationProvider
+                  v-slot="{ errors }"
+                  rules="email"
+                  name="メールアドレス"
+                >
+                  <v-text-field
+                    label="メールアドレス"
+                    type="email"
+                    id="email"
+                    name="email"
+                    clearable
+                    v-model="subordinate.email"
+                    :error-messages="errors"
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+              <v-col cols="12">
+                <ValidationProvider v-slot="{ errors }" name="誕生日">
+                  <v-text-field
+                    label="誕生日"
+                    type="date"
+                    id="birthday"
+                    name="birthday"
+                    clearable
+                    v-model="subordinate.birthday"
+                    :error-messages="errors"
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-col>
+            </v-row>
+          </v-form>
+        </v-container>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          color="blue darken-1"
+          text
+          @click="handleSubmit(handleUpdateSubordinate)"
+        >
+          更新する
+        </v-btn>
+        <v-btn color="blue darken-1" text @click="handleCloseModal">
+          閉じる
+        </v-btn>
+      </v-card-actions>
+    </ValidationObserver>
+  </v-card>
 </template>
 
 <script>
 export default {
   name: "SubordinateEditModal",
+
   props: {
+    dialog: {
+      type: Boolean,
+    },
     subordinate: {
       type: Object,
       required: true,
@@ -92,8 +114,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.modal {
-  display: block;
-}
-</style>
+<style scoped></style>

@@ -50,11 +50,7 @@
                     </ValidationProvider>
                   </v-col>
                   <v-col cols="12">
-                    <ValidationProvider
-                      v-slot="{ errors }"
-                      rules="date"
-                      name="誕生日"
-                    >
+                    <ValidationProvider v-slot="{ errors }" name="誕生日">
                       <v-text-field
                         label="誕生日"
                         type="date"
