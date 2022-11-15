@@ -99,7 +99,7 @@ export default {
       const target_subordinate = this.subordinate.id;
       this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
         this.$store.commit("subordinates/deleteSubordinate", res.data);
-        this.$router.back();
+        this.$router.push({ name: "SubordinateIndex" });
       });
     },
     async handleDeleteSubordinate() {
