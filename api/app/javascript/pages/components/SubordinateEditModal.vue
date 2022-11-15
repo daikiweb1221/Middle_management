@@ -44,15 +44,39 @@
               </v-col>
               <v-col cols="12">
                 <ValidationProvider v-slot="{ errors }" name="誕生日">
-                  <v-text-field
-                    label="誕生日"
-                    type="date"
-                    id="birthday"
-                    name="birthday"
-                    clearable
-                    v-model="subordinate.birthday"
-                    :error-messages="errors"
-                  ></v-text-field>
+                  <v-menu
+                    ref="menu"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="auto"
+                  >
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-text-field
+                        :error-messages="errors"
+                        v-model="subordinate.birthday"
+                        label="誕生日"
+                        prepend-icon="mdi-calendar"
+                        readonly
+                        v-bind="attrs"
+                        v-on="on"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker
+                      v-model="subordinate.birthday"
+                      :active-picker.sync="activePicker"
+                      :max="
+                        new Date(
+                          Date.now() - new Date().getTimezoneOffset() * 60000
+                        )
+                          .toISOString()
+                          .substr(0, 10)
+                      "
+                      min="1950-01-01"
+                      @change="save"
+                    ></v-date-picker>
+                  </v-menu>
                 </ValidationProvider>
               </v-col>
             </v-row>
@@ -80,6 +104,13 @@
 export default {
   name: "SubordinateEditModal",
 
+  data() {
+    return {
+      activePicker: null,
+      menu: false,
+    };
+  },
+
   props: {
     dialog: {
       type: Boolean,
@@ -103,12 +134,22 @@ export default {
       },
     },
   },
+
+  watch: {
+    menu(val) {
+      val && setTimeout(() => (this.activePicker = "YEAR"));
+    },
+  },
+
   methods: {
     handleCloseModal() {
       this.$emit("close-modal");
     },
     handleUpdateSubordinate() {
       this.$emit("update-subordinate", this.subordinate);
+    },
+    save(date) {
+      this.$refs.menu.save(date);
     },
   },
 };
