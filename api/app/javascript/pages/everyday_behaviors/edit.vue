@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="pt-5 pb-1 text-h6 text-center">五ヶ条編集</p>
+    <p class="pt-5 pb-1 text-h6 text-center font-weight-bold">五ヶ条編集</p>
 
     <EverydayBehaviorEdit
       :everyday_behavior="this.everyday_behavior"

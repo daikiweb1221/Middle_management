@@ -69,13 +69,15 @@
         </validation-provider>
 
         <v-btn
-          class="mr-4"
+          class="mr-4 font-weight-bold"
           color="primary"
           @click="handleSubmit(handleUpdateEverydayBehavior)"
         >
           更新する
         </v-btn>
-        <v-btn :to="{ name: 'ProfileIndex' }">キャンセル</v-btn>
+        <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold"
+          >キャンセル</v-btn
+        >
       </form>
     </validation-observer>
   </div>

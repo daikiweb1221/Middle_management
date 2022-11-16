@@ -1,35 +1,49 @@
 <template>
   <div>
-    <v-navigation-drawer app v-model="drawer" clipped>
-      <v-container>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Navigation lists
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-list dense nav>
-          <v-list-item :to="{ name: 'SubordinateIndex' }">
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
+    <template
+      v-if="this.$route.path === '/' || '/register' || '/login'"
+    ></template>
+    <template v-else>
+      <v-navigation-drawer app v-model="drawer" clipped>
+        <v-container>
+          <v-list-item>
             <v-list-item-content>
-              <v-list-item-title>Home</v-list-item-title>
+              <v-list-item-title class="title">
+                Navigation lists
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list>
-      </v-container>
-    </v-navigation-drawer>
+          <v-divider></v-divider>
+          <v-list dense nav>
+            <v-list-item :to="{ name: 'SubordinateIndex' }">
+              <v-list-item-icon>
+                <v-icon>mdi-home</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-container>
+      </v-navigation-drawer>
+    </template>
     <v-app-bar color="#4B90B9" dark app clipped-left>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <template
+        v-if="this.$route.path === '/' || '/register' || '/login'"
+      ></template>
+      <template v-else>
+        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      </template>
       <v-toolbar-title>Middle Management</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <template v-if="!authUser">
+          <v-btn text :to="{ name: 'RegisterIndex' }">新規登録</v-btn>
           <v-btn text :to="{ name: 'LoginIndex' }">ログイン</v-btn>
         </template>
+        <template
+          v-else-if="this.$route.path === '/' || '/register' || '/login'"
+        ></template>
         <template v-else>
           <v-menu offset-y>
             <template v-slot:activator="{ on }">

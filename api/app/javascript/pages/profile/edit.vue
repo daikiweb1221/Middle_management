@@ -1,6 +1,6 @@
 <template>
   <div id="update-form" class="container text-center">
-    <p class="py-2 text-h6">プロフィール編集</p>
+    <p class="py-2 text-h6 font-weight-bold">プロフィール編集</p>
 
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <validation-provider
@@ -25,10 +25,10 @@
         label="プロフィール画像"
       ></v-file-input>
 
-      <v-btn class="mr-4" color="primary" @click="handleSubmit(update)"
+      <v-btn class="mr-4 font-weight-bold" color="primary" @click="handleSubmit(update)"
         >更新する
       </v-btn>
-      <v-btn :to="{ name: 'ProfileIndex' }">キャンセル</v-btn>
+      <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold">キャンセル</v-btn>
     </validation-observer>
   </div>
 </template>

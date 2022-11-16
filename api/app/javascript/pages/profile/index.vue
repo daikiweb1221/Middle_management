@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p class="pt-5 pb-1 text-h6">マイページ</p>
+    <p class="pt-5 pb-1 text-h6 font-weight-bold">マイページ</p>
     <v-card elevation="3">
       <v-list-item three-line>
         <v-list-item-avatar size="80">
@@ -24,7 +24,7 @@
     </v-card>
 
     <div class="mt-16">
-      <p class="text-h4 mb-12 font-weight-bold">
+      <p class="text-h5 mb-12 font-weight-bold">
         {{ authUser.name }}さんが日常で目指すべき姿【五ヶ条】
       </p>
       <p class="text-h5 mb-6">１.{{ everyday_behavior.behaviors_one }}</p>
