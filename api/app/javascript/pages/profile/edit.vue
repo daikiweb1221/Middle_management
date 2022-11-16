@@ -1,69 +1,40 @@
 <template>
-  <div
-    id="login-form"
-    class="container w-50 text-center"
-  >
-    <div class="h3 mb-3">
-      プロフィール
-    </div>
-    <ValidationObserver v-slot="{ handleSubmit }">
-      <div class="form-group text-left">
-        <ValidationProvider
-          v-slot="{ errors }"
-          rules="required"
-        >
-          <label for="name">ユーザー名</label>
-          <input
-            id="name"
-            v-model="user.name"
-            name="ユーザー名"
-            type="text"
-            class="form-control"
-            placeholder="username"
-          >
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-      <div class="form-group text-left">
-        <!-- eslint-disable vue/no-unused-vars -->
-        <ValidationProvider
-          v-slot="{ errors, validate }"
-          ref="provider"
-          name="プロフィール画像"
-          rules="image"
-        >
-          <!-- eslint-enable vue/no-unused-vars -->
-          <label
-            for="avatar"
-            class="d-block"
-          >プロフィール画像</label>
-          <img
-            :src="user.avatar_url"
-            class="my-3"
-            width="150px"
-          >
-          <input
-            id="avatar"
-            type="file"
-            class="form-control-file"
-            @change="handleChange"
-          >
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        @click="handleSubmit(update)"
+  <div id="update-form" class="container text-center">
+    <p class="py-2 text-h6">プロフィール編集</p>
+
+    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+      <validation-provider
+        v-slot="{ errors }"
+        name="名前"
+        rules="required|max:20"
       >
-        更新
-      </button>
-    </ValidationObserver>
+        <v-text-field
+          v-model="user.name"
+          :counter="20"
+          :error-messages="errors"
+          label="名前"
+          required
+        ></v-text-field>
+      </validation-provider>
+
+      <v-file-input
+        @change="handleChange"
+        accept="image/png, image/jpeg, image/bmp"
+        placeholder="Pick an avatar"
+        prepend-icon="mdi-camera"
+        label="プロフィール画像"
+      ></v-file-input>
+
+      <v-btn class="mr-4" color="primary" @click="handleSubmit(update)"
+        >更新する
+      </v-btn>
+      <v-btn :to="{ name: 'ProfileIndex' }">キャンセル</v-btn>
+    </validation-observer>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "ProfileEdit",
@@ -71,39 +42,37 @@ export default {
     return {
       user: {
         name: "",
-        avatar_url: ""
+        avatar_url: "",
       },
-      uploadAvatar: ""
-    }
+      uploadAvatar: "",
+    };
   },
+
   computed: {
     ...mapGetters("users", ["authUser"]),
   },
   created() {
-    this.user = Object.assign({}, this.authUser)
+    this.user = Object.assign({}, this.authUser);
   },
   methods: {
     ...mapActions("users", ["updateUser"]),
     async handleChange(event) {
-      const { valid } = await this.$refs.provider.validate(event)
-      if (valid) this.uploadAvatar = event.target.files[0]
+      this.uploadAvatar = event;
     },
     update() {
-      const formData = new FormData()
-      formData.append("user[name]", this.user.name)
-      if (this.uploadAvatar) formData.append("user[avatar]", this.uploadAvatar)
+      const formData = new FormData();
+      formData.append("user[name]", this.user.name);
+      if (this.uploadAvatar) formData.append("user[avatar]", this.uploadAvatar);
 
       try {
-        this.updateUser(formData)
-        this.$router.push({ name: "SubordinateIndex" })
+        this.updateUser(formData);
+        this.$router.push({ name: "ProfileIndex" });
       } catch (error) {
         console.log(error);
       }
-
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

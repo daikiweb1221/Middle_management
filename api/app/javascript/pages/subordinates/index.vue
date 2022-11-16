@@ -23,10 +23,15 @@
         </div>
         <v-spacer></v-spacer>
         <div class="pa-4">
-          <router-link
+          <v-btn
             :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
-            ><v-btn><v-icon>mdi-account-edit</v-icon></v-btn></router-link
+            color="warning"
+            fab
+            small
+            dark
           >
+            <v-icon>mdi-account-circle</v-icon>
+          </v-btn>
         </div>
       </v-card>
       <!-- <div>

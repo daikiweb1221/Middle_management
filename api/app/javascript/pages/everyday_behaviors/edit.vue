@@ -1,18 +1,11 @@
 <template>
   <div>
-    <h1>5箇条編集</h1>
-    <div class="text-center">
-      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
-        >戻る</router-link
-      >
-    </div>
+    <p class="pt-5 pb-1 text-h6 text-center">五ヶ条編集</p>
 
-    <div class="edit-form">
-      <EverydayBehaviorEdit
-        :everyday_behavior="this.everyday_behavior"
-        @update-everyday_behavior="handleUpdateEverydayBehavior"
-      />
-    </div>
+    <EverydayBehaviorEdit
+      :everyday_behavior="this.everyday_behavior"
+      @update-everyday_behavior="handleUpdateEverydayBehavior"
+    />
   </div>
 </template>
 
@@ -77,8 +70,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.edit-form {
-  margin-top: 30px;
-}
-</style>
+<style scoped></style>

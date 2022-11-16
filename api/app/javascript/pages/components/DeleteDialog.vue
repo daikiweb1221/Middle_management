@@ -1,6 +1,12 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="290">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="290"
+      color="blue-grey darken-3"
+      dark
+    >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="error"
@@ -18,10 +24,10 @@
         <v-card-title class="text-h5"> 本当に削除しますか？ </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="handleDeleteSubordinate()">
+          <v-btn color="error" text @click="handleDeleteSubordinate()">
             削除する
           </v-btn>
-          <v-btn color="green darken-1" text @click="dialog = false">
+          <v-btn color="green" text @click="dialog = false">
             キャンセル
           </v-btn>
         </v-card-actions>
