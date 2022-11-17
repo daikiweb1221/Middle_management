@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16">
+  <div>
     <v-footer color="#4B90B9" dark app style="z-index: 5">
       <div>
         <p class="mb-0">Middle Management</p>

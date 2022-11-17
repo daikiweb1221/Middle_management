@@ -68,11 +68,11 @@
               :error-messages="errors"
               label="パスワード再入力"
               required
-              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-              :type="show1 ? 'text' : 'password'"
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="show2 ? 'text' : 'password'"
               name="input-10-1"
               counter
-              @click:append="show1 = !show1"
+              @click:append="show2 = !show2"
               outlined
               dense
             ></v-text-field>
@@ -106,6 +106,8 @@ export default {
         password_confirmation: "",
       },
       show1: false,
+      show2: false,
+
     };
   },
   methods: {

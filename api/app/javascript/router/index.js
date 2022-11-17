@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "../store";
 import TopIndex from "../pages/top";
+import TopIntroduction from "../pages/top/introduction";
 import SubordinateIndex from "../pages/subordinates";
 import SubordinateDetail from "../pages/subordinate";
 import RegisterIndex from "../pages/register/index";
@@ -21,6 +22,12 @@ const router = new Router({
       path: "/",
       component: TopIndex,
       name: "TopIndex",
+    },
+    {
+      path: "/introduction",
+      component: TopIntroduction,
+      name: "TopIntroduction",
+      meta: { requiredAuth: true },
     },
     {
       path: "/subordinates",
