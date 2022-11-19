@@ -1,35 +1,48 @@
 <template>
-  <div>
-    <h1>プロフィール</h1>
-    <li class="nav-item active avatar-image-wrapper">
-      <img :src="authUser.avatar_url" class="rounded avatar-image" />
-    </li>
-    <p>{{ authUser.name }}</p>
-    <p>{{ authUser.email }}</p>
-    <p></p>
-    <p></p>
-    <div>
-      <router-link :to="{ name: 'ProfileEdit' }" class="btn btn-dark mt-5"
-        >プロフィール編集</router-link
-      >
-    </div>
-    <div class="text-center">
-      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
-        >戻る</router-link
-      >
-    </div>
+  <div class="container">
+    <p class="pt-5 pb-1 text-h6 font-weight-bold">マイページ</p>
+    <v-card elevation="3">
+      <v-list-item three-line>
+        <v-list-item-avatar size="80">
+          <v-img :src="authUser.avatar_url" v-if="authUser.avatar_url"></v-img>
+          <v-icon v-else size="80">mdi-account-circle</v-icon>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <div class="text-overline mb-1">Profile</div>
+          <v-list-item-title class="text-h5 mb-1">
+            {{ authUser.name }}
+          </v-list-item-title>
+          <v-list-item-subtitle>{{ authUser.email }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
 
-    <div class="everyday_behavior_wrap">
-      <div>{{ everyday_behavior.behaviors_one }}</div>
-      <div>{{ everyday_behavior.behaviors_two }}</div>
-      <div>{{ everyday_behavior.behaviors_three }}</div>
-      <div>{{ everyday_behavior.behaviors_four }}</div>
-      <div>{{ everyday_behavior.behaviors_five }}</div>
+      <v-card-actions style="justify-content: end">
+        <v-btn :to="{ name: 'ProfileEdit' }" color="primary" fab small dark>
+          <v-icon>mdi-account-edit</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+
+    <div class="mt-16">
+      <p class="text-h5 mb-12 font-weight-bold">
+        {{ authUser.name }}さんが日常で目指すべき姿【五ヶ条】
+      </p>
+      <p class="text-h5 mb-6">１.{{ everyday_behavior.behaviors_one }}</p>
+      <p class="text-h5 mb-6">２.{{ everyday_behavior.behaviors_two }}</p>
+      <p class="text-h5 mb-6">３.{{ everyday_behavior.behaviors_three }}</p>
+      <p class="text-h5 mb-6">４.{{ everyday_behavior.behaviors_four }}</p>
+      <p class="text-h5 mb-6">５.{{ everyday_behavior.behaviors_five }}</p>
     </div>
-    <div>
-      <router-link :to="{ name: 'EverydayBehaviorEditPage' }" class="btn btn-dark mt-5"
-        >5ヶ条編集</router-link
+    <div class="text-right">
+      <v-btn
+        :to="{ name: 'EverydayBehaviorEditPage' }"
+        outlined
+        small
+        fab
+        color="indigo"
       >
+        <v-icon>mdi-pencil</v-icon>
+      </v-btn>
     </div>
   </div>
 </template>
@@ -39,14 +52,6 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "ProfileIndex",
-  // components: {
-  //   SubordinateCreateModal,
-  // },
-  // data() {
-  //   return {
-  //     isVisibleSubordinateCreateModal: false,
-  //   };
-  // },
   computed: {
     ...mapGetters("everyday_behaviors", ["everyday_behavior"]),
     ...mapGetters("users", ["authUser"]),
@@ -62,15 +67,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.avatar-image-wrapper {
-  line-height: 40px;
-}
-.avatar-image {
-  width: 50px;
-  border-radius: 50%;
-}
-.everyday_behavior_wrap {
-  margin-top: 30px;
-}
-</style>
+<style scoped></style>

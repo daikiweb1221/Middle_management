@@ -1,79 +1,85 @@
 <template>
-  <div id="everyday_behavior-edit-container">
-    <ValidationObserver v-slot="{ handleSubmit }">
-      <div class="form-group">
-        <ValidationProvider v-slot="{ errors }" rules="required|max:30">
-          <label for="behaviors_one">1</label>
-          <input
-            type="text"
-            class="form-control"
-            id="behaviors_one"
+  <div class="container">
+    <validation-observer ref="observer" v-slot="{ handleSubmit }">
+      <form @submit.prevent="submit">
+        <validation-provider
+          v-slot="{ errors }"
+          name="1"
+          rules="required|max:30"
+        >
+          <v-text-field
             v-model="everyday_behavior.behaviors_one"
-          />
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-
-      <div class="form-group">
-        <ValidationProvider v-slot="{ errors }" rules="required|max:30">
-          <label for="behaviors_two">2</label>
-          <input
-            type="text"
-            class="form-control"
-            id="behaviors_two"
+            :counter="30"
+            :error-messages="errors"
+            label="1"
+            required
+          ></v-text-field>
+        </validation-provider>
+        <validation-provider
+          v-slot="{ errors }"
+          name="2"
+          rules="required|max:30"
+        >
+          <v-text-field
             v-model="everyday_behavior.behaviors_two"
-          />
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-
-      <div class="form-group">
-        <ValidationProvider v-slot="{ errors }" rules="required|max:30">
-          <label for="behaviors_three">3</label>
-          <input
-            type="text"
-            class="form-control"
-            id="behaviors_three"
+            :counter="30"
+            :error-messages="errors"
+            label="2"
+            required
+          ></v-text-field>
+        </validation-provider>
+        <validation-provider
+          v-slot="{ errors }"
+          name="3"
+          rules="required|max:30"
+        >
+          <v-text-field
             v-model="everyday_behavior.behaviors_three"
-          />
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-
-      <div class="form-group">
-        <ValidationProvider v-slot="{ errors }" rules="required|max:30">
-          <label for="behaviors_four">4</label>
-          <input
-            type="text"
-            class="form-control"
-            id="behaviors_four"
+            :counter="30"
+            :error-messages="errors"
+            label="3"
+            required
+          ></v-text-field>
+        </validation-provider>
+        <validation-provider
+          v-slot="{ errors }"
+          name="4"
+          rules="required|max:30"
+        >
+          <v-text-field
             v-model="everyday_behavior.behaviors_four"
-          />
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-
-      <div class="form-group">
-        <ValidationProvider v-slot="{ errors }" rules="required|max:30">
-          <label for="behaviors_five">5</label>
-          <input
-            type="text"
-            class="form-control"
-            id="behaviors_five"
+            :counter="30"
+            :error-messages="errors"
+            label="4"
+            required
+          ></v-text-field>
+        </validation-provider>
+        <validation-provider
+          v-slot="{ errors }"
+          name="5"
+          rules="required|max:30"
+        >
+          <v-text-field
             v-model="everyday_behavior.behaviors_five"
-          />
-          <span class="text-danger">{{ errors[0] }}</span>
-        </ValidationProvider>
-      </div>
-      <div class="d-flex justify-content-between">
-        <button
-          class="btn btn-success"
+            :counter="30"
+            :error-messages="errors"
+            label="5"
+            required
+          ></v-text-field>
+        </validation-provider>
+
+        <v-btn
+          class="mr-4 font-weight-bold"
+          color="primary"
           @click="handleSubmit(handleUpdateEverydayBehavior)"
         >
           更新する
-        </button>
-      </div>
-    </ValidationObserver>
+        </v-btn>
+        <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold"
+          >キャンセル</v-btn
+        >
+      </form>
+    </validation-observer>
   </div>
 </template>
 

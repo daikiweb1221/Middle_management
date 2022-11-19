@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <TheHeader class="mb-auto" />
-    <router-view />
-    <TheFooter class="mt-auto" />
-  </div>
+  <v-app>
+    <TheHeader />
+    <v-main>
+      <transition mode="out-in">
+        <router-view />
+      </transition>
+    </v-main>
+    <TheFooter />
+  </v-app>
 </template>
 
 <script>
-import TheHeader from "components/TheHeader"
-import TheFooter from "components/TheFooter"
+import TheHeader from "components/TheHeader";
+import TheFooter from "components/TheFooter";
 
 export default {
   components: {
@@ -17,3 +21,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s;
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+}
+</style>

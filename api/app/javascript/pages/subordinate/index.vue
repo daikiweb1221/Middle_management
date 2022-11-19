@@ -1,35 +1,35 @@
 <template>
   <div>
-    <h1>部下詳細ページ</h1>
-    <div>
-      <router-link :to="{ name: 'SubordinateIndex' }" class="btn btn-dark mt-5"
-        >部下一覧へ</router-link
-      >
-    </div>
-    <div>
+    <div style="position: relative">
       <SubordinateDetailItem :subordinate="subordinate" />
+      <div style="position: absolute; right: 50px; top: 100px">
+        <div style="display: flex">
+          <v-btn
+            color="primary"
+            fab
+            small
+            dark
+            @click="handleShowSubordinateEditModal(subordinate)"
+            @click.stop="dialog = true"
+          >
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+
+          <DeleteDialog @delete-subordinate="handleDeleteSubordinate" />
+        </div>
+      </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-success"
-      @click="handleShowSubordinateEditModal(subordinate)"
-    >
-      編集
-    </button>
-    <button
-      type="button"
-      class="btn btn-danger"
-      @click="handleDeleteSubordinate"
-    >
-      削除
-    </button>
     <div>
-      <SubordinateEditModal
-        :subordinate="subordinateEdit"
-        v-if="isVisibleSubordinateEditModal"
-        @close-modal="handleCloseSubordinateEditModal"
-        @update-subordinate="handleUpdateSubordinate"
-      />
+      <v-row justify="center">
+        <v-dialog v-model="dialog" persistent max-width="600px">
+          <SubordinateEditModal
+            :dialog="dialog"
+            :subordinate="subordinateEdit"
+            @close-modal="handleCloseSubordinateEditModal"
+            @update-subordinate="handleUpdateSubordinate"
+          />
+        </v-dialog>
+      </v-row>
     </div>
   </div>
 </template>
@@ -37,11 +37,13 @@
 <script>
 import SubordinateDetailItem from "../components/SubordinateDetailItem";
 import SubordinateEditModal from "../components/SubordinateEditModal";
+import DeleteDialog from "../components/DeleteDialog";
 
 export default {
   components: {
     SubordinateDetailItem,
     SubordinateEditModal,
+    DeleteDialog,
   },
 
   name: "SubordinateDetail",
@@ -49,8 +51,8 @@ export default {
   data() {
     return {
       subordinate: {},
-      isVisibleSubordinateEditModal: false,
       subordinateEdit: {},
+      dialog: false,
     };
   },
 
@@ -68,11 +70,10 @@ export default {
     },
     handleShowSubordinateEditModal(subordinate) {
       this.subordinateEdit = Object.assign({}, subordinate);
-      this.isVisibleSubordinateEditModal = true;
     },
     handleCloseSubordinateEditModal() {
-      this.isVisibleSubordinateEditModal = false;
       this.subordinateEdit = {};
+      this.dialog = false;
     },
     updateSubordinate(subordinate) {
       const target_subordinate = this.subordinate.id;
@@ -96,14 +97,10 @@ export default {
     },
     deleteSubordinate() {
       const target_subordinate = this.subordinate.id;
-      if (confirm("削除してよろしいですか?")) {
-        this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
-          this.$store.commit("subordinates/deleteSubordinate", res.data);
-          this.$router.back();
-        });
-      } else {
+      this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
+        this.$store.commit("subordinates/deleteSubordinate", res.data);
         this.$router.push({ name: "SubordinateIndex" });
-      }
+      });
     },
     async handleDeleteSubordinate() {
       try {
