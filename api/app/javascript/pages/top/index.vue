@@ -60,7 +60,7 @@ export default {
   color: white;
   max-width: 100%;
   font-size: 2rem;
-  text-shadow: 1px 1px 2px white, 0 0 1em blue, 0 0 0.2em blue;
+  text-shadow: 2px 1px 7px white;
 }
 
 .ideal {

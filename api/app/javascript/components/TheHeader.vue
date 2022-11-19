@@ -2,13 +2,17 @@
   <div>
     <template v-if="this.$route.path === '/introduction'"></template>
     <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
+    <div v-else-if="this.$route.path === '/mindset'"></div>
+    <div v-else-if="this.$route.path === '/'"></div>
+    <div v-else-if="this.$route.path === '/register'"></div>
+    <div v-else-if="this.$route.path === '/login'"></div>
     <template v-else>
       <v-navigation-drawer app v-model="drawer" clipped>
         <v-container>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title class="title">
-                Navigation lists
+              <v-list-item-title  style="font-size: 1rem">
+                メニューリスト
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -19,7 +23,17 @@
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>Home</v-list-item-title>
+                <v-list-item-title>ホーム</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+          <v-list dense nav>
+            <v-list-item :to="{ name: 'ProfileIndex' }">
+              <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>マイページ</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -29,6 +43,10 @@
     <v-app-bar color="#4B90B9" dark app clipped-left>
       <template v-if="this.$route.path === '/introduction'"></template>
       <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
+      <div v-else-if="this.$route.path === '/mindset'"></div>
+      <div v-else-if="this.$route.path === '/'"></div>
+      <div v-else-if="this.$route.path === '/register'"></div>
+      <div v-else-if="this.$route.path === '/login'"></div>
       <template v-else>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </template>
@@ -36,7 +54,11 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <template v-if="this.$route.path === '/introduction'"></template>
-        <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
+        <div
+          v-else-if="this.$route.path === '/everyday_behavior_register'"
+        ></div>
+        <div v-else-if="this.$route.path === '/mindset'"></div>
+
         <template v-else>
           <template v-if="!authUser">
             <v-btn class="font-weight-bold" text :to="{ name: 'RegisterIndex' }"
