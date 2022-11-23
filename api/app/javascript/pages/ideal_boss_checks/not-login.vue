@@ -37,59 +37,52 @@
         <v-card elevation="14" class="text-center">
           <p class="rank-heading text-left">あなたの上司力は・・・</p>
           <div v-if="rankA">
-            <p class="rank-text">
-              <span class="rank class-a">A</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-a">A</span>ランク</p>
             <p class="rank-description">
-              素晴らしい！あなたの日々の行動や立ち振る舞いは人に動いてもらえる理想の上司です。<br />さらに上司力を上げるためにMiddle Managementをはじめてみましょう!
+              素晴らしい！あなたの日々の行動や立ち振る舞いは人に動いてもらえる理想の上司です。<br />さらに上司力を上げるためにMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankB">
-            <p class="rank-text">
-              <span class="rank class-b">B</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-b">B</span>ランク</p>
             <p class="rank-description">
-              良いですね！信頼される上司まであと少し。<br />さらに上司力を上げるためにMiddle Managementをはじめてみましょう!
+              良いですね！信頼される上司まであと少し。<br />さらに上司力を上げるためにMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankC">
-            <p class="rank-text">
-              <span class="rank class-c">C</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-c">C</span>ランク</p>
             <p class="rank-description">
-              まずまずです！ですが、まだまだできることはあるはず。<br />さらに上司力を上げるためにMiddle Managementをはじめてみましょう!
+              まずまずです！ですが、まだまだできることはあるはず。<br />さらに上司力を上げるためにMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankD">
-            <p class="rank-text">
-              <span class="rank class-d">D</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-d">D</span>ランク</p>
             <p class="rank-description">
-              まだまだできることはあるはず。<br />さらに上司力を上げるためにMiddle Managementをはじめてみましょう!
+              まだまだできることはあるはず。<br />さらに上司力を上げるためにMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankE">
-            <p class="rank-text">
-              <span class="rank class-e">E</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-e">E</span>ランク</p>
             <p class="rank-description">
-              もしかすると部下から信頼を得られていない可能性があります。<br />上司力を上げるために今すぐMiddle Managementをはじめてみましょう!
+              もしかすると部下から信頼を得られていない可能性があります。<br />上司力を上げるために今すぐMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankF">
-            <p class="rank-text">
-              <span class="rank class-f">F</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-f">F</span>ランク</p>
             <p class="rank-description">
-              もしかすると部下から信頼を得られていない可能性があります。<br />上司力を上げるために今すぐMiddle Managementをはじめてみましょう!
+              もしかすると部下から信頼を得られていない可能性があります。<br />上司力を上げるために今すぐMiddle
+              Managementをはじめてみましょう!
             </p>
           </div>
           <div v-if="rankG">
-            <p class="rank-text">
-              <span class="rank class-g">G</span>ランクです
-            </p>
+            <p class="rank-text"><span class="rank class-g">G</span>ランク</p>
             <p class="rank-description">
-              残念ながらあなたは部下から信頼を得られていません。<br />今すぐMiddle Managementをはじめて信頼される上司を目指しましょう!
+              残念ながらあなたは部下から信頼を得られていません。<br />今すぐMiddle
+              Managementをはじめて信頼される上司を目指しましょう!
             </p>
           </div>
         </v-card>
@@ -255,7 +248,7 @@ export default {
 }
 
 .rank {
-  font-size: 15rem;
+  font-size: 10rem;
   font-weight: 900;
   line-height: initial;
 }
@@ -283,10 +276,10 @@ export default {
 
 .rank-heading {
   font-size: 2rem;
-  font-weight: bold;
   margin-bottom: 0 !important;
-  padding: 25px;
+  padding: 25px 25px 0 25px;
   text-align: left !important;
+  font-weight: normal !important;
 }
 
 .rank-text {
@@ -299,6 +292,6 @@ export default {
   text-align: center;
   padding: 0 25px 25px 25px;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: normal !important;
 }
 </style>
