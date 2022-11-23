@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer color="#4B90B9" dark app style="z-index: 5">
+    <v-footer class="footer" dark app style="z-index: 5">
       <div>
         <p class="mb-0">Middle Management</p>
         <small>Copyright &copy; 2022. Middle Management</small>
@@ -15,4 +15,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.footer {
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #3a21ff 100%);
+}
+</style>

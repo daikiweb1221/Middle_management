@@ -6,12 +6,13 @@
     <div v-else-if="this.$route.path === '/'"></div>
     <div v-else-if="this.$route.path === '/register'"></div>
     <div v-else-if="this.$route.path === '/login'"></div>
+    <div v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"></div>
     <template v-else>
       <v-navigation-drawer app v-model="drawer" clipped>
         <v-container>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title  style="font-size: 1rem">
+              <v-list-item-title style="font-size: 1rem">
                 メニューリスト
               </v-list-item-title>
             </v-list-item-content>
@@ -37,20 +38,35 @@
               </v-list-item-content>
             </v-list-item>
           </v-list>
+          <v-list dense nav>
+            <v-list-item :to="{ name: 'IdealBossChecks' }">
+              <v-list-item-icon>
+                <v-icon>mdi-account-heart</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>理想の上司チェック</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-container>
       </v-navigation-drawer>
     </template>
-    <v-app-bar color="#4B90B9" dark app clipped-left>
+    <v-app-bar class="header" dark app clipped-left>
       <template v-if="this.$route.path === '/introduction'"></template>
       <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
       <div v-else-if="this.$route.path === '/mindset'"></div>
       <div v-else-if="this.$route.path === '/'"></div>
       <div v-else-if="this.$route.path === '/register'"></div>
       <div v-else-if="this.$route.path === '/login'"></div>
+      <div
+        v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"
+      ></div>
       <template v-else>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       </template>
-      <v-toolbar-title>Middle Management</v-toolbar-title>
+      <router-link style="text-decoration: none; color: white" to="/"
+        ><v-toolbar-title>Middle Management</v-toolbar-title></router-link
+      >
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <template v-if="this.$route.path === '/introduction'"></template>
@@ -153,3 +169,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.header {
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #3a21ff 100%);
+}
+</style>

@@ -4,6 +4,8 @@ import store from "../store";
 import TopIndex from "../pages/top";
 import TopIntroduction from "../pages/top/introduction";
 import TopMindSet from "../pages/top/mindset";
+import IdealBossChecks from "../pages/ideal_boss_checks";
+import IdealBossChecksNotLogin from "../pages/ideal_boss_checks/not-login";
 import SubordinateIndex from "../pages/subordinates";
 import SubordinateDetail from "../pages/subordinate";
 import RegisterIndex from "../pages/register/index";
@@ -35,6 +37,16 @@ const router = new Router({
       component: TopMindSet,
       name: "TopMindSet",
       meta: { requiredAuth: true },
+    },
+    {
+      path: "/ideal_boss_checks",
+      component: IdealBossChecks,
+      name: "IdealBossChecks",
+    },
+    {
+      path: "/ideal_boss_checks/not-login",
+      component: IdealBossChecksNotLogin,
+      name: "IdealBossChecksNotLogin",
     },
     {
       path: "/subordinates",

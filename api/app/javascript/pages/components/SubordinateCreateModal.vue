@@ -8,9 +8,7 @@
       </template>
       <v-card>
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer">
-          <v-card-title>
-            <span class="text-h5">Subordinate Profile</span>
-          </v-card-title>
+          <v-card-title> 部下を追加する </v-card-title>
           <v-card-text>
             <v-container>
               <v-form>

@@ -15,6 +15,13 @@
     </div>
     <div class="mt-cont">
       <h1 class="mt-title font-weight-bold">Middle Management</h1>
+      <div class="mt-btn-wrap mt-15">
+        <v-btn
+          class="ideal-btn font-weight-bold py-1"
+          :to="{ name: 'IdealBossChecksNotLogin' }"
+          >今すぐ自分の上司力をチェックする</v-btn
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -68,12 +75,32 @@ export default {
     0 0 0.1px rgb(224, 224, 224);
 }
 
+.mt-btn-wrap {
+  padding: 0 25px;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ideal-btn {
+  color: white !important;
+  font-size: 10px !important;
+  text-shadow: 1px 2px 2px rgb(94, 94, 94);
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
+
 @media screen and (min-width: 480px) {
   .mt-title {
     font-size: 3rem;
   }
   .desc-title {
     font-size: 1rem;
+  }
+  .ideal-btn {
+    font-size: 1rem !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {

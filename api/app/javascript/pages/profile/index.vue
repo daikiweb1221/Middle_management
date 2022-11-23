@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <p class="pt-5 pb-1 text-h6 font-weight-bold">マイページ</p>
-    <v-card elevation="3">
+  <div class="position-center container">
+    <v-card class="mb-5">
       <v-list-item three-line>
         <v-list-item-avatar size="80">
           <v-img :src="authUser.avatar_url" v-if="authUser.avatar_url"></v-img>
@@ -22,28 +21,39 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-
-    <div class="mt-16">
-      <p class="text-h5 mb-12 font-weight-bold">
-        {{ authUser.name }}さんが日常で目指すべき姿【五ヶ条】
-      </p>
-      <p class="text-h5 mb-6">１.{{ everyday_behavior.behaviors_one }}</p>
-      <p class="text-h5 mb-6">２.{{ everyday_behavior.behaviors_two }}</p>
-      <p class="text-h5 mb-6">３.{{ everyday_behavior.behaviors_three }}</p>
-      <p class="text-h5 mb-6">４.{{ everyday_behavior.behaviors_four }}</p>
-      <p class="text-h5 mb-6">５.{{ everyday_behavior.behaviors_five }}</p>
-    </div>
-    <div class="text-right">
-      <v-btn
-        :to="{ name: 'EverydayBehaviorEditPage' }"
-        outlined
-        small
-        fab
-        color="indigo"
+    <v-card>
+      <v-card-title
+        >{{ authUser.name }}さんが日常で目指すべき姿【五ヶ条】</v-card-title
       >
-        <v-icon>mdi-pencil</v-icon>
-      </v-btn>
-    </div>
+      <v-card-text>
+        <p class="mb-3 text--primary">
+          １.{{ everyday_behavior.behaviors_one }}
+        </p>
+        <p class="mb-3 text--primary">
+          ２.{{ everyday_behavior.behaviors_two }}
+        </p>
+        <p class="mb-3 text--primary">
+          ３.{{ everyday_behavior.behaviors_three }}
+        </p>
+        <p class="mb-3 text--primary">
+          ４.{{ everyday_behavior.behaviors_four }}
+        </p>
+        <p class="mb-3 text--primary">
+          ５.{{ everyday_behavior.behaviors_five }}
+        </p>
+      </v-card-text>
+      <v-card-actions style="justify-content: end">
+        <v-btn
+          :to="{ name: 'EverydayBehaviorEditPage' }"
+          outlined
+          small
+          fab
+          color="indigo"
+        >
+          <v-icon>mdi-pencil</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </div>
 </template>
 
@@ -67,4 +77,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 25px;
+  width: 100%;
+}
+</style>
