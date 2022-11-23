@@ -5,7 +5,7 @@
         v-for="subordinate in subordinates"
         :key="subordinate.id"
         elevation="3"
-        class="mt-2 d-flex align-end"
+        class="b-color mt-2 d-flex align-end"
       >
         <div>
           <v-card-title
@@ -34,27 +34,6 @@
           </v-btn>
         </div>
       </v-card>
-      <!-- <div>
-      <h1>部下一覧ページ</h1>
-      <div>
-        <router-link
-          :to="{ name: 'EverydayBehaviorIndex' }"
-          class="btn btn-dark mt-5"
-          >日々の立ち振る舞い</router-link
-        >
-      </div>
-      <div v-for="subordinate in subordinates" :key="subordinate.id">
-        <router-link
-          :to="{ name: 'SubordinateDetail', params: { id: subordinate.id } }"
-          class="btn btn-dark mt-5"
-          >{{ subordinate.name }}</router-link
-        >
-      </div>
-      <div class="text-center">
-        <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5"
-          >戻る</router-link
-        >
-      </div> -->
     </div>
     <div
       class="mt-5"
@@ -96,3 +75,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+/* .b-color {
+  background-color: #eeeeee;
+  background-image: linear-gradient(
+    160deg,
+    #eeeeee 0%,
+    #ffffff 50%,
+    #eeeeee 100%
+  );
+} */
+</style>
