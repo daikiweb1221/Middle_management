@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :subordinates do
-      resources :comments, only: %i[create], shallow: true
+      resources :places, only: %i[create], shallow: true
     end
     resources :everyday_behaviors
     resources :sessions
