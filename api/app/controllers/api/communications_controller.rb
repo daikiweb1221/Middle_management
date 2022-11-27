@@ -1,13 +1,13 @@
 class Api::CommunicationsController < ApplicationController
+  before_action :authenticate!
+
   def create
-    subordinate = Subordinate.find(params[:subordinate_id])
-    @communication = current_user.communication(subordinate)
-    render json: @communication
+    subordinate = Subordinate.find(params[:id])
+    current_user.communication(subordinate)
   end
 
   def destroy
     subordinate = current_user.communications.find(params[:id]).subordinate
-    @uncommunication = current_user.uncommunication(subordinate)
-    render json: @uncommunication
+    current_user.uncommunication(subordinate)
   end
 end

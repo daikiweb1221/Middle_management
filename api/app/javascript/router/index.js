@@ -15,6 +15,7 @@ import ProfileEdit from "../pages/profile/edit";
 import EverydayBehaviorRegister from "../pages/everyday_behaviors/register";
 import EverydayBehaviorIndex from "../pages/everyday_behaviors/index";
 import EverydayBehaviorEditPage from "../pages/everyday_behaviors/edit";
+import CommunicationSubordinatesIndex from "../pages/communication_subordinates";
 
 Vue.use(Router);
 
@@ -70,6 +71,12 @@ const router = new Router({
       path: "/everyday_behavior_edit",
       component: EverydayBehaviorEditPage,
       name: "EverydayBehaviorEditPage",
+      meta: { requiredAuth: true },
+    },
+    {
+      path: "/communication_subordinates",
+      component: CommunicationSubordinatesIndex,
+      name: "CommunicationSubordinatesIndex",
       meta: { requiredAuth: true },
     },
     {

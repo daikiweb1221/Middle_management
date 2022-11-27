@@ -36,6 +36,8 @@ class Api::SubordinatesController < ApplicationController
 
   def communications
     @communication_subordinates = current_user.communication_subordinates.includes(:user).order(created_at: :desc)
+    # @communication = current_user.communications.all.order(created_at: :desc)
+    # @communication_subordinates = @communication.subordinate
     render json: @communication_subordinates
   end
 

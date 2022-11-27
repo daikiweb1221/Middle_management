@@ -21,6 +21,11 @@
             >{{ subordinate.birthday }}</v-card-text
           >
         </div>
+        <Communication
+          :communication_subordinate="subordinate"
+          @create-communication="handleCreateCommunication(subordinate)"
+        />
+
         <v-spacer></v-spacer>
         <div class="pa-4">
           <v-btn
@@ -47,16 +52,19 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import SubordinateCreateModal from "../components/SubordinateCreateModal";
+import Communication from "../components/Communication";
 
 export default {
   name: "SubordinateIndex",
   components: {
     SubordinateCreateModal,
+    Communication,
   },
 
   computed: {
     ...mapGetters("subordinates", ["subordinates"]),
     ...mapGetters("users", ["authUser"]),
+    ...mapGetters("communications", ["communications"]),
   },
 
   created() {
@@ -65,6 +73,14 @@ export default {
 
   methods: {
     ...mapActions("subordinates", ["fetchSubordinates", "createSubordinate"]),
+    ...mapActions("communications", ["createCommunication"]),
+    async handleCreateCommunication(communication_subordinate) {
+      try {
+        await this.createCommunication(communication_subordinate);
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async handleCreateSubordinate(subordinate) {
       try {
         await this.createSubordinate(subordinate);
