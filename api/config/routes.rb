@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     resources :subordinates do
       resources :places, only: %i[index create destroy], shallow: true
+      collection do
+        get 'communications'
+      end
     end
+    resources :communications, only: %i[create destroy]
     resources :everyday_behaviors
     resources :sessions
     resources :users do
