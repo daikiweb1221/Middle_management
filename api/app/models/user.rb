@@ -16,6 +16,18 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true
 
+  def communication(subordinate)
+    communication_subordinates << subordinate
+  end
+
+  def uncommunication(subordinate)
+    communication_subordinates.destroy(subordinate)
+  end
+
+  def communication?(subordinate)
+    communication_subordinates.include?(subordinate)
+  end
+
   def avatar_url
     avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true) : nil
   end

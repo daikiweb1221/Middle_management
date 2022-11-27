@@ -8,8 +8,6 @@ class Api::SubordinatesController < ApplicationController
   end
 
   def show
-    # @place = Place.new
-    # @places = @subordinate.places.includes(:user).order(created_at: :desc)
     render json: @subordinate
   end
 
@@ -34,6 +32,11 @@ class Api::SubordinatesController < ApplicationController
   def destroy
     @subordinate.destroy!
     render json: @subordinate
+  end
+
+  def communications
+    @communication_subordinates = current_user.communication_subordinates.includes(:user).order(created_at: :desc)
+    render json: @communication_subordinates
   end
 
   private
