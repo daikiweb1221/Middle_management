@@ -44,7 +44,7 @@
                 <v-icon>mdi-account-heart</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>理想の上司チェック</v-list-item-title>
+                <v-list-item-title>理想の上司度チェック</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>

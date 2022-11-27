@@ -4,6 +4,7 @@
       <SubordinateDetailItem :subordinate="subordinate" />
       <div style="position: absolute; right: 50px; top: 100px">
         <div style="display: flex">
+          <PlaceCreateModal @create-place="handleCreatePlace" />
           <v-btn
             color="primary"
             fab
@@ -19,20 +20,18 @@
         </div>
       </div>
     </div>
-    <div>
-      <v-row justify="center">
-        <v-dialog v-model="dialog" persistent max-width="600px">
-          <SubordinateEditModal
-            :dialog="dialog"
-            :subordinate="subordinateEdit"
-            @close-modal="handleCloseSubordinateEditModal"
-            @update-subordinate="handleUpdateSubordinate"
-          />
-        </v-dialog>
-      </v-row>
+    <v-dialog v-model="dialog" persistent max-width="600px">
+      <SubordinateEditModal
+        :dialog="dialog"
+        :subordinate="subordinateEdit"
+        @close-modal="handleCloseSubordinateEditModal"
+        @update-subordinate="handleUpdateSubordinate"
+      />
+    </v-dialog>
+    <div body-container style="display: flex">
+      <PlaceListItem :places="places" />
+      <div>aaaaaaaaaa</div>
     </div>
-    <PlaceCreateModal @create-place="handleCreatePlace" />
-    <PlaceListItem :places="places" />
   </div>
 </template>
 

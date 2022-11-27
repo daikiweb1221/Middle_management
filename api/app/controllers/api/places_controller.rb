@@ -17,6 +17,9 @@ class Api::PlacesController < ApplicationController
   end
 
   def destroy
+    @place = current_user.places.find(params[:id])
+    @place.destroy!
+    render json: @place
   end
 
   private
