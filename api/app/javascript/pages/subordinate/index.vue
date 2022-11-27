@@ -4,6 +4,7 @@
       <SubordinateDetailItem :subordinate="subordinate" />
       <div style="position: absolute; right: 50px; top: 100px">
         <div style="display: flex">
+          <PlaceCreateModal @create-place="handleCreatePlace" />
           <v-btn
             color="primary"
             fab
@@ -19,31 +20,36 @@
         </div>
       </div>
     </div>
-    <div>
-      <v-row justify="center">
-        <v-dialog v-model="dialog" persistent max-width="600px">
-          <SubordinateEditModal
-            :dialog="dialog"
-            :subordinate="subordinateEdit"
-            @close-modal="handleCloseSubordinateEditModal"
-            @update-subordinate="handleUpdateSubordinate"
-          />
-        </v-dialog>
-      </v-row>
+    <v-dialog v-model="dialog" persistent max-width="600px">
+      <SubordinateEditModal
+        :dialog="dialog"
+        :subordinate="subordinateEdit"
+        @close-modal="handleCloseSubordinateEditModal"
+        @update-subordinate="handleUpdateSubordinate"
+      />
+    </v-dialog>
+    <div body-container style="display: flex">
+      <PlaceListItem :places="places" />
+      <div>aaaaaaaaaa</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SubordinateDetailItem from "../components/SubordinateDetailItem";
 import SubordinateEditModal from "../components/SubordinateEditModal";
 import DeleteDialog from "../components/DeleteDialog";
+import PlaceCreateModal from "../components/PlaceCreateModal";
+import PlaceListItem from "../components/PlaceListItem";
 
 export default {
   components: {
     SubordinateDetailItem,
     SubordinateEditModal,
     DeleteDialog,
+    PlaceCreateModal,
+    PlaceListItem,
   },
 
   name: "SubordinateDetail",
@@ -58,13 +64,49 @@ export default {
 
   created() {
     this.showSubordinate();
+    this.showPlaces();
+  },
+
+  computed: {
+    ...mapGetters("places", ["places"]),
+    ...mapGetters("users", ["authUser"]),
   },
 
   methods: {
+    // コメントエリア
+    createPlace(place) {
+      const id = parseInt(this.$route.params.id, 10);
+      const array = ["subordinates/", id, "/places"];
+      const path = array.join("");
+      this.$axios.post(path, place).then((res) => {
+        this.$store.commit("places/addPlace", res.data);
+      });
+    },
+    async handleCreatePlace(place) {
+      try {
+        await this.createPlace(place);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    showPlaces() {
+      const id = parseInt(this.$route.params.id, 10);
+      const array = ["subordinates/", id, "/places"];
+      const path = array.join("");
+      this.$axios.get(path).then((res) => {
+        let result = res.data.filter((target) => {
+          return target.subordinate_id == id;
+        });
+        this.$store.commit("places/setPlaces", result);
+      });
+    },
+    // コメントエリアここまで
     showSubordinate() {
       const id = parseInt(this.$route.params.id, 10);
+      const array = ["subordinates/", id];
+      const path = array.join("");
       this.$axios
-        .get("subordinates/" + id)
+        .get(path)
         .then((res) => (this.subordinate = res.data))
         .catch((err) => console.log(err.status));
     },

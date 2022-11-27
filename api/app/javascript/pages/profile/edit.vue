@@ -25,10 +25,15 @@
         label="プロフィール画像"
       ></v-file-input>
 
-      <v-btn class="mr-4 font-weight-bold" color="primary" @click="handleSubmit(update)"
+      <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold"
+        >キャンセル</v-btn
+      >
+      <v-btn
+        class="mr-4 font-weight-bold"
+        color="primary"
+        @click="handleSubmit(update)"
         >更新する
       </v-btn>
-      <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold">キャンセル</v-btn>
     </validation-observer>
   </div>
 </template>

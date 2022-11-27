@@ -68,6 +68,9 @@
           ></v-text-field>
         </validation-provider>
 
+        <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold"
+          >キャンセル</v-btn
+        >
         <v-btn
           class="mr-4 font-weight-bold"
           color="primary"
@@ -75,9 +78,6 @@
         >
           更新する
         </v-btn>
-        <v-btn :to="{ name: 'ProfileIndex' }" class="font-weight-bold"
-          >キャンセル</v-btn
-        >
       </form>
     </validation-observer>
   </div>

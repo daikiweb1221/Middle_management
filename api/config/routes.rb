@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :api do
-    resources :subordinates
+    resources :subordinates do
+      resources :places, only: %i[index create destroy], shallow: true
+    end
     resources :everyday_behaviors
     resources :sessions
     resources :users do

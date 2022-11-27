@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import subordinates from "./modules/subordinates";
 import users from "./modules/users";
 import everyday_behaviors from "./modules/everyday_behaviors";
+import places from "./modules/places";
 
 Vue.use(Vuex);
 
@@ -11,5 +12,6 @@ export default new Vuex.Store({
     subordinates,
     users,
     everyday_behaviors,
+    places,
   },
 });

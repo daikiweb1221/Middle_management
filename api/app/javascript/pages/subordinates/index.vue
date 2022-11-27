@@ -76,14 +76,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* .b-color {
-  background-color: #eeeeee;
-  background-image: linear-gradient(
-    160deg,
-    #eeeeee 0%,
-    #ffffff 50%,
-    #eeeeee 100%
-  );
-} */
-</style>
+<style scoped></style>

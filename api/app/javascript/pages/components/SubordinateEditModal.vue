@@ -2,7 +2,7 @@
   <v-card>
     <ValidationObserver v-slot="{ handleSubmit }">
       <v-card-title>
-        <span class="text-h5">Subordinate Edit</span>
+        <span class="text-h5">編集</span>
       </v-card-title>
       <v-card-text>
         <v-container>
@@ -85,15 +85,15 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
+        <v-btn color="blue darken-1" text @click="handleCloseModal">
+          閉じる
+        </v-btn>
         <v-btn
           color="blue darken-1"
           text
           @click="handleSubmit(handleUpdateSubordinate)"
         >
           更新する
-        </v-btn>
-        <v-btn color="blue darken-1" text @click="handleCloseModal">
-          閉じる
         </v-btn>
       </v-card-actions>
     </ValidationObserver>

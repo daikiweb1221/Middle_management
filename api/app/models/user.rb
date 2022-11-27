@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   has_many :subordinates, dependent: :destroy
   has_many :everyday_behaviors, dependent: :destroy
+  has_many :places, dependent: :destroy
   has_one_attached :avatar
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
