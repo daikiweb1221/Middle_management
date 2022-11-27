@@ -1,4 +1,11 @@
 class Api::PlacesController < ApplicationController
+  before_action :authenticate!
+
+  def index
+    @places = current_user.places.order(created_at: :desc)
+    render json: @places
+  end
+
   def create
     @place = current_user.places.build(place_params)
 

@@ -8,8 +8,8 @@ class Api::SubordinatesController < ApplicationController
   end
 
   def show
-    @place = Place.new
-    @places = @subordinate.places.includes(:user).order(created_at: :desc)
+    # @place = Place.new
+    # @places = @subordinate.places.includes(:user).order(created_at: :desc)
     render json: @subordinate
   end
 
