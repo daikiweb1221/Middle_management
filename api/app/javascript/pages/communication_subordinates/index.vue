@@ -21,18 +21,6 @@
             >{{ communication_subordinate.birthday }}</v-card-text
           >
         </div>
-        <v-spacer></v-spacer>
-        <div class="pa-4">
-          <v-btn
-            :to="{ name: 'SubordinateDetail', params: { id: communication_subordinate.id } }"
-            color="warning"
-            fab
-            small
-            dark
-          >
-            <v-icon>mdi-account-circle</v-icon>
-          </v-btn>
-        </div>
       </v-card>
     </div>
   </div>
@@ -48,14 +36,17 @@ export default {
   computed: {
     ...mapGetters("communications", ["communications"]),
     ...mapGetters("users", ["authUser"]),
+    ...mapGetters("subordinates", ["subordinates"]),
   },
 
   created() {
+    this.fetchSubordinates();
     this.fetchCommunications();
   },
 
   methods: {
     ...mapActions("communications", ["fetchCommunications"]),
+    ...mapActions("subordinates", ["fetchSubordinates"]),
   },
 };
 </script>

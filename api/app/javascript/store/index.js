@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 import subordinates from "./modules/subordinates";
 import users from "./modules/users";
 import everyday_behaviors from "./modules/everyday_behaviors";
@@ -16,4 +17,18 @@ export default new Vuex.Store({
     places,
     communications,
   },
+
+  // `createPersistedState()`でインスタンス作成。引数に設定を書く
+  plugins: [
+    createPersistedState({
+      // ストレージのキーを指定。デフォルトではvuex
+      key: "MiddleManagementApp",
+
+      // 管理対象のステートを指定。pathsを書かない時は`modules`に書いたモジュールに含まれるステート全て。`[]`の時はどれも保存されない
+      paths: ["communications.communications"],
+
+      // ストレージの種類を指定する。デフォルトではローカルストレージ
+      storage: window.localStorage,
+    }),
+  ],
 });

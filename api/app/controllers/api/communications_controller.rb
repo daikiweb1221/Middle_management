@@ -7,7 +7,7 @@ class Api::CommunicationsController < ApplicationController
   end
 
   def destroy
-    subordinate = current_user.communications.find(params[:id]).subordinate
+    subordinate = current_user.communication_subordinates.find(params[:id])
     current_user.uncommunication(subordinate)
   end
 end

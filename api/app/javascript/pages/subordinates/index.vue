@@ -21,11 +21,14 @@
             >{{ subordinate.birthday }}</v-card-text
           >
         </div>
-        <Communication
-          :communication_subordinate="subordinate"
-          @create-communication="handleCreateCommunication(subordinate)"
-        />
-
+        <div>
+          <Communication
+            :communication_subordinates="communications"
+            :subordinate="subordinate"
+            @create-communication="handleCreateCommunication(subordinate)"
+            @delete-communication="handleDeleteCommunication(subordinate.id)"
+          />
+        </div>
         <v-spacer></v-spacer>
         <div class="pa-4">
           <v-btn
@@ -69,14 +72,30 @@ export default {
 
   created() {
     this.fetchSubordinates();
+    this.fetchCommunications();
   },
 
   methods: {
     ...mapActions("subordinates", ["fetchSubordinates", "createSubordinate"]),
-    ...mapActions("communications", ["createCommunication"]),
+    ...mapActions("communications", [
+      "createCommunication",
+      "fetchCommunications",
+    ]),
     async handleCreateCommunication(communication_subordinate) {
       try {
         await this.createCommunication(communication_subordinate);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteCommunication(id) {
+      this.$axios.delete("communications/" + id).then((res) => {
+        this.$store.commit("communications/deleteCommunication", res.data);
+      });
+    },
+    async handleDeleteCommunication(id) {
+      try {
+        await this.deleteCommunication(id);
       } catch (error) {
         console.log(error);
       }

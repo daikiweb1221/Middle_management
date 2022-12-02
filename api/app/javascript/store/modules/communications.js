@@ -15,12 +15,6 @@ const mutations = {
   addCommunication: (state, communication) => {
     state.communications.push(communication);
   },
-  updateCommunication: (state, updateCommunication) => {
-    const index = state.communications.findIndex((communication) => {
-      return communication.id == updateCommunication.id;
-    });
-    state.communications.splice(index, 1, updateCommunication);
-  },
   deleteCommunication: (state, deleteCommunication) => {
     state.communications = state.communications.filter((communication) => {
       return communication.id != deleteCommunication.id;
