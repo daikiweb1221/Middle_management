@@ -35,7 +35,7 @@
       <!-- 結果表示する部分 -->
       <div v-if="completed">
         <v-card elevation="14" class="text-center">
-          <p class="rank-heading text-left">あなたの上司力は・・・</p>
+          <p class="rank-heading text-center">あなたの上司力は・・・</p>
           <div v-if="rankA">
             <p class="rank-text"><span class="rank class-a">A</span>ランク</p>
             <p class="rank-description">

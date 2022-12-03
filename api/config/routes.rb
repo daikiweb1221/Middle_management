@@ -8,7 +8,11 @@ Rails.application.routes.draw do
         get 'communications'
       end
     end
-    resources :communications, only: %i[create destroy]
+    resources :communications, only: %i[create destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     resources :everyday_behaviors
     resources :sessions
     resources :users do

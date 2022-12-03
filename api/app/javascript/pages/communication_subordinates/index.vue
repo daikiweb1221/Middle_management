@@ -1,5 +1,8 @@
 <template>
   <div>
+    <DeleteDialogCommunicationSubordinates
+      @delete-communication-subordinates="handleDeleteCommunicationSubordinates"
+    />
     <div class="px-3">
       <v-card
         v-for="communication_subordinate in communications"
@@ -28,10 +31,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import DeleteDialogCommunicationSubordinates from "../components/DeleteDialogCommunicationSubordinates.vue";
 
 export default {
   name: "CommunicationSubordinatesIndex",
-  components: {},
+  components: {
+    DeleteDialogCommunicationSubordinates,
+  },
 
   computed: {
     ...mapGetters("communications", ["communications"]),
@@ -47,6 +53,23 @@ export default {
   methods: {
     ...mapActions("communications", ["fetchCommunications"]),
     ...mapActions("subordinates", ["fetchSubordinates"]),
+
+    deleteCommunicationSubordinates() {
+      this.$axios.delete("communications/destroy_all").then((res) => {
+        this.$store.commit(
+          "communications/deleteCommunicationSubordinates",
+          res.data
+        );
+        this.$router.push({ name: "SubordinateIndex" });
+      });
+    },
+    async handleDeleteCommunicationSubordinates() {
+      try {
+        await this.deleteCommunicationSubordinates();
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>

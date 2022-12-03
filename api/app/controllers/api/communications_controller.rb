@@ -10,4 +10,9 @@ class Api::CommunicationsController < ApplicationController
     subordinate = current_user.communication_subordinates.find(params[:id])
     current_user.uncommunication(subordinate)
   end
+
+  def destroy_all
+    @destroy_all = current_user.communications.destroy_all
+    render json: @destroy_all
+  end
 end

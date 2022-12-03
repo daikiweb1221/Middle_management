@@ -20,6 +20,9 @@ const mutations = {
       return communication.id != deleteCommunication.id;
     });
   },
+  deleteCommunicationSubordinates: (state, communicationSubordinates) => {
+    state.communications = communicationSubordinates.splice(0);
+  },
 };
 
 const actions = {
