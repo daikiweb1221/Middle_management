@@ -5,32 +5,34 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-api/.bundle
+web/.bundle
 
 # Ignore all logfiles and tempfiles.
-api/log/*
-api/tmp/*
-!api/log/.keep
-!api/tmp/.keep
+web/log/*
+web/tmp/*
+web/tmp/miniprofiler/*
+!web/log/.keep
+!web/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-api/tmp/pids/*
-!api/tmp/pids/
-!api/tmp/pids/.keep
+web/tmp/pids/*
+!web/tmp/pids/
+!web/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-api/storage/*
-!api/storage/.keep
+web/storage/*
+!web/storage/.keep
 
-api/public/assets
-api/.byebug_history
+web/public/assets
+web/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-api/config/master.key
+web/config/master.key
 
-api/public/packs
-api/public/packs-test
-api/node_modules
-api/yarn-error.log
-api/yarn-debug.log*
-api/.yarn-integrity
+web/public/packs
+web/public/packs-test
+web/node_modules
+web/yarn-error.log
+web/yarn-debug.log*
+web/.yarn-integrity
+web/tmp/miniprofiler/mp_views_172.22.0.1
