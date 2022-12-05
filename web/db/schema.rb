@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_27_085213) do
+ActiveRecord::Schema.define(version: 2022_12_05_232615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 2022_11_27_085213) do
     t.index ["subordinate_id"], name: "index_communications_on_subordinate_id"
     t.index ["user_id", "subordinate_id"], name: "index_communications_on_user_id_and_subordinate_id", unique: true
     t.index ["user_id"], name: "index_communications_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name", limit: 100, null: false
+    t.datetime "start", null: false
+    t.datetime "end", null: false
+    t.boolean "timed", default: true
+    t.text "description"
+    t.string "color"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "everyday_behaviors", force: :cascade do |t|
@@ -99,6 +112,7 @@ ActiveRecord::Schema.define(version: 2022_11_27_085213) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "communications", "subordinates"
   add_foreign_key "communications", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "everyday_behaviors", "users"
   add_foreign_key "places", "subordinates"
   add_foreign_key "places", "users"
