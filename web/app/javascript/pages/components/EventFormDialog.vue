@@ -6,14 +6,25 @@
       </v-btn>
     </v-card-actions>
     <v-card-text>
-      <DialogSection icon="mdi-square" :color="event.color">
+      <DialogSection icon="mdi-square" :color="color">
         <v-text-field v-model="name" label="タイトル"></v-text-field>
       </DialogSection>
       <DialogSection icon="mdi-clock-outline">
         <DateForm v-model="startDate" />
-        <TimeForm v-model="startTime" />
+        <div v-show="!allDay">
+          <TimeForm v-model="startTime" />
+        </div>
         <DateForm v-model="endDate" />
-        <TimeForm v-model="endTime" />
+        <div v-show="!allDay">
+          <TimeForm v-model="endTime" />
+        </div>
+        <CheckBox v-model="allDay" label="終日" />
+      </DialogSection>
+      <DialogSection icon="mdi-card-text-outline">
+        <TextForm v-model="description" />
+      </DialogSection>
+      <DialogSection icon="mdi-palette">
+        <ColorForm v-model="color" />
       </DialogSection>
     </v-card-text>
     <v-card-actions class="d-flex justify-end">
@@ -27,6 +38,9 @@ import { mapGetters, mapActions } from "vuex";
 import DialogSection from "../components/DialogSection";
 import DateForm from "../components/DateForm";
 import TimeForm from "../components/TimeForm";
+import TextForm from "../components/TextForm";
+import ColorForm from "../components/ColorForm";
+import CheckBox from "../components/CheckBox";
 
 export default {
   name: "EventFormDialog",
@@ -34,6 +48,9 @@ export default {
     DialogSection,
     DateForm,
     TimeForm,
+    TextForm,
+    ColorForm,
+    CheckBox,
   },
 
   data: () => ({
@@ -42,6 +59,9 @@ export default {
     startTime: null,
     endDate: null,
     endTime: null,
+    description: "",
+    color: "",
+    allDay: false,
   }),
 
   computed: {
@@ -53,6 +73,8 @@ export default {
     this.startTime = this.event.startTime;
     this.endDate = this.event.endDate;
     this.endTime = this.event.endTime;
+    this.color = this.event.color;
+    this.allDay = !this.event.timed;
   },
 
   methods: {
@@ -66,6 +88,9 @@ export default {
         name: this.name,
         start: `${this.startDate} ${this.startTime || ""}`,
         end: `${this.endDate} ${this.endTime || ""}`,
+        description: this.description,
+        color: this.color,
+        timed: !this.allDay,
       };
       this.createEvent(params);
       this.closeDialog();
