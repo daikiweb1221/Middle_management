@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   before_action :authenticate!
-  before_action :set_events, only: [:show]
+  before_action :set_events, only: [:show, :update, :destroy]
 
   def index
     @events = current_user.events.all
