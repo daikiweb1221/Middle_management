@@ -1,32 +1,23 @@
 import axios from "../../plugins/axios";
+import { serializeEvent } from "../../src/functions/serializers";
 
 const state = {
   events: [],
   event: null,
+  isEditMode: false,
 };
 
 const getters = {
-  events: (state) =>
-    state.events.map((event) => {
-      return {
-        ...event,
-        start: new Date(event.start),
-        end: new Date(event.end),
-      };
-    }),
-  event: (state) =>
-    state.event
-      ? {
-          ...state.event,
-          start: new Date(state.event.start),
-          end: new Date(state.event.end),
-        }
-      : null,
+  events: (state) => state.events.map((event) => serializeEvent(event)),
+  event: (state) => serializeEvent(state.event),
+  isEditMode: (state) => state.isEditMode,
 };
 
 const mutations = {
   setEvents: (state, events) => (state.events = events),
+  appendEvent: (state, event) => (state.events = [...state.events, event]),
   setEvent: (state, event) => (state.event = event),
+  setEditMode: (state, bool) => (state.isEditMode = bool),
 };
 
 const actions = {
@@ -34,8 +25,15 @@ const actions = {
     const res = await axios.get("events");
     commit("setEvents", res.data);
   },
+  async createEvent({ commit }, event) {
+    const res = await axios.post(`events`, event);
+    commit("appendEvent", res.data);
+  },
   setEvent({ commit }, event) {
     commit("setEvent", event);
+  },
+  setEditMode({ commit }, bool) {
+    commit("setEditMode", bool);
   },
 };
 

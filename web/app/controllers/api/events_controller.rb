@@ -13,7 +13,7 @@ class Api::EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    if event.save
+    if @event.save
       render json: @event
     else
       render json: @event.errors, status: :bad_request
