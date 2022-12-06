@@ -6,6 +6,7 @@ import users from "./modules/users";
 import everyday_behaviors from "./modules/everyday_behaviors";
 import places from "./modules/places";
 import communications from "./modules/communications";
+import events from "./modules/events";
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     everyday_behaviors,
     places,
     communications,
+    events,
   },
 
   // `createPersistedState()`でインスタンス作成。引数に設定を書く
