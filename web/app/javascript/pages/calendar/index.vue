@@ -23,11 +23,21 @@
         "
         @click:event="showEvent"
         @click:day="initEvent"
+        @click:date="showDayEvents"
+        @click:more="showDayEvents"
       ></v-calendar>
     </v-sheet>
     <v-dialog :value="event !== null" @click:outside="closeDialog" width="600">
       <EventDetailDialog v-if="event !== null && !isEditMode" />
       <EventFormDialog v-if="event !== null && isEditMode" />
+    </v-dialog>
+
+    <v-dialog
+      :value="clickedDate !== null"
+      @click:outside="closeDialog"
+      width="600"
+    >
+      <DayEventList />
     </v-dialog>
   </div>
 </template>
@@ -37,6 +47,7 @@ import { format } from "date-fns";
 import { mapGetters, mapActions } from "vuex";
 import EventDetailDialog from "../components/EventDetailDialog";
 import EventFormDialog from "../components/EventFormDialog";
+import DayEventList from "../components/DayEventList";
 import { getDefaultStartAndEnd } from "../../src/functions/datetime";
 
 export default {
@@ -45,6 +56,7 @@ export default {
   components: {
     EventDetailDialog,
     EventFormDialog,
+    DayEventList,
   },
 
   data: () => ({
@@ -52,14 +64,19 @@ export default {
   }),
 
   computed: {
-    ...mapGetters("events", ["events", "event", "isEditMode"]),
+    ...mapGetters("events", ["events", "event", "isEditMode", "clickedDate"]),
     title() {
       return format(new Date(this.value), "yyyy年 M月");
     },
   },
 
   methods: {
-    ...mapActions("events", ["fetchEvents", "setEvent", "setEditMode"]),
+    ...mapActions("events", [
+      "fetchEvents",
+      "setEvent",
+      "setEditMode",
+      "setClickedDate",
+    ]),
     setToday() {
       this.value = format(new Date(), "yyyy/MM/dd");
     },
@@ -70,12 +87,20 @@ export default {
     closeDialog() {
       this.setEvent(null);
       this.setEditMode(false);
+      this.setClickedDate(null);
     },
     initEvent({ date }) {
+      if (this.clickedDate !== null) {
+        return;
+      }
       date = date.replace(/-/g, "/");
       const [start, end] = getDefaultStartAndEnd(date);
       this.setEvent({ name: "", start, end, timed: true });
       this.setEditMode(true);
+    },
+    showDayEvents({ date }) {
+      date = date.replace(/-/g, "/");
+      this.setClickedDate(date);
     },
   },
 };

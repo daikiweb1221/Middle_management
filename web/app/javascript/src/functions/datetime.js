@@ -1,4 +1,4 @@
-import { format, addHours } from "date-fns";
+import { format, addHours, isWithinInterval } from "date-fns";
 import { ja } from "date-fns/locale";
 
 export const getTimeIntervalList = () => {
@@ -43,3 +43,18 @@ export const formatDateToJa = (date) => {
   // 日付を日本語表記で返す
   return format(new Date(date), "M月d日(E)", { locale: ja });
 };
+
+export const isDateWithinInterval = (date, startDate, endDate) => {
+  // startDateとendDateの間にdateが含まれるかどうか
+  return isWithinInterval(new Date(date), {
+    start: new Date(startDate),
+    end: new Date(endDate),
+  });
+};
+
+export const compareDates = (a, b) => {
+  // 日付の比較を行う
+  if (a.start < b.start) return -1;
+  if (a.start > b.start) return 1;
+  return 0;
+}
