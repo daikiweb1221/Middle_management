@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     resources :everyday_behaviors
     resources :sessions
+    resources :events
     resources :users do
       collection do
         get 'me'
