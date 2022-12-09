@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'password_resets/create'
+    get 'password_resets/update'
+  end
   root to: 'home#index'
 
   namespace :api do
