@@ -41,6 +41,7 @@ export default {
 
   methods: {
     ...mapActions("everyday_behaviors", ["fetchEverydayBehaviors"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     fetchEverydayBehaviorEdit() {
       this.everyday_behaviorEdit = Object.assign({}, this.everyday_behavior);
     },
@@ -62,7 +63,17 @@ export default {
     async handleUpdateEverydayBehavior(everyday_behavior) {
       try {
         await this.updateEverydayBehavior(everyday_behavior);
+        this.showMessage({
+          message: "五ヶ条を更新しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "五ヶ条の更新に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

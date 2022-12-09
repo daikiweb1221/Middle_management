@@ -7,6 +7,7 @@ import everyday_behaviors from "./modules/everyday_behaviors";
 import places from "./modules/places";
 import communications from "./modules/communications";
 import events from "./modules/events";
+import flash_messages from "./modules/flash_messages";
 
 Vue.use(Vuex);
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     places,
     communications,
     events,
+    flash_messages,
   },
 
   // `createPersistedState()`でインスタンス作成。引数に設定を書く

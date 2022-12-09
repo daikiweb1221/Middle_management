@@ -41,7 +41,7 @@
 </template>
 
 <script>
-// import { mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "ResetPasswordModal",
   data() {
@@ -50,17 +50,17 @@ export default {
     };
   },
   methods: {
-    // ...mapActions("flashMessage", ["showMessage"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     createPasswordReset() {
       this.$axios.post("/password_resets", { email: this.email }).then((res) => {
         this.$router.push({ name: "TopIndex" });
-        //       this.showMessage(
-        //   {
-        //     message: "パスワード再設定メールを送信しました",
-        //     type: "light-blue",
-        //     status: true,
-        //   },
-        // )
+              this.showMessage(
+          {
+            message: "パスワード再設定メールを送信しました",
+            type: "light-blue",
+            status: true,
+          },
+        )
       });
     },
     handleCloseModal() {

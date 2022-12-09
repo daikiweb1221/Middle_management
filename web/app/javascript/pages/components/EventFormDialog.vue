@@ -112,6 +112,7 @@ export default {
       "createEvent",
       "updateEvent",
     ]),
+    ...mapActions("flash_messages", ["showMessage"]),
     closeDialog() {
       this.setEditMode(false);
       this.setEvent(null);
@@ -132,8 +133,18 @@ export default {
 
       if (params.id) {
         this.updateEvent(params);
+        this.showMessage({
+          message: "イベントを更新しました",
+          type: "light-blue",
+          status: true,
+        });
       } else {
         this.createEvent(params);
+        this.showMessage({
+          message: "イベントを追加しました",
+          type: "light-blue",
+          status: true,
+        });
       }
       this.closeDialog();
     },

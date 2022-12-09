@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import SubordinateDetailItem from "../components/SubordinateDetailItem";
 import SubordinateEditModal from "../components/SubordinateEditModal";
 import DeleteDialog from "../components/DeleteDialog";
@@ -74,6 +74,7 @@ export default {
 
   methods: {
     // コメントエリア
+    ...mapActions("flash_messages", ["showMessage"]),
     createPlace(place) {
       const id = parseInt(this.$route.params.id, 10);
       const array = ["subordinates/", id, "/places"];
@@ -85,7 +86,17 @@ export default {
     async handleCreatePlace(place) {
       try {
         await this.createPlace(place);
+        this.showMessage({
+          message: "褒めポイントを追加追加しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "褒めポイントの追加に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
@@ -123,17 +134,28 @@ export default {
         .patch("subordinates/" + target_subordinate, subordinate)
         .then((res) => {
           this.$store.commit("subordinates/updateSubordinate", res.data);
-          this.$router.go({
-            path: this.$router.currentRoute.path,
-            force: true,
-          });
+          // this.$router.go({
+          //   path: this.$router.currentRoute.path,
+          //   force: true,
+          // });
+          this.$router.push({ name: "SubordinateIndex" });
         });
     },
     async handleUpdateSubordinate(subordinate) {
       try {
         await this.updateSubordinate(subordinate);
         this.handleCloseSubordinateEditModal();
+        this.showMessage({
+          message: "メンバーを更新しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "メンバーの更新に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
@@ -142,12 +164,22 @@ export default {
       this.$axios.delete("subordinates/" + target_subordinate).then((res) => {
         this.$store.commit("subordinates/deleteSubordinate", res.data);
         this.$router.push({ name: "SubordinateIndex" });
+        this.showMessage({
+          message: "メンバーを削除しました",
+          type: "light-blue",
+          status: true,
+        });
       });
     },
     async handleDeleteSubordinate() {
       try {
         await this.deleteSubordinate();
       } catch (error) {
+        this.showMessage({
+          message: "メンバーの削除に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

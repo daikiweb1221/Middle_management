@@ -89,6 +89,7 @@ export default {
   },
   methods: {
     ...mapActions("users", ["loginUser", "fetchUser"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     submit() {
       this.$refs.observer.validate();
     },
@@ -96,7 +97,17 @@ export default {
       try {
         await this.loginUser(this.user);
         this.$router.push({ name: "SubordinateIndex" });
+        this.showMessage({
+          message: "ログインしました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "ログインに失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

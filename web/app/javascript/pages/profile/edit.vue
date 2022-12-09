@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     ...mapActions("users", ["updateUser"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     async handleChange(event) {
       this.uploadAvatar = event;
     },
@@ -72,7 +73,17 @@ export default {
       try {
         this.updateUser(formData);
         this.$router.push({ name: "ProfileIndex" });
+        this.showMessage({
+          message: "プロフィールを更新しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "プロフィールの更新に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
