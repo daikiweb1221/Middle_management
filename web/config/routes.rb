@@ -24,8 +24,8 @@ Rails.application.routes.draw do
       collection do
         get 'me'
       end
-      resources :password_resets, only: %i[create update]
     end
+    resources :password_resets, only: %i[create update]
     resources :profile
   end
   # Active Storageでアップロードしたファイルをフロントで表示させるときに使用している
