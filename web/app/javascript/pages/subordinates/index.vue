@@ -81,10 +81,21 @@ export default {
       "createCommunication",
       "fetchCommunications",
     ]),
+    ...mapActions("flash_messages", ["showMessage"]),
     async handleCreateCommunication(communication_subordinate) {
       try {
         await this.createCommunication(communication_subordinate);
+        this.showMessage({
+          message: "コミュニケーション済に追加しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "コミュニケーション済の追加に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
@@ -96,14 +107,34 @@ export default {
     async handleDeleteCommunication(id) {
       try {
         await this.deleteCommunication(id);
+        this.showMessage({
+          message: "コミュニケーション済から削除しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "コミュニケーション済からの削除に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
     async handleCreateSubordinate(subordinate) {
       try {
         await this.createSubordinate(subordinate);
+        this.showMessage({
+          message: "メンバーを追加しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "メンバーの追加に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

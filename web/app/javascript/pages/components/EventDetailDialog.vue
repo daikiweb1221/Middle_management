@@ -45,11 +45,17 @@ export default {
   },
   methods: {
     ...mapActions("events", ["setEvent", "deleteEvent", "setEditMode"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     closeDialog() {
       this.setEvent(null);
     },
     del() {
       this.deleteEvent(this.event.id);
+      this.showMessage({
+          message: "イベントを削除しました",
+          type: "light-blue",
+          status: true,
+        });
     },
     edit() {
       this.setEditMode(true);

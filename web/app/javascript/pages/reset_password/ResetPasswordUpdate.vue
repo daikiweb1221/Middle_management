@@ -53,7 +53,7 @@
 </template>
 
 <script>
-// import { mapActions } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "ResetPasswordUpdate",
   data() {
@@ -67,7 +67,7 @@ export default {
     };
   },
   methods: {
-    // ...mapActions("flashMessage", ["showMessage"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     changePassword() {
       const array = ["password_resets/", this.$route.query.token];
       const path = array.join("");
@@ -77,20 +77,18 @@ export default {
         })
         .then((res) => {
           this.$router.push({ name: "LoginIndex" });
-          //       this.showMessage(
-          //   {
-          //     message: "パスワードを変更しました",
-          //     type: "light-blue",
-          //     status: true,
-          //   },
-          // )
+          this.showMessage({
+            message: "パスワードを変更しました",
+            type: "light-blue",
+            status: true,
+          });
         })
         .catch((err) => {
-          // this.showMessage({
-          //   message: "パスワード変更に失敗しました",
-          //   type: "error",
-          //   status: true,
-          // });
+          this.showMessage({
+            message: "パスワード変更に失敗しました",
+            type: "error",
+            status: true,
+          });
           console.log(err);
         });
     },

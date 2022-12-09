@@ -53,6 +53,7 @@ export default {
   methods: {
     ...mapActions("communications", ["fetchCommunications"]),
     ...mapActions("subordinates", ["fetchSubordinates"]),
+    ...mapActions("flash_messages", ["showMessage"]),
 
     deleteCommunicationSubordinates() {
       this.$axios.delete("communications/destroy_all").then((res) => {
@@ -66,7 +67,17 @@ export default {
     async handleDeleteCommunicationSubordinates() {
       try {
         await this.deleteCommunicationSubordinates();
+        this.showMessage({
+          message: "コミュニケーション済メンバーを削除しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "削除に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

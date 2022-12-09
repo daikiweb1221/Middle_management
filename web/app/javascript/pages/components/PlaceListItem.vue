@@ -20,6 +20,7 @@
 
 <script>
 import DeleteDialogPlacePoint from "../components/DeleteDialogPlacePoint";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -31,6 +32,7 @@ export default {
     require: true,
   },
   methods: {
+    ...mapActions("flash_messages", ["showMessage"]),
     deletePlace(id) {
       this.$axios.delete("places/" + id).then((res) => {
         this.$store.commit("places/deletePlace", res.data);
@@ -39,7 +41,17 @@ export default {
     async handleDeletePlacePoint(id) {
       try {
         await this.deletePlace(id);
+        this.showMessage({
+          message: "褒めポイントを削除しました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "削除に失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },

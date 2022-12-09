@@ -24,7 +24,7 @@
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>ホーム</v-list-item-title>
+                <v-list-item-title>メンバー</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -178,11 +178,22 @@ export default {
   },
   methods: {
     ...mapActions("users", ["logoutUser"]),
+    ...mapActions("flash_messages", ["showMessage"]),
     async handleLogout() {
       try {
         await this.logoutUser();
         this.$router.push({ name: "TopIndex" });
+        this.showMessage({
+          message: "ログアウトしました",
+          type: "light-blue",
+          status: true,
+        });
       } catch (error) {
+        this.showMessage({
+          message: "ログアウトに失敗しました",
+          type: "error",
+          status: true,
+        });
         console.log(error);
       }
     },
