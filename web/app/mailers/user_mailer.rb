@@ -10,7 +10,7 @@ class UserMailer < ApplicationMailer
     # @url  = edit_password_reset_url(@user.reset_password_token)
     # mail(to: user.email,
     #      subject: t('defaults.password_reset'))
-    @url = "#{Settings.site.top_url}users/password/edit?token=#{user&.reset_password_token}"
+    @url = "#{Settings.site.top_url}users_password_edit?token=#{user&.reset_password_token}"
     mail(to: user.email, subject: '【MiddleManagement】パスワード再設定')
   end
 end
