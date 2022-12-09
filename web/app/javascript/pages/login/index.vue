@@ -51,15 +51,32 @@
           </form>
         </validation-observer>
       </div>
+
+      <div class="mt-3 text-center">
+        <v-btn text color="primary" @click="handleShowResetPasswordModal">
+          パスワードをお忘れですか？
+        </v-btn>
+      </div>
     </div>
+    <v-dialog
+      v-if="isVisibleResetPasswordModal"
+      v-model="isVisibleResetPasswordModal"
+      max-width="800"
+    >
+      <ResetPasswordModal @close-modal="handleCloseResetPasswordModal" />
+    </v-dialog>
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import ResetPasswordModal from "./components/ResetPasswordModal";
 
 export default {
   name: "LoginIndex",
+  components: {
+    ResetPasswordModal,
+  },
   data() {
     return {
       user: {
@@ -67,6 +84,7 @@ export default {
         password: "",
       },
       show1: false,
+      isVisibleResetPasswordModal: false,
     };
   },
   methods: {
@@ -81,6 +99,13 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    handleShowResetPasswordModal() {
+      this.isVisibleResetPasswordModal = true;
+    },
+    handleCloseResetPasswordModal() {
+      this.isVisibleResetPasswordModal = false;
+      this.email = {};
     },
   },
 };

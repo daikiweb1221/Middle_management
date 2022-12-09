@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # namespace :api do
+  #   get 'password_resets/create'
+  #   get 'password_resets/update'
+  # end
   root to: 'home#index'
 
   namespace :api do
@@ -21,8 +25,10 @@ Rails.application.routes.draw do
         get 'me'
       end
     end
+    resources :password_resets, only: %i[create update]
     resources :profile
   end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   # Active Storageでアップロードしたファイルをフロントで表示させるときに使用している
   get '*path', to: 'home#index', constraints: lambda { |req|
     # 'rails/active_storage'が含まれているパスはリダイレクト対象外にする

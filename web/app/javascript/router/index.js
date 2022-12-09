@@ -17,6 +17,7 @@ import EverydayBehaviorIndex from "../pages/everyday_behaviors/index";
 import EverydayBehaviorEditPage from "../pages/everyday_behaviors/edit";
 import CommunicationSubordinatesIndex from "../pages/communication_subordinates";
 import CalendarIndex from "../pages/calendar";
+import ResetPasswordUpdate from "../pages/reset_password/ResetPasswordUpdate"
 
 Vue.use(Router);
 
@@ -89,6 +90,11 @@ const router = new Router({
       path: "/login",
       component: LoginIndex,
       name: "LoginIndex",
+    },
+    {
+      path: "/users_password_edit",
+      component: ResetPasswordUpdate,
+      name: "ResetPasswordUpdate",
     },
     {
       path: "/profile",
