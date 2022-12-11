@@ -7,6 +7,11 @@ class Api::EverydayBehaviorsController < ApplicationController
     render json: @everyday_behaviors
   end
 
+  def all
+    @all_everyday_behaviors = EverydayBehavior.all.includes(:user)
+    render json: @all_everyday_behaviors
+  end
+
   def create
     @everyday_behavior = current_user.everyday_behaviors.build(everyday_behavior_params)
 

@@ -68,6 +68,16 @@
               </v-list-item-content>
             </v-list-item>
           </v-list>
+          <v-list dense nav>
+            <v-list-item :to="{ name: 'AllEverydayBehaviorIndex' }">
+              <v-list-item-icon>
+                <v-icon>mdi-account-heart</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title>みんなの理想の上司</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
         </v-container>
       </v-navigation-drawer>
     </template>
