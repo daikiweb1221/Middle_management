@@ -14,6 +14,7 @@ import ProfileIndex from "../pages/profile";
 import ProfileEdit from "../pages/profile/edit";
 import EverydayBehaviorRegister from "../pages/everyday_behaviors/register";
 import EverydayBehaviorIndex from "../pages/everyday_behaviors/index";
+import AllEverydayBehaviorIndex from "../pages/everyday_behaviors/all_everyday_behaviors";
 import EverydayBehaviorEditPage from "../pages/everyday_behaviors/edit";
 import CommunicationSubordinatesIndex from "../pages/communication_subordinates";
 import CalendarIndex from "../pages/calendar";
@@ -67,6 +68,12 @@ const router = new Router({
       path: "/everyday_behavior_index",
       component: EverydayBehaviorIndex,
       name: "EverydayBehaviorIndex",
+      meta: { requiredAuth: true },
+    },
+    {
+      path: "/everyday_behavior_index_all",
+      component: AllEverydayBehaviorIndex,
+      name: "AllEverydayBehaviorIndex",
       meta: { requiredAuth: true },
     },
     {

@@ -17,7 +17,11 @@ Rails.application.routes.draw do
         delete 'destroy_all'
       end
     end
-    resources :everyday_behaviors
+    resources :everyday_behaviors do
+      collection do
+        get 'all'
+      end
+    end
     resources :sessions
     resources :events
     resources :users do
