@@ -22,10 +22,22 @@ export default {
     TheFooter,
     FlashMessage,
   },
+
+  head: {
+    link: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap",
+      },
+    ],
+  },
 };
 </script>
 
 <style scoped>
+.v-application {
+  font-family: "Noto Sans JP", sans-serif !important;
+}
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s;
