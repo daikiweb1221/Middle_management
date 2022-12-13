@@ -142,7 +142,7 @@
               <div class="contents__block-img-wrap contents-img__wrap">
                 <img
                   src="../../../assets/images/contents4.png"
-                  alt="立ち振る舞いチェッっく"
+                  alt="立ち振る舞いチェック"
                   class="contents-img"
                   style="width: 70%"
                 />

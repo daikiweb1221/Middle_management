@@ -1,43 +1,67 @@
 <template>
-  <div class="text-wrap">
-    <div class="text-cont">
-      <p class="fs-1 mb-3 font-weight-bold">
-        １.{{ everyday_behavior.behaviors_one }}
-      </p>
-      <p class="fs-1 mb-3 font-weight-bold">
-        ２.{{ everyday_behavior.behaviors_two }}
-      </p>
-      <p class="fs-1 mb-3 font-weight-bold">
-        ３.{{ everyday_behavior.behaviors_three }}
-      </p>
-      <p class="fs-1 mb-3 font-weight-bold">
-        ４.{{ everyday_behavior.behaviors_four }}
-      </p>
-      <p class="fs-1 mb-3 font-weight-bold">
-        ５.{{ everyday_behavior.behaviors_five }}
-      </p>
-      <div class="mt-10 fs-1">
-        <p>ではもう一つ質問いたします</p>
-        <p>
+  <section class="mindset l-mindset">
+    <div class="mindset__inner inner">
+      <div class="mindset__cont">
+        <div class="mindset__block">
+          <div class="mindset__block-left">
+            <div class="mindset__items">
+              <p class="mindset__item">
+                １. {{ everyday_behavior.behaviors_one }}
+              </p>
+              <p class="mindset__item">
+                ２. {{ everyday_behavior.behaviors_two }}
+              </p>
+              <p class="mindset__item">
+                ３. {{ everyday_behavior.behaviors_three }}
+              </p>
+              <p class="mindset__item">
+                ４. {{ everyday_behavior.behaviors_four }}
+              </p>
+              <p class="mindset__item">
+                ５. {{ everyday_behavior.behaviors_five }}
+              </p>
+            </div>
+          </div>
+          <div class="mindset__block-right">
+            <div class="mindset__block-img-wrap mindset-img__wrap">
+              <img
+                src="../../../assets/images/mindset.png"
+                alt="マインドセット"
+                class="mindset-img"
+                style="width: 90%"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mindset__under-cont inner">
+      <div class="mindset__under-title-wrap">
+        <h2 class="under__title">
           上記の要素を<span class="under-line font-weight-bold"
             >{{ authUser.name }}さんは満たしていますか？</span
           >
+        </h2>
+      </div>
+      <div class="mindset__under-desc-cont">
+        <p class="mindset__desc">
+          上記の要素を満たしているか日々振り返ってみてください
+        </p>
+        <p class="mindset__desc">
+          「部下の心を動かすテクニック」は存在しますが
+        </p>
+        <p class="mindset__desc">
+          部下の心を動かすためには、話を聞くに値する自身の振る舞い
+        </p>
+        <p class="mindset__desc">
+          つまり<span style="color: #ef4565">“自身の日常の姿”</span
+          >が土台になっていることを認識しましょう
         </p>
       </div>
-      <div class="mt-10 fs-1">
-        <p class="mb-0">部下の心を動かす「テクニック」は存在しますが</p>
-        <p class="mb-0">部下の心を動かすためにはテクニックだけでなく</p>
-        <p class="mb-0">話を聞くに値する自分自身の振る舞い</p>
-        <p class="mb-0">
-          つまり"<span class="font-weight-bold" style="color: #d3b102"
-            >自身の日常の姿</span
-          >"が土台になっていることを認識しましょう
-        </p>
-      </div>
-      <div class="btn-cont mt-10">
+      <div class="mindset__btn-wrap">
         <v-btn
-          color="primary"
-          class="mr-4 font-weight-bold px-16"
+          style="background-color: #3da9fc; color: white; font-weight: 700"
+          class="mr-4 px-15 py-5"
           type="submit"
           :to="{ name: 'SubordinateIndex' }"
         >
@@ -45,7 +69,7 @@
         </v-btn>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,37 +94,60 @@ export default {
 </script>
 
 <style scoped>
-.text-wrap {
-  /* text-align: center; */
-  position: relative;
-  width: 100%;
-  height: 100%;
+.inner {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
-.text-cont {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 25px;
-  max-width: 600px;
+.mindset__block {
+  display: flex;
+  max-width: 1163px;
+  margin: auto;
+}
+.mindset__block-left {
+  width: 51%;
+  margin-top: 3.125rem;
+}
+.mindset__block-right {
+  width: 49%;
+}
+
+.mindset-img__wrap {
   width: 100%;
 }
 
-.btn-cont {
-  text-align: center;
+.mindset__item {
+  font-size: 1.75rem;
+}
+
+.mindset__block-left {
+  margin-top: 11rem;
 }
 
 .under-line {
   background: linear-gradient(transparent 70%, #ffff00 0%);
 }
 
-.fs-1 {
-  font-size: 1rem;
+.mindset__under-cont {
+  text-align: center;
+  background-color: #d8eefe !important;
 }
 
-@media screen and (min-width: 480px) {
-  .fs-1 {
-    font-size: 1.5rem;
-  }
+.mindset__under-title-wrap {
+  padding: 4.375rem 0;
+}
+
+.under__title {
+  font-size: 2.5rem;
+}
+
+.mindset__desc {
+  color: #5f6c7b;
+}
+.mindset__desc {
+  font-size: 1.3125rem;
+}
+.mindset__btn-wrap {
+  padding-top: 2rem;
+  padding-bottom: 8rem;
 }
 </style>

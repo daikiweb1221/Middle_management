@@ -98,8 +98,15 @@
         <template v-else>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
-        <router-link style="text-decoration: none; color: white" to="/"
-          ><v-toolbar-title>Middle Management</v-toolbar-title></router-link
+        <template v-if="this.$route.path === '/introduction'"></template>
+        <div
+          v-else-if="this.$route.path === '/everyday_behavior_register'"
+        ></div>
+        <div v-else-if="this.$route.path === '/mindset'"></div>
+        <template v-else>
+          <router-link style="text-decoration: none; color: white" to="/"
+            ><v-toolbar-title>Middle Management</v-toolbar-title></router-link
+          ></template
         >
         <v-spacer></v-spacer>
         <v-toolbar-items>
@@ -221,7 +228,6 @@ export default {
 
 <style scoped>
 .header {
-  background-color: #21d4fd;
-  background-image: linear-gradient(19deg, #21d4fd 0%, #3a21ff 100%);
+  background-color: #094067 !important;
 }
 </style>
