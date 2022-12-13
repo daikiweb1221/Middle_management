@@ -36,7 +36,10 @@ export default {
 
 <style scoped>
 .v-application {
-  font-family: "Noto Sans JP", sans-serif !important;
+  /* font-family: "Noto Sans JP", sans-serif !important; */
+  background-color: #fffffe !important;
+  font-weight: 700 !important;
+  color: #094067 !important;
 }
 .v-enter-active,
 .v-leave-active {
