@@ -2,7 +2,9 @@
   <v-card>
     <ValidationObserver v-slot="{ handleSubmit }">
       <v-card-title>
-        <span class="text-h5">編集</span>
+        <span style="color: #094067; font-weight: 700" class="text-h5"
+          >編集</span
+        >
       </v-card-title>
       <v-card-text>
         <v-container>

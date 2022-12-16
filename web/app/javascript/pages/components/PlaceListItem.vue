@@ -1,19 +1,25 @@
 <template>
-  <div style="width: 50%">
-    <v-card v-for="place in places" :key="place.id" outline>
-      <v-card-title style="justify-content: space-between">
-        <div>
-          <p>
-            <v-icon class="pr-2">mdi-head-heart</v-icon>{{ place.place_point }}
-          </p>
-          <p class="mb-0">
-            <small>{{ place.created_at }}</small>
-          </p>
-        </div>
-        <DeleteDialogPlacePoint
-          @delete-place-point="handleDeletePlacePoint(place.id)"
-        />
-      </v-card-title>
+  <div class="place-point__box">
+    <v-card class="place-point__card" v-for="place in places" :key="place.id">
+      <v-timeline align-top dense>
+        <v-timeline-item color="pink" small>
+          <v-row class="pt-1">
+            <v-col cols="3">
+              <span class="place-point__date">{{
+                formatDateToJa(place.created_at)
+              }}</span>
+            </v-col>
+            <v-col>
+              <strong style="color: #094067">{{ place.place_point }}</strong>
+              <div class="text-caption">
+                <DeleteDialogPlacePoint
+                  @delete-place-point="handleDeletePlacePoint(place.id)"
+                />
+              </div>
+            </v-col>
+          </v-row>
+        </v-timeline-item>
+      </v-timeline>
     </v-card>
   </div>
 </template>
@@ -21,6 +27,7 @@
 <script>
 import DeleteDialogPlacePoint from "../components/DeleteDialogPlacePoint";
 import { mapActions } from "vuex";
+import { formatDateToJa } from "../../src/functions/datetime";
 
 export default {
   components: {
@@ -33,6 +40,7 @@ export default {
   },
   methods: {
     ...mapActions("flash_messages", ["showMessage"]),
+    formatDateToJa,
     deletePlace(id) {
       this.$axios.delete("places/" + id).then((res) => {
         this.$store.commit("places/deletePlace", res.data);
@@ -58,3 +66,19 @@ export default {
   },
 };
 </script>
+<style scoped>
+.place-point__box {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .place-point__box {
+    width: 50%;
+  }
+}
+
+.place-point__date {
+  color: #5f6c7b;
+  font-size: 0.625rem;
+}
+</style>

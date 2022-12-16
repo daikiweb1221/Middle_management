@@ -1,38 +1,82 @@
 <template>
-  <div>
-    <div style="position: relative">
-      <SubordinateDetailItem :subordinate="subordinate" />
-      <div style="position: absolute; right: 50px; top: 100px">
-        <div style="display: flex">
-          <PlaceCreateModal @create-place="handleCreatePlace" />
-          <v-btn
-            color="primary"
-            fab
-            small
-            dark
-            @click="handleShowSubordinateEditModal(subordinate)"
-            @click.stop="dialog = true"
+  <section class="subordinate l-subordinate">
+    <div
+      class="subordinate__top-cont"
+      :style="{ 'background-image': 'url(' + assetsImage + ')' }"
+    >
+      <div class="inner">
+        <div class="subordinate__title-cont title-cont">
+          <h1 class="subordinate__title sub-title">Your Subordinate</h1>
+        </div>
+        <div class="subordinate__cont">
+          <SubordinateDetailItem :subordinate="subordinate" />
+          <div
+            class="list-btn__wrap"
+            style="
+              height: 4.375rem;
+              position: relative;
+              max-width: 800px;
+              margin: 0.625rem auto 0;
+            "
           >
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
+            <PlaceCreateModal
+              class="create__place"
+              @create-place="handleCreatePlace"
+            />
+            <v-btn
+              class="edit__icon"
+              color="primary"
+              fab
+              small
+              dark
+              @click="handleShowSubordinateEditModal(subordinate)"
+              @click.stop="dialog = true"
+            >
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
 
-          <DeleteDialog @delete-subordinate="handleDeleteSubordinate" />
+            <DeleteDialog
+              class="delete__dialog"
+              @delete-subordinate="handleDeleteSubordinate"
+            />
+            <v-dialog v-model="dialog" persistent max-width="600px">
+              <SubordinateEditModal
+                :dialog="dialog"
+                :subordinate="subordinateEdit"
+                @close-modal="handleCloseSubordinateEditModal"
+                @update-subordinate="handleUpdateSubordinate"
+              />
+            </v-dialog>
+          </div>
         </div>
       </div>
     </div>
-    <v-dialog v-model="dialog" persistent max-width="600px">
-      <SubordinateEditModal
-        :dialog="dialog"
-        :subordinate="subordinateEdit"
-        @close-modal="handleCloseSubordinateEditModal"
-        @update-subordinate="handleUpdateSubordinate"
-      />
-    </v-dialog>
-    <div body-container style="display: flex">
-      <PlaceListItem :places="places" />
-      <div>aaaaaaaaaa</div>
+
+    <div class="palace__point-cont l-place-point">
+      <div class="inner">
+        <div class="place__point-title-cont">
+          <h1 class="place__point-title sub-title">
+            Place Point<span class="place__point-title-ja"
+              >- 褒めポイント -</span
+            >
+          </h1>
+        </div>
+        <div class="place-point__wrap">
+          <PlaceListItem :places="places" />
+          <div class="place-point-right">
+            <div class="place-point__img-wrap">
+              <img
+                src="../../../assets/images/place-detail.png"
+                alt="褒めポイント"
+                class="place-point__img"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -42,6 +86,7 @@ import SubordinateEditModal from "../components/SubordinateEditModal";
 import DeleteDialog from "../components/DeleteDialog";
 import PlaceCreateModal from "../components/PlaceCreateModal";
 import PlaceListItem from "../components/PlaceListItem";
+import AssetsImage from "../../../assets/images/background2.jpg";
 
 export default {
   components: {
@@ -59,6 +104,7 @@ export default {
       subordinate: {},
       subordinateEdit: {},
       dialog: false,
+      assetsImage: AssetsImage,
     };
   },
 
@@ -187,4 +233,85 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.subordinate__top-cont {
+  width: 100%;
+  background-size: cover;
+  height: 21.875rem;
+  background-position: center center;
+}
+
+.inner {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.subordinate__title-cont {
+  padding-top: 2.1875rem;
+  /* padding-left: 2.1875rem; */
+}
+
+.sub__title {
+  font-size: 2rem;
+}
+
+.subordinate__cont {
+  margin-top: 1.875rem;
+}
+
+.edit__icon {
+  position: absolute;
+  right: 2.8125rem;
+}
+
+.create__place {
+  position: absolute;
+  right: 0;
+}
+
+.place__point-title {
+  position: relative;
+}
+
+.place__point-title-ja {
+  position: absolute;
+  color: #5f6c7b;
+  font-size: 0.75rem;
+  top: 1.75rem;
+  left: 1.0625rem;
+}
+.l-place-point {
+  padding-top: 0.625rem;
+  padding-bottom: 8rem;
+}
+
+.place-point__box {
+  margin-top: 2rem;
+}
+
+.place-point__wrap {
+  max-width: 850px;
+  margin: auto;
+}
+.place-point-right {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .place-point__wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: auto;
+  }
+  .place-point-right {
+    width: 40%;
+  }
+}
+
+.delete__dialog {
+  position: absolute;
+  right: 5.625rem;
+}
+</style>

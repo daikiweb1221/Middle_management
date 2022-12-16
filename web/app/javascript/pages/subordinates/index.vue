@@ -1,6 +1,70 @@
 <template>
-  <div>
-    <div class="px-3">
+  <section
+    class="subordinates l-subordinates"
+    :style="{ 'background-image': 'url(' + assetsImage + ')' }"
+  >
+    <div class="inner">
+      <div class="subordinates__title-cont">
+        <h1 class="subordinates__title">Your Subordinates</h1>
+      </div>
+      <div class="subordinates-cont">
+        <v-card
+          class="mx-auto"
+          elevation="3"
+          outlined
+          v-for="subordinate in subordinates"
+          :key="subordinate.id"
+        >
+          <v-list-item three-line>
+            <v-list-item-content>
+              <div class="text-overline mb-4">Buddy</div>
+              <v-list-item-title class="subordinate__name text-h5 mb-1">
+                {{ subordinate.name }}
+              </v-list-item-title>
+              <div class="sub-title__wrap">
+                <v-list-item-subtitle
+                  ><v-icon class="pr-2" color="#5f6c7b">mdi-email</v-icon
+                  >{{ subordinate.email }}</v-list-item-subtitle
+                >
+                <v-list-item-subtitle
+                  ><v-icon class="pr-2" color="#5f6c7b">mdi-cake-layered</v-icon
+                  >{{ subordinate.birthday }}</v-list-item-subtitle
+                >
+              </div>
+            </v-list-item-content>
+
+            <v-list-item-avatar tile size="80" color="white">
+              <v-btn
+                :to="{
+                  name: 'SubordinateDetail',
+                  params: { id: subordinate.id },
+                }"
+                color="blue darken-2"
+                fab
+                dark
+              >
+                <v-icon>mdi-account-circle</v-icon>
+              </v-btn>
+            </v-list-item-avatar>
+          </v-list-item>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <div class="communication__wrap">
+              <Communication
+                :communication_subordinates="communications"
+                :subordinate="subordinate"
+                @create-communication="handleCreateCommunication(subordinate)"
+                @delete-communication="
+                  handleDeleteCommunication(subordinate.id)
+                "
+              />
+            </div>
+          </v-card-actions>
+        </v-card>
+      </div>
+    </div>
+    <!-- <div class="px-3">
       <v-card
         v-for="subordinate in subordinates"
         :key="subordinate.id"
@@ -42,23 +106,29 @@
           </v-btn>
         </div>
       </v-card>
-    </div>
+    </div> -->
     <div
       class="mt-5"
       style="position: fixed; right: 30px; z-index: 6; bottom: 52px"
     >
       <SubordinateCreateModal @create-subordinate="handleCreateSubordinate" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import SubordinateCreateModal from "../components/SubordinateCreateModal";
 import Communication from "../components/Communication";
+import AssetsImage from "../../../assets/images/background.jpg";
 
 export default {
   name: "SubordinateIndex",
+  data() {
+    return {
+      assetsImage: AssetsImage,
+    };
+  },
   components: {
     SubordinateCreateModal,
     Communication,
@@ -142,4 +212,46 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.l-subordinates {
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  background-position: center center;
+}
+.inner {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.v-card {
+  width: 500px !important;
+  margin-top: 1rem !important;
+}
+
+.subordinate__name {
+  color: #094067 !important;
+  font-weight: 700 !important;
+}
+
+.subordinates__title-cont {
+  padding-top: 2.1875rem;
+  /* padding-left: 2.1875rem; */
+}
+
+.subordinates__title {
+  font-size: 2rem;
+}
+.subordinates-cont {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4.375rem;
+  padding-bottom: 10rem;
+}
+
+.sub-title__wrap {
+  margin-top: 1rem;
+}
+</style>

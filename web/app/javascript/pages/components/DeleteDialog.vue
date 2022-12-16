@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <div>
     <v-dialog
       v-model="dialog"
       persistent
@@ -8,15 +8,7 @@
       dark
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="error"
-          fab
-          small
-          dark
-          v-bind="attrs"
-          v-on="on"
-          style="left: 20px; top: 11px"
-        >
+        <v-btn color="error" fab small dark v-bind="attrs" v-on="on">
           <v-icon>mdi-account-off</v-icon>
         </v-btn>
       </template>
@@ -31,7 +23,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-row>
+  </div>
 </template>
 
 <script>
@@ -49,3 +41,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>
