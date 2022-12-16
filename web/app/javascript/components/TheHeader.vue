@@ -12,7 +12,7 @@
         <v-container>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title style="font-size: 1rem">
+              <v-list-item-title style="font-size: 1rem; color: #094067">
                 メニューリスト
               </v-list-item-title>
             </v-list-item-content>
@@ -21,30 +21,21 @@
           <v-list dense nav>
             <v-list-item :to="{ name: 'SubordinateIndex' }">
               <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
+                <v-icon>mdi-account-multiple</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>メンバー</v-list-item-title>
+                <v-list-item-title>メンバー一覧</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
-          <v-list dense nav>
-            <v-list-item :to="{ name: 'ProfileIndex' }">
-              <v-list-item-icon>
-                <v-icon>mdi-account</v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title>マイページ</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
+
           <v-list dense nav>
             <v-list-item :to="{ name: 'IdealBossChecks' }">
               <v-list-item-icon>
-                <v-icon>mdi-account-heart</v-icon>
+                <v-icon>mdi-checkbox-marked-circle</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>理想の上司度チェック</v-list-item-title>
+                <v-list-item-title>上司力チェック</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -54,27 +45,27 @@
                 <v-icon>mdi-account-heart</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>コミュニケーション済一覧</v-list-item-title>
+                <v-list-item-title>コミュニケーション済</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
           <v-list dense nav>
             <v-list-item :to="{ name: 'CalendarIndex' }">
               <v-list-item-icon>
-                <v-icon>mdi-account-heart</v-icon>
+                <v-icon>mdi-calendar-month</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>ToDo</v-list-item-title>
+                <v-list-item-title>カレンダー</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
           <v-list dense nav>
             <v-list-item :to="{ name: 'AllEverydayBehaviorIndex' }">
               <v-list-item-icon>
-                <v-icon>mdi-account-heart</v-icon>
+                <v-icon>mdi-head-lightbulb-outline</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>みんなの理想の上司</v-list-item-title>
+                <v-list-item-title>理想の上司一覧</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -230,4 +221,11 @@ export default {
 .header {
   background-color: #094067 !important;
 }
+.v-list-item--active {
+  background-color: #d8eefe !important;
+}
+/* .v-list-item-title {
+  font-weight: normal !important;
+  color: #5f6c7b !important;
+} */
 </style>

@@ -1,104 +1,118 @@
 <template>
-  <div class="app">
-    <div class="container position-center">
-      <h3 class="text-center mb-9">あなたの上司力をチェックしてみましょう</h3>
-      <!-- クイズを表示する部分 -->
-      <div v-if="!completed" id="quiz">
-        <v-card loading elevation="2" shaped>
-          <v-card-text class="text-center">
-            <p class="card-header-title text--primary">
-              第 {{ questionIndex + 1 }} 問
-            </p>
-            <div class="card-content">
-              <div class="content">
-                <p class="text--primary">{{ currentQuestion.question }}</p>
+  <div
+    class="app l-ideal"
+    :style="{ 'background-image': 'url(' + assetsImage + ')' }"
+  >
+    <div class="inner">
+      <div class="ideal__title-cont">
+        <h1 class="ideal__title">Let's Check!!</h1>
+      </div>
+      <div class="container position-center">
+        <h3 class="text-center mb-9">あなたの上司力をチェックしてみましょう</h3>
+        <!-- クイズを表示する部分 -->
+        <div v-if="!completed" id="quiz">
+          <v-card loading elevation="2" shaped>
+            <v-card-text class="text-center">
+              <p class="card-header-title quiz-font">
+                第 {{ questionIndex + 1 }} 問
+              </p>
+              <div class="card-content">
+                <div class="content">
+                  <p class="quiz-font question-font">
+                    {{ currentQuestion.question }}
+                  </p>
+                </div>
               </div>
-            </div>
-          </v-card-text>
+            </v-card-text>
 
-          <v-card-actions
-            class="text-center"
-            style="max-width: 300px; margin: auto; display: block"
-          >
-            <v-btn
-              type="submit"
-              v-for="(answer, index) in currentQuestion.answers"
-              v-bind:key="index"
-              @click="addAnswer(index)"
+            <v-card-actions
+              class="text-center"
+              style="max-width: 300px; margin: auto; display: block"
             >
-              {{ answer }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </div>
+              <v-btn
+                type="submit"
+                v-for="(answer, index) in currentQuestion.answers"
+                v-bind:key="index"
+                @click="addAnswer(index)"
+              >
+                {{ answer }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </div>
 
-      <!-- 結果表示する部分 -->
-      <div v-if="completed">
-        <v-card elevation="14" class="text-center">
-          <p class="rank-heading text-center">あなたの上司力は・・・</p>
-          <div v-if="rankA">
-            <p class="rank-text"><span class="rank class-a">A</span>ランク</p>
-            <p class="rank-description">
-              素晴らしい！あなたの日々の行動や立ち振る舞いは人に動いてもらえる理想の上司です。<br />継続できるようたまには振り返りをしてみましょう!
-            </p>
-          </div>
-          <div v-if="rankB">
-            <p class="rank-text"><span class="rank class-b">B</span>ランク</p>
-            <p class="rank-description">
-              良いですね！信頼される上司まであと少し。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
-            </p>
-          </div>
-          <div v-if="rankC">
-            <p class="rank-text"><span class="rank class-c">C</span>ランク</p>
-            <p class="rank-description">
-              まずまずです！ですが、まだまだできることはあるはず。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
-            </p>
-          </div>
-          <div v-if="rankD">
-            <p class="rank-text"><span class="rank class-d">D</span>ランク</p>
-            <p class="rank-description">
-              まだまだできることはあるはず。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
-            </p>
-          </div>
-          <div v-if="rankE">
-            <p class="rank-text"><span class="rank class-e">E</span>ランク</p>
-            <p class="rank-description">
-              もしかすると部下から信頼を得られていない可能性があります。<br />チェックリストを見返して日々の行動を改めてみましょう!
-            </p>
-          </div>
-          <div v-if="rankF">
-            <p class="rank-text"><span class="rank class-f">F</span>ランク</p>
-            <p class="rank-description">
-              もしかすると部下から信頼を得られていない可能性があります。<br />チェックリストを見返して日々の行動を改めてみましょう!
-            </p>
-          </div>
-          <div v-if="rankG">
-            <p class="rank-text"><span class="rank class-g">G</span>ランク</p>
-            <p class="rank-description">
-              残念ながらあなたは部下から信頼を得られていません。<br />今すぐチェックリストを見返して日々の行動を改めましょう!
-            </p>
-          </div>
-        </v-card>
-      </div>
-      <div class="btn-wrap">
-        <v-btn
-          color="primary"
-          class="mr-4 font-weight-bold px-16"
-          type="submit"
-          @click="reload()"
-        >
-          もう一度チェックする
-        </v-btn>
+        <!-- 結果表示する部分 -->
+        <div v-if="completed">
+          <v-card elevation="14" class="text-center">
+            <p class="rank-heading text-center">あなたの上司力は・・・</p>
+            <div v-if="rankA">
+              <p class="rank-text"><span class="rank class-a">A</span>ランク</p>
+              <p class="rank-description">
+                素晴らしい！あなたの日々の行動や立ち振る舞いは人に動いてもらえる理想の上司です。<br />継続できるようたまには振り返りをしてみましょう!
+              </p>
+            </div>
+            <div v-if="rankB">
+              <p class="rank-text"><span class="rank class-b">B</span>ランク</p>
+              <p class="rank-description">
+                良いですね！信頼される上司まであと少し。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
+              </p>
+            </div>
+            <div v-if="rankC">
+              <p class="rank-text"><span class="rank class-c">C</span>ランク</p>
+              <p class="rank-description">
+                まずまずです！ですが、まだまだできることはあるはず。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
+              </p>
+            </div>
+            <div v-if="rankD">
+              <p class="rank-text"><span class="rank class-d">D</span>ランク</p>
+              <p class="rank-description">
+                まだまだできることはあるはず。<br />チェックリストを見返して日々の行動を振り返ってみましょう!
+              </p>
+            </div>
+            <div v-if="rankE">
+              <p class="rank-text"><span class="rank class-e">E</span>ランク</p>
+              <p class="rank-description">
+                もしかすると部下から信頼を得られていない可能性があります。<br />チェックリストを見返して日々の行動を改めてみましょう!
+              </p>
+            </div>
+            <div v-if="rankF">
+              <p class="rank-text"><span class="rank class-f">F</span>ランク</p>
+              <p class="rank-description">
+                もしかすると部下から信頼を得られていない可能性があります。<br />チェックリストを見返して日々の行動を改めてみましょう!
+              </p>
+            </div>
+            <div v-if="rankG">
+              <p class="rank-text"><span class="rank class-g">G</span>ランク</p>
+              <p class="rank-description">
+                残念ながらあなたは部下から信頼を得られていません。<br />今すぐチェックリストを見返して日々の行動を改めましょう!
+              </p>
+            </div>
+          </v-card>
+        </div>
+        <div class="btn-wrap">
+          <v-btn
+            color="#3da9fc"
+            class="mr-4 font-weight-bold px-16"
+            dark
+            type="submit"
+            @click="reload()"
+          >
+            もう一度チェックする
+          </v-btn>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import AssetsImage from "../../../assets/images/ideal-back.jpg";
+
 export default {
   name: "IdealBossChecks",
   data() {
     return {
+      assetsImage: AssetsImage,
       answers: [],
       questionIndex: 0,
       correctCount: 0,
@@ -225,7 +239,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.l-ideal {
+  width: 100%;
+  background-size: cover;
+  height: 100%;
+  background-position: center center;
+  /* padding-bottom: 8rem; */
+}
+
 .position-center {
   position: absolute;
   top: 50%;
@@ -235,6 +257,14 @@ export default {
   width: 100%;
 }
 
+.quiz-font {
+  color: #094067;
+  font-weight: 700;
+}
+
+.question-font {
+  font-size: 1.25rem;
+}
 .btn-wrap {
   max-width: 300px;
   margin: 40px auto;
@@ -269,7 +299,8 @@ export default {
 
 .rank-heading {
   font-size: 2rem;
-  font-weight: normal !important;
+  color: #094067;
+  font-weight: 700 !important;
   margin-bottom: 0 !important;
   padding: 25px 25px 0 25px;
   text-align: left !important;
@@ -277,7 +308,8 @@ export default {
 
 .rank-text {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: 700;
+  color: #094067;
   margin-bottom: 0 !important;
 }
 
@@ -285,6 +317,23 @@ export default {
   text-align: center;
   padding: 0 25px 25px 25px;
   font-size: 1.5rem;
-  font-weight: normal !important;
+  font-weight: 700 !important;
+  color: #094067;
+}
+
+.inner {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.ideal__title-cont {
+  padding-top: 2.1875rem;
+  /* padding-left: 2.1875rem; */
+}
+
+.ideal__title {
+  font-size: 2rem;
 }
 </style>

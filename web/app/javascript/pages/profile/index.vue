@@ -1,60 +1,136 @@
 <template>
-  <div class="position-center container">
-    <v-card class="mb-5">
-      <v-list-item three-line>
-        <v-list-item-avatar size="80">
-          <v-img :src="authUser.avatar_url" v-if="authUser.avatar_url"></v-img>
-          <v-icon v-else size="80">mdi-account-circle</v-icon>
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <div class="text-overline mb-1">Profile</div>
-          <v-list-item-title class="text-h5 mb-1">
-            {{ authUser.name }}
-          </v-list-item-title>
-          <v-list-item-subtitle>{{ authUser.email }}</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+  <section class="profile l-profile">
+    <div class="profile-back-ground">
+      <div class="inner">
+        <div class="profile__title-cont">
+          <h1 class="profile__title">My Profile</h1>
+        </div>
+        <div class="profile__cont">
+          <v-card class="mx-auto profile__card" elevation="3" outlined>
+            <v-list-item three-line>
+              <v-list-item-content>
+                <div class="text-overline mb-4">Profile</div>
+                <v-list-item-title class="user__name text-h5 mb-1">
+                  {{ authUser.name }}
+                </v-list-item-title>
+                <div class="sub-title__wrap">
+                  <v-list-item-subtitle
+                    ><v-icon class="pr-2" color="#5f6c7b">mdi-email</v-icon
+                    >{{ authUser.email }}</v-list-item-subtitle
+                  >
+                </div>
+              </v-list-item-content>
 
-      <v-card-actions style="justify-content: end">
-        <v-btn :to="{ name: 'ProfileEdit' }" color="primary" fab small dark>
-          <v-icon>mdi-account-edit</v-icon>
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-    <v-card>
-      <v-card-title
-        >{{ authUser.name }}さんが日常で目指すべき姿【五ヶ条】</v-card-title
-      >
-      <v-card-text>
-        <p class="mb-3 text--primary">
-          １.{{ everyday_behavior.behaviors_one }}
-        </p>
-        <p class="mb-3 text--primary">
-          ２.{{ everyday_behavior.behaviors_two }}
-        </p>
-        <p class="mb-3 text--primary">
-          ３.{{ everyday_behavior.behaviors_three }}
-        </p>
-        <p class="mb-3 text--primary">
-          ４.{{ everyday_behavior.behaviors_four }}
-        </p>
-        <p class="mb-3 text--primary">
-          ５.{{ everyday_behavior.behaviors_five }}
-        </p>
-      </v-card-text>
-      <v-card-actions style="justify-content: end">
-        <v-btn
-          :to="{ name: 'EverydayBehaviorEditPage' }"
-          outlined
-          small
-          fab
-          color="indigo"
-        >
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </div>
+              <v-list-item-avatar tile size="80" color="white">
+                <v-img
+                  :src="authUser.avatar_url"
+                  v-if="authUser.avatar_url"
+                ></v-img>
+                <v-icon v-else size="80">mdi-account-circle</v-icon>
+              </v-list-item-avatar>
+            </v-list-item>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <div class="profile-edit__wrap">
+                <v-btn :to="{ name: 'ProfileEdit' }" icon small>
+                  <v-icon>mdi-account-edit</v-icon>
+                </v-btn>
+              </div>
+            </v-card-actions>
+          </v-card>
+        </div>
+      </div>
+    </div>
+    <div class="everyday-behaviors l-everyday-behaviors">
+      <div class="inner">
+        <div class="everyday-behaviors-title-cont">
+          <h1 class="everyday-behaviors-title sub-title">
+            Everyday Behaviors<span class="everyday-behaviors-title-ja"
+              >- 土台となる日常の姿 -</span
+            >
+          </h1>
+        </div>
+        <div class="everyday-behaviors__block">
+          <div class="everyday-behaviors__left">
+            <v-card width="375" elevation="3" outlined>
+              <div class="everyday-behaviors__inner">
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      >１.{{
+                        everyday_behavior.behaviors_one
+                      }}</v-list-item-title
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item two-line>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      >２.{{
+                        everyday_behavior.behaviors_two
+                      }}</v-list-item-title
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+
+                <v-list-item two-line>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      >３.{{
+                        everyday_behavior.behaviors_three
+                      }}</v-list-item-title
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item four-line>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      >４.{{
+                        everyday_behavior.behaviors_four
+                      }}</v-list-item-title
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+                <v-list-item five-line>
+                  <v-list-item-content>
+                    <v-list-item-title
+                      >５.{{
+                        everyday_behavior.behaviors_five
+                      }}</v-list-item-title
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <div class="profile-edit__wrap">
+                    <v-btn
+                      :to="{ name: 'EverydayBehaviorEditPage' }"
+                      icon
+                      small
+                    >
+                      <v-icon>mdi-pencil</v-icon>
+                    </v-btn>
+                  </div>
+                </v-card-actions>
+              </div>
+            </v-card>
+          </div>
+          <div class="everyday-behaviors__right">
+            <div class="place-point__img-wrap">
+              <img
+                src="../../../assets/images/everyday-behaviors.png"
+                alt="褒めポイント"
+                class="place-point__img"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -78,12 +154,75 @@ export default {
 </script>
 
 <style scoped>
-.position-center {
+.l-profile {
+  padding-bottom: 8rem;
+}
+.profile-back-ground {
+  background-color: #d8eefe;
+  padding-bottom: 8rem;
+}
+.inner {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.profile__cont {
+  margin-top: 1rem;
+}
+
+.profile__title-cont {
+  padding-top: 2.1875rem;
+  /* padding-left: 2.1875rem; */
+}
+
+.profile__title {
+  font-size: 2rem;
+}
+
+/* .user__name {
+  color: #094067;
+  font-weight: 700;
+} */
+
+.profile__card {
+  max-width: 800px;
+  text-align: center;
+}
+
+.everyday-behaviors-title {
+  position: relative;
+  font-size: 2rem;
+}
+
+.everyday-behaviors-title-ja {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 25px;
-  width: 100%;
+  color: #5f6c7b;
+  font-size: 0.75rem;
+  top: 2.9375rem;
+  left: 4.5625rem;
+}
+
+.l-everyday-behaviors {
+  margin-top: 4rem;
+}
+
+.everyday-behaviors__inner {
+  padding-top: 1rem;
+}
+
+.everyday-behaviors__block {
+    margin: 3rem auto 0;
+  }
+
+@media screen and (min-width: 750px) {
+  .everyday-behaviors__block {
+    display: flex;
+    justify-content: space-between;
+    max-width: 850px;
+  }
+  .everyday-behaviors__right {
+    width: 60%;
+  }
 }
 </style>

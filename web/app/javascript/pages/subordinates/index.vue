@@ -5,7 +5,11 @@
   >
     <div class="inner">
       <div class="subordinates__title-cont">
-        <h1 class="subordinates__title">Your Subordinates</h1>
+        <h1 class="subordinates__title" style="position: relative">
+          Your Subordinates<span class="subordinates-title-ja"
+            >- メンバーを登録しよう -</span
+          >
+        </h1>
       </div>
       <div class="subordinates-cont">
         <v-card
@@ -231,10 +235,10 @@ export default {
   margin-top: 1rem !important;
 }
 
-.subordinate__name {
+/* .subordinate__name {
   color: #094067 !important;
   font-weight: 700 !important;
-}
+} */
 
 .subordinates__title-cont {
   padding-top: 2.1875rem;
@@ -249,6 +253,14 @@ export default {
   flex-wrap: wrap;
   margin-top: 4.375rem;
   padding-bottom: 10rem;
+}
+
+.subordinates-title-ja {
+  position: absolute;
+  color: #5f6c7b;
+  font-size: 0.75rem;
+  top: 3rem;
+  left: 3.5rem;
 }
 
 .sub-title__wrap {

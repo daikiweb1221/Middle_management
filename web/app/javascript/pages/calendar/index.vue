@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="calendar l-calendar">
     <v-sheet height="6vh" class="d-flex align-center">
       <v-btn outlined small class="ma-4" @click="setToday">今日</v-btn>
       <v-btn icon @click="$refs.calendar.prev()">
@@ -105,3 +105,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.l-calendar {
+  padding-bottom: 7rem;
+}
+</style>

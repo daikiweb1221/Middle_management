@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="pt-5 pb-1 text-h6 text-center font-weight-bold">五ヶ条編集</p>
+    <p class="pt-5 pb-1 text-h6 text-center font-weight-bold">土台となる日常の姿編集</p>
 
     <EverydayBehaviorEdit
       :everyday_behavior="this.everyday_behavior"
@@ -64,13 +64,13 @@ export default {
       try {
         await this.updateEverydayBehavior(everyday_behavior);
         this.showMessage({
-          message: "五ヶ条を更新しました",
+          message: "土台となる日常の姿を更新しました",
           type: "light-blue",
           status: true,
         });
       } catch (error) {
         this.showMessage({
-          message: "五ヶ条の更新に失敗しました",
+          message: "土台となる日常の姿の更新に失敗しました",
           type: "error",
           status: true,
         });
