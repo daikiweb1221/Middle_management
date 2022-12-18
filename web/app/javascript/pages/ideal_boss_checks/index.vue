@@ -8,7 +8,9 @@
         <h1 class="ideal__title">Let's Check!!</h1>
       </div>
       <div class="container position-center">
-        <h3 class="text-center mb-9">あなたの上司力をチェックしてみましょう</h3>
+        <h3 class="ideal-sub-title text-center">
+          あなたの影響力をチェックしてみましょう
+        </h3>
         <!-- クイズを表示する部分 -->
         <div v-if="!completed" id="quiz">
           <v-card loading elevation="2" shaped>
@@ -44,11 +46,11 @@
         <!-- 結果表示する部分 -->
         <div v-if="completed">
           <v-card elevation="14" class="text-center">
-            <p class="rank-heading text-center">あなたの上司力は・・・</p>
+            <p class="rank-heading text-center">あなたの影響力は・・・</p>
             <div v-if="rankA">
               <p class="rank-text"><span class="rank class-a">A</span>ランク</p>
               <p class="rank-description">
-                素晴らしい！あなたの日々の行動や立ち振る舞いは人に動いてもらえる理想の上司です。<br />継続できるようたまには振り返りをしてみましょう!
+                素晴らしい！あなたの日々の行動や立ち振る舞いは部下から話を聞くに値すると思われています。<br />継続できるよう振り返りをしてみましょう!
               </p>
             </div>
             <div v-if="rankB">
@@ -335,5 +337,47 @@ export default {
 
 .ideal__title {
   font-size: 2rem;
+}
+
+.ideal-sub-title {
+  margin-bottom: 2.25rem;
+}
+
+@media screen and (max-width: 767px) {
+  .rank-description {
+    text-align: center;
+    padding: 0 25px 25px 25px;
+    font-size: 0.725rem;
+    font-weight: 700 !important;
+    color: #094067;
+  }
+  .rank-heading {
+    font-size: 1rem;
+    color: #094067;
+    font-weight: 700 !important;
+    margin-bottom: 0 !important;
+    padding: 25px 25px 0 25px;
+    text-align: left !important;
+  }
+
+  .ideal-sub-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .rank-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #094067;
+    margin-bottom: 0 !important;
+  }
+  .rank {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: initial;
+  }
+  .question-font {
+    font-size: 0.725rem;
+  }
 }
 </style>

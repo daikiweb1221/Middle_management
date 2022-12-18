@@ -212,8 +212,8 @@ export default {
 }
 
 .everyday-behaviors__block {
-    margin: 3rem auto 0;
-  }
+  margin: 3rem auto 0;
+}
 
 @media screen and (min-width: 750px) {
   .everyday-behaviors__block {
@@ -224,5 +224,30 @@ export default {
   .everyday-behaviors__right {
     width: 60%;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .profile-back-ground {
+    padding-bottom: 4rem;
+  }
+  .profile__title {
+    font-size: 1.3rem;
+  }
+  .everyday-behaviors-title {
+  position: relative;
+  font-size: 1.3rem;
+}
+
+.everyday-behaviors-title-ja {
+  position: absolute;
+  color: #5f6c7b;
+  font-size: 0.5rem;
+  top: 1.875rem;
+  left: 2.6875rem;
+}
+.l-everyday-behaviors {
+  margin-top: 3rem;
+}
+
 }
 </style>

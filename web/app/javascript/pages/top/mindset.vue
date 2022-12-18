@@ -38,24 +38,30 @@
     <div class="mindset__under-cont inner">
       <div class="mindset__under-title-wrap">
         <h2 class="under__title">
-          上記の要素を<span class="under-line font-weight-bold"
+          上記の要素を<br class="sp-br" /><span
+            class="under-line font-weight-bold"
             >{{ authUser.name }}さんは満たしていますか？</span
           >
         </h2>
       </div>
       <div class="mindset__under-desc-cont">
         <p class="mindset__desc">
-          上記の要素を満たしているか日々振り返ってみてください
+          上記の要素を満たしているか<br
+            class="sp-br"
+          />日々振り返ってみてください
         </p>
         <p class="mindset__desc">
-          「部下の心を動かすテクニック」は存在しますが
+          「部下の心を動かすテクニック」<br class="sp-br" />は確かに存在しますが
         </p>
         <p class="mindset__desc">
-          部下の心を動かすためには、話を聞くに値する自身の振る舞い
+          部下の心を動かすためには、<br
+            class="sp-br"
+          />話を聞くに値する自身の振る舞い
         </p>
         <p class="mindset__desc">
-          つまり<span style="color: #ef4565">“自身の日常の姿”</span
-          >が土台になっていることを認識しましょう
+          つまり<span style="color: #ef4565">“自身の日常の姿”</span>が<br
+            class="sp-br"
+          />土台になっていることを認識しましょう
         </p>
       </div>
       <div class="mindset__btn-wrap">
@@ -98,17 +104,26 @@ export default {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
+.mindset__cont {
+  margin-top: 1.25rem;
+}
 .mindset__block {
   display: flex;
   max-width: 1163px;
   margin: auto;
+  flex-direction: column;
+}
+.mindset__under-desc-cont {
+  width: 100%;
+  margin: auto;
 }
 .mindset__block-left {
-  width: 51%;
+  width: 100%;
   margin-top: 3.125rem;
 }
 .mindset__block-right {
-  width: 49%;
+  width: 80%;
+  margin: auto;
 }
 
 .mindset-img__wrap {
@@ -116,11 +131,11 @@ export default {
 }
 
 .mindset__item {
-  font-size: 1.75rem;
+  font-size: 1.2rem;
 }
 
 .mindset__block-left {
-  margin-top: 11rem;
+  margin-top: initial;
 }
 
 .under-line {
@@ -133,21 +148,115 @@ export default {
 }
 
 .mindset__under-title-wrap {
-  padding: 4.375rem 0;
+  padding: 3rem 0;
+  width: 100%;
+  margin: auto;
 }
 
 .under__title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .mindset__desc {
   color: #5f6c7b;
+  margin: 0;
 }
 .mindset__desc {
-  font-size: 1.3125rem;
+  font-size: 1rem;
+  margin-bottom: 2px;
 }
 .mindset__btn-wrap {
   padding-top: 2rem;
   padding-bottom: 8rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .mindset__cont {
+    margin-top: initial;
+  }
+  .mindset__block {
+    display: flex;
+    max-width: 1163px;
+    margin: auto;
+    flex-direction: initial;
+  }
+  .mindset__block-left {
+    width: 51%;
+    margin-top: 3.125rem;
+  }
+  .mindset__block-right {
+    width: 49%;
+    margin: initial;
+  }
+
+  .mindset-img__wrap {
+    width: 100%;
+  }
+
+  .mindset__item {
+    font-size: 1.75rem;
+  }
+
+  .mindset__block-left {
+    margin-top: 11rem;
+  }
+
+  .under-line {
+    background: linear-gradient(transparent 70%, #ffff00 0%);
+  }
+
+  .mindset__under-cont {
+    text-align: center;
+    background-color: #d8eefe !important;
+  }
+
+  .mindset__under-title-wrap {
+    padding: 4.375rem 0;
+    width: initial;
+    margin: initial;
+  }
+
+  .under__title {
+    font-size: 2.5rem;
+  }
+
+  .mindset__desc {
+    color: #5f6c7b;
+    margin: initial;
+  }
+  .mindset__desc {
+    font-size: 1.3125rem;
+  }
+  .mindset__btn-wrap {
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ps-br {
+    display: block; /* PCを改行して */
+  }
+
+  .sp-br {
+    display: none; /* SPの改行を隠す */
+  }
+}
+
+/* 画面幅が560px以下の時は */
+@media screen and (max-width: 767px) {
+  .ps-br {
+    display: none; /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block; /* SPを改行する */
+  }
 }
 </style>

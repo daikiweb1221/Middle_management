@@ -18,8 +18,10 @@
                 しかし{{
                   authUser.name
                 }}さんはそれを”ちゃんと”できてますか？<br />
-                「部下に信頼されたい」「部下の心を動かしたい」<br />
-                そんな悩みを持つ中間管理職のみなさまへ<br />
+                「部下に信頼されたい」<br
+                  class="sp-br"
+                />「部下の心を動かしたい」<br />
+                そんな悩みを持つ<br class="sp-br" />中間管理職のみなさまへ<br />
                 日々の立ち振る舞いや行動を見える化し<br />
                 理想とする自分を手に入れましょう
               </p>
@@ -49,50 +51,6 @@
       </div>
     </div>
   </section>
-  <!-- <div class="text-wrap">
-    <div class="text-cont">
-      <p class="intro-title mb-10">Middle Managementへようこそ</p>
-      <div class="desc-cont">
-        <p>
-          <span class="font-weight-bold" style="color: #d3b102"
-            >「部下に信頼される」</span
-          ><span class="font-weight-bold" style="color: #d3b102"
-            >「部下に動いてもらえる」</span
-          >そんな上司とは…
-        </p>
-        <p>現代では科学的研究結果により、ある程度その答えが出てています</p>
-        <p>そしてその方法は至ってシンプル</p>
-        <p>しかし、{{ authUser.name }}さんはそれを”ちゃんと”できてますか？</p>
-        <p>
-          Middle Managementは<span
-            class="font-weight-bold"
-            style="color: #d3b102"
-            >「部下に信頼されたい」</span
-          ><span class="font-weight-bold" style="color: #d3b102"
-            >「部下の心を動かしたい」</span
-          >などの
-        </p>
-        <p>悩みを持つ中間管理職のみなさまへ</p>
-        <p>
-          自身の日々の立ち振る舞いや行動を見える化し<span
-            class="font-weight-bold"
-            style="color: #d3b102"
-            >「理想とする自分」</span
-          >へと導くサービスです
-        </p>
-      </div>
-      <div class="mt-10">
-        <v-btn
-          style="background-color: #3da9fc; color: white; font-weight: 700"
-          class="mr-4 px-10"
-          type="submit"
-          :to="{ name: 'EverydayBehaviorRegister' }"
-        >
-          次へ
-        </v-btn>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -116,16 +74,17 @@ export default {
   padding-right: 1.25rem;
 }
 .introduction__title-cont {
-  margin-top: 4.6875rem;
+  margin-top: 2rem;
 }
 .introduction__title {
   text-align: center;
-  font-size: 4.0625rem;
+  font-size: 2rem;
 }
 .introduction__block {
   display: flex;
   max-width: 1160px;
   margin: auto;
+  flex-direction: column-reverse;
 }
 
 .introduction__desc-cont {
@@ -133,11 +92,11 @@ export default {
 }
 
 .introduction__block-left {
-  width: 55%;
-  margin-top: 5rem;
+  width: 90%;
+  margin: auto;
 }
 .introduction__block-right {
-  width: 45%;
+  width: 75%;
 }
 
 .introduction-img__wrap {
@@ -149,7 +108,7 @@ introduction-img {
 }
 
 .introduction__block-title {
-  font-size: 2.1875rem;
+  font-size: 1.5rem;
 }
 
 .introduction__block-desc-cont {
@@ -157,7 +116,7 @@ introduction-img {
 }
 
 .introduction__block-desc {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #5f6c7b !important;
   line-height: 1.8 !important;
 }
@@ -166,47 +125,86 @@ introduction-img {
   text-align: center;
   margin-top: 2rem;
 }
-/* .v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s;
-}
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-}
 
-.text-wrap {
-  text-align: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.text-cont {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 25px;
-  width: 100%;
-}
+@media screen and (min-width: 768px) {
+  .l-introduction {
+    padding-bottom: 7.25rem;
+  }
+  .introduction__inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .introduction__title-cont {
+    margin-top: 4.6875rem;
+  }
+  .introduction__title {
+    text-align: center;
+    font-size: 4.0625rem;
+  }
+  .introduction__block {
+    display: flex;
+    max-width: 1160px;
+    margin: auto;
+    flex-direction: initial;
+  }
 
-.intro-title {
-  font-size: 3rem;
-  line-height: 1.4;
-}
+  .introduction__desc-cont {
+    margin-top: 2.5rem;
+  }
 
-.desc-cont {
-  font-size: 1rem;
-}
+  .introduction__block-left {
+    width: 55%;
+    margin-top: 5rem;
+  }
+  .introduction__block-right {
+    width: 45%;
+  }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .desc-cont {
+  .introduction-img__wrap {
+    width: 100%;
+  }
+
+  introduction-img {
+    width: 100%;
+  }
+
+  .introduction__block-title {
+    font-size: 2.1875rem;
+  }
+
+  .introduction__block-desc-cont {
+    margin-top: 1.5625rem;
+  }
+
+  .introduction__block-desc {
     font-size: 1.3rem;
+    color: #5f6c7b !important;
+    line-height: 1.8 !important;
+  }
+
+  .introduction__btn-cont {
+    text-align: center;
+    margin-top: 2rem;
   }
 }
-@media screen and (min-width: 1024px) {
-  .desc-cont {
-    font-size: 1.3rem;
+@media screen and (min-width: 768px) {
+  .ps-br {
+    display: block; /* PCを改行して */
   }
-} */
+
+  .sp-br {
+    display: none; /* SPの改行を隠す */
+  }
+}
+
+/* 画面幅が560px以下の時は */
+@media screen and (max-width: 767px) {
+  .ps-br {
+    display: none; /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block; /* SPを改行する */
+  }
+}
 </style>

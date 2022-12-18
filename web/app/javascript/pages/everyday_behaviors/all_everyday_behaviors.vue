@@ -29,7 +29,7 @@
               </v-list-item-content>
             </v-list-item>
 
-            <v-list-item two-line>
+            <v-list-item>
               <v-list-item-content>
                 <v-list-item-title
                   >２.{{ all.behaviors_two }}</v-list-item-title
@@ -37,21 +37,21 @@
               </v-list-item-content>
             </v-list-item>
 
-            <v-list-item two-line>
+            <v-list-item>
               <v-list-item-content>
                 <v-list-item-title
                   >３.{{ all.behaviors_three }}</v-list-item-title
                 >
               </v-list-item-content>
             </v-list-item>
-            <v-list-item four-line>
+            <v-list-item>
               <v-list-item-content>
                 <v-list-item-title
                   >４.{{ all.behaviors_four }}</v-list-item-title
                 >
               </v-list-item-content>
             </v-list-item>
-            <v-list-item five-line>
+            <v-list-item>
               <v-list-item-content>
                 <v-list-item-title
                   >５.{{ all.behaviors_five }}</v-list-item-title

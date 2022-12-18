@@ -178,4 +178,12 @@ export default {
 .question-text-cont {
   font-size: 1.3rem;
 }
+
+/* 画面幅が560px以下の時は */
+@media screen and (max-width: 767px) {
+  .question-text-cont {
+    font-size: 1rem;
+    padding-top: 7.5rem;
+  }
+}
 </style>

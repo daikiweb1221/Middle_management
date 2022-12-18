@@ -45,4 +45,10 @@ export default {
   font-weight: 700; */
   font-size: 1.875rem;
 }
+
+@media screen and (max-width: 767px) {
+  .subordinate__name {
+    font-size: 1.5rem;
+  }
+}
 </style>
