@@ -1,6 +1,6 @@
 <template>
   <div class="question-wrap">
-    <div class="question-cont">
+    <div class="question-cont l-question-cont">
       <div class="question-text-cont">
         <p>まずはじめに質問させてください</p>
         <p>
@@ -78,7 +78,7 @@
               required
             ></v-text-field>
           </validation-provider>
-          <div class="example-cont" style="font-size: 12px">
+          <div class="example-cont">
             <p class="mb-0">例</p>
             <ul>
               <li>正直な人</li>
@@ -89,10 +89,10 @@
               <li>言い訳をしない人</li>
             </ul>
           </div>
-          <div class="btn-wrap mt-3">
+          <div class="btn-wrap">
             <v-btn
-              class="mr-4 font-weight-bold px-16"
-              color="primary"
+              style="background-color: #3da9fc; color: white; font-weight: 700"
+              class="mr-4 px-15 py-5"
               @click="handleSubmit(CreateEverydayBehavior)"
             >
               次へ
@@ -143,6 +143,9 @@ export default {
 </script>
 
 <style scoped>
+.l-question-cont {
+  padding: 7rem 1.25rem;
+}
 .question-wrap {
   /* text-align: center; */
   position: relative;
@@ -155,12 +158,17 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 25px;
   width: 100%;
+}
+
+.example-cont {
+  color: #5f6c7b !important;
+  font-size: 0.75rem !important;
 }
 
 .btn-wrap {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .under-line {
@@ -169,5 +177,13 @@ export default {
 
 .question-text-cont {
   font-size: 1.3rem;
+}
+
+/* 画面幅が560px以下の時は */
+@media screen and (max-width: 767px) {
+  .question-text-cont {
+    font-size: 1rem;
+    padding-top: 7.5rem;
+  }
 }
 </style>

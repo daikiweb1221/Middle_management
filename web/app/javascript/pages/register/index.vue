@@ -1,7 +1,7 @@
 <template>
   <div id="register-form" class="register-form-wrap">
     <div class="register-cont">
-      <p class="register-title mb-16">Middle Managementをはじめる</p>
+      <p class="register-title">Middle Managementをはじめる</p>
       <div class="register-form-cont">
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
           <form @submit.prevent="submit">
@@ -76,8 +76,8 @@
             </validation-provider>
 
             <v-btn
-              color="primary"
-              class="mr-4 font-weight-bold px-10"
+              style="background-color: #3da9fc; color: white; font-weight: 700"
+              class="mr-4 px-10"
               type="submit"
               @click="handleSubmit(register)"
             >
@@ -150,10 +150,17 @@ export default {
 <style scoped>
 .register-title {
   font-size: 1.9rem;
+  margin-bottom: 2rem;
 }
-@media screen and (min-width: 480px) {
+
+.register-cont {
+  padding-bottom: 5.625rem;
+}
+
+@media screen and (min-width: 768px) {
   .register-title {
     font-size: 3rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -168,7 +175,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 0 25px;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
   width: 100%;
 }
 

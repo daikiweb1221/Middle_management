@@ -2,13 +2,15 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn class="mx-2" fab dark color="primary" v-bind="attrs" v-on="on">
+        <v-btn class="mx-2" fab dark color="#3da9fc" v-bind="attrs" v-on="on">
           <v-icon dark> mdi-plus </v-icon>
         </v-btn>
       </template>
       <v-card>
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer">
-          <v-card-title> 部下を追加する </v-card-title>
+          <v-card-title style="color: #094067; font-weight: 700">
+            部下を追加する
+          </v-card-title>
           <v-card-text>
             <v-container>
               <v-form>

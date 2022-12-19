@@ -41,8 +41,8 @@
             </validation-provider>
 
             <v-btn
-              color="primary"
-              class="mr-4 font-weight-bold px-10"
+              style="background-color: #3da9fc; color: white; font-weight: 700"
+              class="mr-4 px-10"
               type="submit"
               @click="handleSubmit(login)"
             >

@@ -1,22 +1,16 @@
 <template>
-  <v-row justify="center">
+  <div>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          style="right: 20px; top: 12px"
-          fab
-          small
-          dark
-          color="primary"
-          v-bind="attrs"
-          v-on="on"
-        >
+        <v-btn fab dark small color="green" v-bind="attrs" v-on="on">
           <v-icon dark> mdi-comment-edit </v-icon>
         </v-btn>
       </template>
       <v-card>
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer">
-          <v-card-title> 褒めポイントを追加する </v-card-title>
+          <v-card-title style="color: #094067; font-weight: 700">
+            褒めポイントを追加する
+          </v-card-title>
           <v-card-text>
             <v-container>
               <v-form>
@@ -58,7 +52,7 @@
         </ValidationObserver>
       </v-card>
     </v-dialog>
-  </v-row>
+  </div>
 </template>
 
 <script>
