@@ -1,7 +1,7 @@
 <template>
   <div class="place-point__box">
     <v-card class="place-point__card" v-for="place in places" :key="place.id">
-      <v-timeline align-top dense>
+      <v-timeline align-top dense class="place-card-inner">
         <v-timeline-item color="pink" small>
           <v-row class="pt-1">
             <v-col cols="3">
@@ -69,6 +69,9 @@ export default {
 <style scoped>
 .place-point__box {
   width: 100%;
+}
+.place-card-inner {
+  padding-right: 0.75rem !important;
 }
 
 @media screen and (min-width: 750px) {

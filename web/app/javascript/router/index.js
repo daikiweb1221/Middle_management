@@ -4,6 +4,7 @@ import store from "../store";
 import TopIndex from "../pages/top";
 import TopIntroduction from "../pages/top/introduction";
 import TopMindSet from "../pages/top/mindset";
+import Guide from "../pages/top/guide";
 import IdealBossChecks from "../pages/ideal_boss_checks";
 import IdealBossChecksNotLogin from "../pages/ideal_boss_checks/not-login";
 import SubordinateIndex from "../pages/subordinates";
@@ -18,7 +19,7 @@ import AllEverydayBehaviorIndex from "../pages/everyday_behaviors/all_everyday_b
 import EverydayBehaviorEditPage from "../pages/everyday_behaviors/edit";
 import CommunicationSubordinatesIndex from "../pages/communication_subordinates";
 import CalendarIndex from "../pages/calendar";
-import ResetPasswordUpdate from "../pages/reset_password/ResetPasswordUpdate"
+import ResetPasswordUpdate from "../pages/reset_password/ResetPasswordUpdate";
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ const router = new Router({
       path: "/",
       component: TopIndex,
       name: "TopIndex",
+    },
+    {
+      path: "/guide",
+      component: Guide,
+      name: "Guide",
     },
     {
       path: "/introduction",

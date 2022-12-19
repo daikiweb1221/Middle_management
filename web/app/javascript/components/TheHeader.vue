@@ -4,6 +4,7 @@
     <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
     <div v-else-if="this.$route.path === '/mindset'"></div>
     <div v-else-if="this.$route.path === '/'"></div>
+    <div v-else-if="this.$route.path === '/guide'"></div>
     <div v-else-if="this.$route.path === '/register'"></div>
     <div v-else-if="this.$route.path === '/login'"></div>
     <div v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"></div>
@@ -65,7 +66,7 @@
                 <v-icon>mdi-head-lightbulb-outline</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title>理想の上司一覧</v-list-item-title>
+                <v-list-item-title>理想の上司像一覧</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -80,9 +81,9 @@
           v-else-if="this.$route.path === '/everyday_behavior_register'"
         ></div>
         <div v-else-if="this.$route.path === '/mindset'"></div>
-        <!-- <div v-else-if="this.$route.path === '/'"></div> -->
         <div v-else-if="this.$route.path === '/register'"></div>
         <div v-else-if="this.$route.path === '/login'"></div>
+        <div v-else-if="this.$route.path === '/guide'"></div>
         <div
           v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"
         ></div>
