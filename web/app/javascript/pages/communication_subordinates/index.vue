@@ -23,7 +23,7 @@
           <v-list-item three-line>
             <v-list-item-content>
               <div class="text-overline mb-4">Communicated</div>
-              <v-list-item-title class="subordinate__name text-h5 mb-1">
+              <v-list-item-title class="subordinate__name mb-1">
                 {{ communication_subordinate.name }}
               </v-list-item-title>
               <div class="sub-title__wrap">
@@ -166,5 +166,22 @@ export default {
   width: 100%;
   text-align: center;
   margin-top: 2.5rem;
+}
+
+.text-overline {
+  color: #5f6c7b;
+}
+
+@media screen and (max-width: 767px) {
+  .communication__title {
+    font-size: 1.3rem;
+  }
+  .communication-title-ja {
+    position: absolute;
+    color: #5f6c7b;
+    font-size: 0.75rem;
+    top: 1.7rem;
+    left: 0.3rem;
+  }
 }
 </style>

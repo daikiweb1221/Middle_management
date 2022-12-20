@@ -43,12 +43,12 @@ export default {
   text-align: center;
   /* color: #094067;
   font-weight: 700; */
-  font-size: 1.875rem;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 767px) {
   .subordinate__name {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 </style>

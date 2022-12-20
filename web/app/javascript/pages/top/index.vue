@@ -2,6 +2,7 @@
   <div>
     <div class="sub-header">
       <div class="sub-header__btn-wrap">
+        <v-btn class="top-btn" text :to="{ name: 'Guide' }">ガイド</v-btn>
         <v-btn class="top-btn" text :to="{ name: 'LoginIndex' }"
           >ログイン</v-btn
         >
@@ -231,6 +232,7 @@ export default {
   margin-top: 2.5625rem;
   margin-left: 1.4375rem;
   letter-spacing: 0;
+  font-weight: 700;
 }
 
 .main__title {
@@ -345,7 +347,7 @@ contents-img {
 }
 
 .contents__block-title {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .contents__block-desc-cont {
@@ -353,11 +355,11 @@ contents-img {
 }
 
 .contents__block-desc {
-  font-size: 0.725rem;
+  font-size: 0.75rem;
   color: #5f6c7b !important;
   line-height: 1.8 !important;
   text-align: left;
-  width: 70%;
+  width: 75%;
   margin: auto;
 }
 .contents-btn-cont {
@@ -365,85 +367,6 @@ contents-img {
   margin-top: 5rem;
 }
 
-/* .mv {
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  height: 100%;
-  background-position: center center;
-}
-
-.mt-cont {
-  text-align: center;
-  padding: 0 25px;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.desc-title {
-  font-size: 1rem;
-  text-shadow: 1px 2px 2px #000;
-}
-
-.mt-title {
-  color: white;
-  max-width: 100%;
-  font-size: 2rem;
-  text-shadow: 2px 1px 7px white;
-}
-
-.ideal {
-  text-shadow: 1px 1px 2px white, 0 0 1em rgb(255, 255, 255),
-    0 0 0.1px rgb(224, 224, 224);
-}
-
-.mt-btn-wrap {
-  padding: 0 25px;
-  width: 100%;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.ideal-btn {
-  color: white !important;
-  font-size: 10px !important;
-  text-shadow: 1px 2px 2px rgb(94, 94, 94);
-  background-color: #fbab7e;
-  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
-}
-
-@media screen and (min-width: 480px) {
-  .mt-title {
-    font-size: 3rem;
-  }
-  .desc-title {
-    font-size: 1rem;
-  }
-  .ideal-btn {
-    font-size: 1rem !important;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .mt-title {
-    font-size: 4rem;
-  }
-  .desc-title {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .mt-title {
-    font-size: 6rem;
-  }
-  .desc-title {
-    font-size: 1.5rem;
-  }
-} */
 @media screen and (min-width: 768px) {
   .sub-header__btn-wrap {
     text-align: right;

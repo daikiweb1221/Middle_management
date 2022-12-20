@@ -10,7 +10,7 @@
             <v-list-item three-line>
               <v-list-item-content>
                 <div class="text-overline mb-4">Profile</div>
-                <v-list-item-title class="user__name text-h5 mb-1">
+                <v-list-item-title class="user__name mb-1">
                   {{ authUser.name }}
                 </v-list-item-title>
                 <div class="sub-title__wrap">
@@ -53,7 +53,7 @@
         </div>
         <div class="everyday-behaviors__block">
           <div class="everyday-behaviors__left">
-            <v-card width="375" elevation="3" outlined>
+            <v-card elevation="3" outlined>
               <div class="everyday-behaviors__inner">
                 <v-list-item>
                   <v-list-item-content>
@@ -173,18 +173,19 @@ export default {
 
 .profile__title-cont {
   padding-top: 2.1875rem;
-  /* padding-left: 2.1875rem; */
 }
 
 .profile__title {
   font-size: 2rem;
 }
 
-/* .user__name {
-  color: #094067;
-  font-weight: 700;
-} */
+.user__name {
+  font-size: 1rem;
+}
 
+.text-overline {
+  color: #5f6c7b;
+}
 .profile__card {
   max-width: 800px;
   text-align: center;
@@ -215,6 +216,10 @@ export default {
   margin: 3rem auto 0;
 }
 
+.everyday-behaviors__left {
+  width: 50%;
+}
+
 @media screen and (min-width: 750px) {
   .everyday-behaviors__block {
     display: flex;
@@ -234,20 +239,27 @@ export default {
     font-size: 1.3rem;
   }
   .everyday-behaviors-title {
-  position: relative;
-  font-size: 1.3rem;
-}
+    position: relative;
+    font-size: 1.3rem;
+  }
 
-.everyday-behaviors-title-ja {
-  position: absolute;
-  color: #5f6c7b;
-  font-size: 0.5rem;
-  top: 1.875rem;
-  left: 2.6875rem;
-}
-.l-everyday-behaviors {
-  margin-top: 3rem;
-}
+  .everyday-behaviors-title-ja {
+    position: absolute;
+    color: #5f6c7b;
+    font-size: 0.5rem;
+    top: 1.875rem;
+    left: 2.6875rem;
+  }
+  .l-everyday-behaviors {
+    margin-top: 3rem;
+  }
 
+  .everyday-behaviors__left {
+    width: 100%;
+  }
+
+  .user__name {
+    font-size: 1rem;
+  }
 }
 </style>
