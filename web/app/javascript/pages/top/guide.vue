@@ -253,7 +253,8 @@ export default {
 .guide-container__wrap {
   margin-top: 3rem;
 }
-.guide__title .guide__introduction {
+.guide__title,
+.guide__introduction {
   font-size: 1.2rem;
 }
 .guide-contents__desc {
