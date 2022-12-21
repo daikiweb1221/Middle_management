@@ -1,5 +1,7 @@
 # Middle Management
 
+![readme1](https://user-images.githubusercontent.com/93523936/208839465-09f6070e-6f1d-4a7d-ac74-5c7237a60a06.png)
+
 ![rails](https://img.shields.io/badge/Rails-v6.1.7-red)
 ![rails](https://img.shields.io/badge/Vue-v2.6.11-brightgreen)
 
@@ -71,6 +73,7 @@
 **バックエンド**
 
 <ul>
+  <li>Docker</li>
   <li>Ruby 3.0.5</li>
   <li>Rails 6.1.7</li>
   <details>
@@ -83,7 +86,6 @@
       <li><a href="https://github.com/rubocop/rubocop">rubocop</a></li>
     </ul>
   </deatails>
-  <li>Docker</li>
 </ul>
 
 【画面遷移図 URL】
