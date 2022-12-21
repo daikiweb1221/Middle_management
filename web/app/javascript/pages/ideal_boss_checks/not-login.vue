@@ -9,7 +9,7 @@
       </div>
       <div class="container position-center">
         <h3 class="ideal-sub-title text-center">
-          あなたの影響力をチェックしてみましょう
+          - あなたの影響力をチェックしてみましょう -
         </h3>
         <!-- クイズを表示する部分 -->
         <div v-if="!completed" id="quiz">
@@ -345,7 +345,6 @@ export default {
 
 .quiz-font {
   color: #094067;
-  font-weight: 700;
 }
 
 .question-font {
@@ -422,11 +421,10 @@ export default {
 
 .ideal__title-cont {
   padding-top: 2.1875rem;
-  /* padding-left: 2.1875rem; */
 }
 
 .ideal__title {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .ideal-sub-title {
@@ -437,7 +435,7 @@ export default {
   .rank-description {
     text-align: center;
     padding: 0 25px 25px 25px;
-    font-size: 0.725rem;
+    font-size: 0.75rem;
     font-weight: 700 !important;
     color: #094067;
   }
@@ -467,7 +465,7 @@ export default {
     line-height: initial;
   }
   .question-font {
-    font-size: 0.725rem;
+    font-size: 1rem;
   }
 }
 </style>

@@ -22,7 +22,9 @@
                   class="sp-br"
                 />「部下の心を動かしたい」<br />
                 そんな悩みを持つ<br class="sp-br" />中間管理職のみなさまへ<br />
-                日々の立ち振る舞いや行動を見える化し<br />
+                <span class="under-line"
+                  >日々の立ち振る舞いや行動を見える化し</span
+                ><br />
                 理想とする自分を手に入れましょう
               </p>
             </div>
@@ -66,6 +68,9 @@ export default {
 </script>
 
 <style scoped>
+.under-line {
+  background: linear-gradient(transparent 70%, #ffff00 0%);
+}
 .l-introduction {
   padding-bottom: 7.25rem;
 }
@@ -108,7 +113,7 @@ introduction-img {
 }
 
 .introduction__block-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .introduction__block-desc-cont {

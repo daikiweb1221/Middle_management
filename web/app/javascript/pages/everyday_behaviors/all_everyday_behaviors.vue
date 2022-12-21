@@ -4,7 +4,7 @@
       <div class="everyday-behaviors-title-cont">
         <h1
           class="everyday-behaviors-title sub-title"
-          style="position: relative; font-size: 2rem"
+          style="position: relative"
         >
           Everyone Ideal<span class="everyday-behaviors-title-ja"
             >- みんなの理想の上司 -</span
@@ -67,16 +67,9 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import AssetsImage from "../../../assets/images/all-ideal.jpg";
 
 export default {
   name: "AllEverydayBehaviorIndex",
-
-  // data() {
-  //   return {
-  //     assetsImage: AssetsImage,
-  //   };
-  // },
 
   computed: {
     ...mapGetters("everyday_behaviors", ["all_everyday_behaviors"]),
@@ -99,11 +92,6 @@ export default {
 }
 
 .l-all_everyday_behaviors {
-  /* width: 100%;
-  background-size: cover;
-  height: 100%;
-  background-position: center center;
-  padding-bottom: 8rem; */
   width: 100%;
   height: 100%;
   background-color: #d8eefe;
@@ -121,6 +109,9 @@ export default {
   padding-top: 2.1875rem;
 }
 
+.everyday-behaviors-title {
+  font-size: 2rem;
+}
 .everyday-behaviors-title-ja {
   position: absolute;
   color: #5f6c7b;
@@ -138,5 +129,18 @@ export default {
 .v-card {
   width: 500px !important;
   margin-top: 1rem !important;
+}
+
+@media screen and (max-width: 767px) {
+  .everyday-behaviors-title {
+    font-size: 1.3rem;
+  }
+  .everyday-behaviors-title-ja {
+    position: absolute;
+    color: #5f6c7b;
+    font-size: 0.75rem;
+    top: 2rem;
+    left: 0.4rem;
+  }
 }
 </style>

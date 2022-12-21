@@ -1,6 +1,6 @@
 <template>
   <div id="update-form" class="container text-center">
-    <p class="py-2 text-h6 font-weight-bold">プロフィール編集</p>
+    <p class="py-2 text-h6 font-weight-bold">- プロフィール編集 -</p>
 
     <validation-observer ref="observer" v-slot="{ handleSubmit }">
       <validation-provider

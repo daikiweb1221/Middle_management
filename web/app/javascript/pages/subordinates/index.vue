@@ -22,7 +22,7 @@
           <v-list-item three-line>
             <v-list-item-content>
               <div class="text-overline mb-4">Buddy</div>
-              <v-list-item-title class="subordinate__name text-h5 mb-1">
+              <v-list-item-title class="subordinate__name mb-1">
                 {{ subordinate.name }}
               </v-list-item-title>
               <div class="sub-title__wrap">
@@ -193,14 +193,12 @@ export default {
   margin-top: 1rem !important;
 }
 
-/* .subordinate__name {
-  color: #094067 !important;
-  font-weight: 700 !important;
-} */
+.subordinate__name {
+  font-size: 1rem;
+}
 
 .subordinates__title-cont {
   padding-top: 2.1875rem;
-  /* padding-left: 2.1875rem; */
 }
 
 .subordinates__title {
@@ -223,5 +221,21 @@ export default {
 
 .sub-title__wrap {
   margin-top: 1rem;
+}
+.text-overline {
+  color: #5f6c7b;
+}
+
+@media screen and (max-width: 767px) {
+  .subordinates__title {
+    font-size: 1.3rem;
+  }
+  .subordinates-title-ja {
+    position: absolute;
+    color: #5f6c7b;
+    font-size: 0.75rem;
+    top: 2rem;
+    left: 1.3rem;
+  }
 }
 </style>

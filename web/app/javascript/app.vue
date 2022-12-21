@@ -38,7 +38,7 @@ export default {
 .v-application {
   /* font-family: "Noto Sans JP", sans-serif !important; */
   background-color: #fffffe !important;
-  font-weight: 700 !important;
+  /* font-weight: 700 !important; */
   color: #094067 !important;
 }
 .v-enter-active,
