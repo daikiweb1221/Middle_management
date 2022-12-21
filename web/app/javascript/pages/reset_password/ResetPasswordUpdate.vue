@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-card max-width="600px" class="mx-auto mt-5" elevation="20">
-      <h2 class="pt-3 mb-3 d-flex align-center justify-center">
-        Change your password
-      </h2>
+      <h4 class="reset-title pt-3 mb-3 d-flex align-center justify-center">
+        パスワードを<br class="sp-br">再設定してください
+      </h4>
       <v-divider style="max-width: 700px; margin: auto" />
       <v-card-text>
         <ValidationObserver v-slot="{ invalid }">
@@ -93,14 +93,31 @@ export default {
         });
     },
   },
-  // head() {
-  //   return {
-  //     title: {
-  //       inner: "PasswordEdit",
-  //       separator: "|",
-  //       complement: "BizTubeLogger",
-  //     },
-  //   };
-  // },
 };
 </script>
+<style scoped>
+.reset-title {
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .ps-br {
+    display: block; /* PCを改行して */
+  }
+
+  .sp-br {
+    display: none; /* SPの改行を隠す */
+  }
+}
+
+/* 画面幅が560px以下の時は */
+@media screen and (max-width: 767px) {
+  .ps-br {
+    display: none; /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block; /* SPを改行する */
+  }
+}
+</style>

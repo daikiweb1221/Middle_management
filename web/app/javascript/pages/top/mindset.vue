@@ -38,9 +38,10 @@
     <div class="mindset__under-cont inner">
       <div class="mindset__under-title-wrap">
         <h2 class="under__title">
-          上記の要素を<br class="sp-br" /><span
-            class="under-line font-weight-bold"
-            >{{ authUser.name }}さんは満たしていますか？</span
+          <span class="under-line font-weight-bold"
+            >上記の要素を<br class="sp-br" />{{
+              authUser.name
+            }}さんは満たしていますか？</span
           >
         </h2>
       </div>
@@ -116,6 +117,7 @@ export default {
 .mindset__under-desc-cont {
   width: 100%;
   margin: auto;
+  font-weight: 700;
 }
 .mindset__block-left {
   width: 100%;
@@ -131,7 +133,8 @@ export default {
 }
 
 .mindset__item {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .mindset__block-left {
@@ -154,7 +157,7 @@ export default {
 }
 
 .under__title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .mindset__desc {

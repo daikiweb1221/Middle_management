@@ -42,7 +42,7 @@
       </div>
     </section>
     <section class="service-overview l-service-overview">
-      <div class="service-overview__inner inner">
+      <div class="service-overview__inner inner font-bold">
         <div class="service-overview__title-cont sub-title-cont">
           <h2 class="service-overview__title sub-title">Service overview</h2>
           <p class="service-overview__title-j sub-title-j">- サービス概要 -</p>
@@ -65,7 +65,7 @@
       </div>
     </section>
     <section class="contents l-contents">
-      <div class="contents__inner inner">
+      <div class="contents__inner inner font-bold">
         <div class="contents__title-cont sub-title-cont">
           <h2 class="contents__title sub-title">Contents</h2>
           <p class="contents__title-j sub-title-j">- サービス内容 -</p>
@@ -76,7 +76,7 @@
               <h3 class="contents__block-title">メンバーを登録しよう</h3>
               <div class="contents__block-desc-cont">
                 <p class="contents__block-desc">
-                  まずは管理したい部下を登録してみましょう<br />そうすることでコミュニケーションの見える化や部下ごとに褒めポイントを追加できるようになります
+                  まずは管理したい部下を登録してみましょう。<br />そうすることでコミュニケーションの見える化や部下ごとに褒めポイントを追加できるようになります。
                 </p>
               </div>
             </div>
@@ -110,7 +110,7 @@
               </h3>
               <div class="contents__block-desc-cont">
                 <p class="contents__block-desc">
-                  部下1人1人としっかりコミュニケーション取れていますか？<br />ハートマークをチェックしてコミュニケーションを見える化しましょう！
+                  部下1人1人としっかりコミュニケーション取れていますか？<br />ライクボタンをチェックしてコミュニケーションを見える化しましょう。
                 </p>
               </div>
             </div>
@@ -122,7 +122,7 @@
               <h3 class="contents__block-title">褒めポイントを集めよう</h3>
               <div class="contents__block-desc-cont">
                 <p class="contents__block-desc">
-                  部下ごとに褒めポイントを追加しましょう<br />部下をしっかりと観察して褒めポイントがあればすかさず追加！みんなの前で褒めましょう！
+                  部下ごとに褒めポイントを追加しましょう。<br />部下をしっかりと観察して褒めポイントがあればすかさず追加！みんなの前で褒めましょう。
                 </p>
               </div>
             </div>
@@ -156,7 +156,7 @@
               </h3>
               <div class="contents__block-desc-cont">
                 <p class="contents__block-desc">
-                  ご自身の日常の姿こそが全ての土台となります<br />立ち振る舞いチェックを行うことで日々の行動を定期的に振り返りましょう
+                  ご自身の日常の姿こそが全ての土台となります。<br />立ち振る舞いチェックを行うことで日々の行動を定期的に振り返りましょう。
                 </p>
               </div>
             </div>
@@ -193,6 +193,9 @@ export default {
 .inner {
   padding-left: 1.25rem !important;
   padding-right: 1.25rem !important;
+}
+.font-bold {
+  font-weight: 700 !important;
 }
 
 .sub-title-cont {
@@ -303,6 +306,7 @@ export default {
   font-size: 1rem;
   color: #5f6c7b !important;
   margin-bottom: initial !important;
+  line-height: 1.8 !important;
 }
 
 /* ------------------サービス概要------------------ */
@@ -355,7 +359,7 @@ contents-img {
 }
 
 .contents__block-desc {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #5f6c7b !important;
   line-height: 1.8 !important;
   text-align: left;
@@ -561,7 +565,6 @@ contents-img {
   }
 }
 
-/* 画面幅が560px以下の時は */
 @media screen and (max-width: 767px) {
   .ps-br {
     display: none; /* PCの改行を隠して */

@@ -1,7 +1,7 @@
 <template>
   <v-container class="white rounded-lg">
-    <p class="text-h6 pt-2 mb-3 font-weight-bold text-center">
-      Reset Your Password
+    <p class="reset-title pt-2 mb-3 font-weight-bold text-center">
+      登録済のメールアドレスを<br class="sp-br" />入力してください
     </p>
     <v-divider class="mb-4" style="max-width: 1200px; margin: auto" />
     <ValidationObserver v-slot="{ invalid }">
@@ -52,16 +52,16 @@ export default {
   methods: {
     ...mapActions("flash_messages", ["showMessage"]),
     createPasswordReset() {
-      this.$axios.post("/password_resets", { email: this.email }).then((res) => {
-        this.$router.push({ name: "TopIndex" });
-              this.showMessage(
-          {
+      this.$axios
+        .post("/password_resets", { email: this.email })
+        .then((res) => {
+          this.$router.push({ name: "TopIndex" });
+          this.showMessage({
             message: "パスワード再設定メールを送信しました",
             type: "light-blue",
             status: true,
-          },
-        )
-      });
+          });
+        });
     },
     handleCloseModal() {
       this.$emit("close-modal");
@@ -70,4 +70,27 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.reset-title {
+  font-size: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .ps-br {
+    display: block; /* PCを改行して */
+  }
+
+  .sp-br {
+    display: none; /* SPの改行を隠す */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ps-br {
+    display: none; /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block; /* SPを改行する */
+  }
+}
+</style>

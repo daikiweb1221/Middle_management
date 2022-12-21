@@ -345,7 +345,6 @@ export default {
 
 .quiz-font {
   color: #094067;
-  /* font-weight: 700; */
 }
 
 .question-font {
@@ -422,11 +421,10 @@ export default {
 
 .ideal__title-cont {
   padding-top: 2.1875rem;
-  /* padding-left: 2.1875rem; */
 }
 
 .ideal__title {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .ideal-sub-title {

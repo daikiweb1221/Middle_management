@@ -8,6 +8,7 @@
     <div v-else-if="this.$route.path === '/register'"></div>
     <div v-else-if="this.$route.path === '/login'"></div>
     <div v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"></div>
+    <div v-else-if="this.$route.path === '/users_password_edit'"></div>
     <template v-else>
       <v-navigation-drawer app v-model="drawer" clipped>
         <v-container>
@@ -87,6 +88,7 @@
         <div
           v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"
         ></div>
+        <div v-else-if="this.$route.path === '/users_password_edit'"></div>
         <template v-else>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
@@ -107,6 +109,7 @@
             v-else-if="this.$route.path === '/everyday_behavior_register'"
           ></div>
           <div v-else-if="this.$route.path === '/mindset'"></div>
+          <div v-else-if="this.$route.path === '/users_password_edit'"></div>
 
           <template v-else>
             <template v-if="!authUser">

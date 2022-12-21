@@ -332,7 +332,6 @@ export default {
 
 .ideal__title-cont {
   padding-top: 2.1875rem;
-  /* padding-left: 2.1875rem; */
 }
 
 .ideal__title {
