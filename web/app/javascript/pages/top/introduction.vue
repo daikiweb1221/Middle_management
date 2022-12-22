@@ -13,11 +13,11 @@
             </h3>
             <div class="introduction__block-desc-cont">
               <p class="introduction__block-desc">
-                現代では科学的研究結果によりある程度その答えが出てています<br />
-                そしてその方法は至ってシンプル<br />
+                現代では科学的研究結果によりある程度その答えが出てています。<br />
+                そしてその方法は至ってシンプル。<br />
                 しかし{{
                   authUser.name
-                }}さんはそれを”ちゃんと”できてますか？<br />
+                }}さんはそれを”ちゃんと”できていますか？<br />
                 「部下に信頼されたい」<br
                   class="sp-br"
                 />「部下の心を動かしたい」<br />
@@ -25,7 +25,7 @@
                 <span class="under-line"
                   >日々の立ち振る舞いや行動を見える化し</span
                 ><br />
-                理想とする自分を手に入れましょう
+                理想とする自分を手に入れましょう。
               </p>
             </div>
           </div>
@@ -122,6 +122,7 @@ introduction-img {
 
 .introduction__block-desc {
   font-size: 1rem;
+  font-weight: 700;
   color: #5f6c7b !important;
   line-height: 1.8 !important;
 }
@@ -144,7 +145,7 @@ introduction-img {
   }
   .introduction__title {
     text-align: center;
-    font-size: 4.0625rem;
+    font-size: 3.5rem;
   }
   .introduction__block {
     display: flex;
