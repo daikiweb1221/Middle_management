@@ -13,6 +13,7 @@
     "turbolinks": "^5.2.0",
     "vee-validate": "3",
     "vue": "^2.6.11",
+    "vue-head": "^2.2.0",
     "vue-loader": "^15.8.3",
     "vue-router": "^3.1.5",
     "vue-template-compiler": "^2.7.13",

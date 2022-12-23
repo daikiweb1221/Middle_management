@@ -150,6 +150,15 @@ export default {
   methods: {
     ...mapActions("everyday_behaviors", ["fetchEverydayBehaviors"]),
   },
+  head() {
+    return {
+      title: {
+        inner: "マイページ",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

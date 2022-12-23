@@ -78,6 +78,15 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "土台となる日常の姿編集",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

@@ -203,7 +203,6 @@ introduction-img {
   }
 }
 
-/* 画面幅が560px以下の時は */
 @media screen and (max-width: 767px) {
   .ps-br {
     display: none; /* PCの改行を隠して */

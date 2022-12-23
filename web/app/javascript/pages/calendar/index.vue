@@ -103,6 +103,15 @@ export default {
       this.setClickedDate(date);
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "スケジュール登録",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 <style scoped>

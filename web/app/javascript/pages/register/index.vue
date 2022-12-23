@@ -144,6 +144,15 @@ export default {
       this.$router.push({ name: "TopIntroduction" });
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "新規登録",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

@@ -119,6 +119,15 @@ export default {
       this.email = {};
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "ログイン",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 
