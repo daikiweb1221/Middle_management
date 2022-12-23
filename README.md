@@ -1,6 +1,6 @@
 # Middle Management
 
-![readme1](https://user-images.githubusercontent.com/93523936/208839465-09f6070e-6f1d-4a7d-ac74-5c7237a60a06.png)
+<img width="1427" alt="readme" src="https://user-images.githubusercontent.com/93523936/209267981-9da9d2b2-528a-4992-ac62-447724c78d4e.png">
 
 ![rails](https://img.shields.io/badge/Rails-v6.1.7-red)
 ![rails](https://img.shields.io/badge/Vue-v2.6.11-brightgreen)
