@@ -85,7 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: clc0add24007rbequ7rkrghlg
-  username: clc0add24007pbequ7mut8bb2
-  password: <%= ENV['MIDDLEMANAGEMENT_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
