@@ -27,7 +27,10 @@ default: &default
 
 development:
   <<: *default
-  database: app_development
+  database: clc0add24007rbequ7rkrghlg
+  username: clc0add24007pbequ7mut8bb2
+  password: <%= ENV['MIDDLEMANAGEMENT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
