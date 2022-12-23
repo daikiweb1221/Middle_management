@@ -171,6 +171,15 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "メンバー一覧",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

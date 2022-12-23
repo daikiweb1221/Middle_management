@@ -223,6 +223,15 @@ export default {
       assetsImage: AssetsImage,
     };
   },
+  head() {
+    return {
+      title: {
+        inner: "ガイド",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 <style scoped>

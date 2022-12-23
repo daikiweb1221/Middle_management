@@ -230,6 +230,15 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "メンバー",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

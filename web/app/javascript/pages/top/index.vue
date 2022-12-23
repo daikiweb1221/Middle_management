@@ -239,6 +239,7 @@ export default {
 }
 
 .main__title {
+  font-weight: 900;
   font-size: 2rem;
   line-height: 1 !important;
   letter-spacing: 0.25rem;

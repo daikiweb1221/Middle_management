@@ -322,6 +322,15 @@ export default {
       return this.correctCount <= 5;
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "上司力チェック",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

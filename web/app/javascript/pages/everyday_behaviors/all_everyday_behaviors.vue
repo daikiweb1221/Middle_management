@@ -83,6 +83,15 @@ export default {
   methods: {
     ...mapActions("everyday_behaviors", ["fetchAllEverydayBehaviors"]),
   },
+  head() {
+    return {
+      title: {
+        inner: "みんなの理想の上司",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

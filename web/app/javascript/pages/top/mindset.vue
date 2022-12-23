@@ -226,7 +226,7 @@ export default {
   }
 
   .under__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .mindset__desc {

@@ -113,6 +113,15 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "コミュニケーション済メンバー一覧",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 

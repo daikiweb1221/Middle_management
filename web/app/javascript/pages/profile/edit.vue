@@ -88,6 +88,15 @@ export default {
       }
     },
   },
+  head() {
+    return {
+      title: {
+        inner: "マイページ編集",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 
