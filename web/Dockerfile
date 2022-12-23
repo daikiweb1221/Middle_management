@@ -11,13 +11,13 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+COPY web/Gemfile /app/Gemfile
+COPY web/Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 
 
-COPY entrypoint.sh /usr/bin/
+COPY web/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
