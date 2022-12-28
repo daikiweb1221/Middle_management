@@ -1,0 +1,4 @@
+default_url_options:
+  host: "middlemanagement.app.magia.runteq.jp"
+site:
+  top_url: "https://middlemanagement.app.magia.runteq.jp/"
