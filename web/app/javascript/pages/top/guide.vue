@@ -8,7 +8,7 @@
             class="under-line"
             >良好な人間関係</span
           >だと言われています。<br />
-          ミドルマネジメントを活用して良好な人間関係を築けるようになり人生の幸福度を上げましょう。
+          Middle Managementを活用して良好な人間関係を築けるようになり人生の幸福度を上げましょう。
         </p>
 
         <div class="guide-container__wrap">
