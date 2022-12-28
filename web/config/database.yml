@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # host: db
+  # host: db ローカルは有効にする
   username: postgres
   password: password
   # pool: 5

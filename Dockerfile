@@ -14,8 +14,17 @@ WORKDIR /app
 COPY web/Gemfile /app/Gemfile
 COPY web/Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-COPY ./web /app
 
+# 本番用
+COPY web/yarn.lock /app/yarn.lock
+COPY web/package.json /app/package.json
+
+COPY ./web /app
+RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile assets:clean \
+&& yarn install --production --frozen-lockfile \
+&& yarn cache clean \
+&& rm -rf /app/node_modules /app/tmp/cache
+# ---
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
