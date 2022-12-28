@@ -76,9 +76,10 @@ Rails.application.configure do
     port: 587,
     user_name: Rails.application.credentials.gmail[:user_name],
     password: Rails.application.credentials.gmail[:password],
-    authentication: :login
-    openssl_verify_mode: 'none',
-    enable_starttls_auto: true
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5
   }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
