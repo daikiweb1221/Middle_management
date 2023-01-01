@@ -86,6 +86,16 @@
           </form>
         </validation-observer>
       </div>
+      <div class="privacy-terms__content-block">
+        <p class="privacy-terms__consent">
+          本サービスへの登録申込をもって
+          <router-link class="privacy__link" :to="{ name: 'TermsOfService' }"
+            >利用規約</router-link
+          >および<router-link class="privacy__link" :to="{ name: 'Privacy' }"
+            >プライバシーポリシー</router-link
+          >のすべての条項に同意したものとみなします。
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -159,17 +169,22 @@ export default {
 <style scoped>
 .register-title {
   font-size: 1.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
-
-.register-cont {
-  padding-bottom: 5.625rem;
+.privacy-terms__consent {
+  color: #5f6c7b;
+  font-size: 0.625rem;
+  margin-bottom: initial !important;
+  margin-top: 1rem !important;
 }
 
 @media screen and (min-width: 768px) {
   .register-title {
     font-size: 3rem;
     margin-bottom: 4rem;
+  }
+  .privacy-terms__consent {
+    font-size: 1rem;
   }
 }
 

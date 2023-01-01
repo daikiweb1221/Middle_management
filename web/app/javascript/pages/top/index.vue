@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="top l-top">
     <div class="sub-header">
       <div class="sub-header__btn-wrap">
         <v-btn class="top-btn" text :to="{ name: 'Guide' }">ガイド</v-btn>
@@ -179,6 +179,10 @@ export default {
 </script>
 
 <style scoped>
+
+.l-top {
+  padding-bottom: 2rem;
+}
 .sub-header__btn-wrap {
   text-align: right;
   padding-right: 1rem;
@@ -314,9 +318,9 @@ export default {
 
 /* ------------------サービス内容------------------ */
 
-.l-contents {
+/* .l-contents {
   margin-bottom: 8.125rem;
-}
+} */
 .contents__block {
   display: flex;
   max-width: 1163px;
@@ -500,9 +504,9 @@ contents-img {
 
   /* ------------------サービス内容------------------ */
 
-  .l-contents {
+  /* .l-contents {
     margin-bottom: 8.125rem;
-  }
+  } */
   .contents__block {
     display: flex;
     max-width: 1163px;

@@ -243,7 +243,7 @@ export default {
 }
 .l-guide {
   background-color: #d8eefe;
-  padding-bottom: 10rem;
+  padding-bottom: 2rem;
 }
 .inner {
   padding-left: 1.25rem;

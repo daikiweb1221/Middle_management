@@ -292,7 +292,6 @@ export default {
 }
 .l-place-point {
   padding-top: 0.625rem;
-  padding-bottom: 8rem;
 }
 
 .place-point__box {
@@ -317,6 +316,9 @@ export default {
   .place-point-right {
     width: 40%;
   }
+  .l-place-point {
+  padding-bottom: 2rem;
+}
 }
 
 .delete__dialog {

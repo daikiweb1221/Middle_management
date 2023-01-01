@@ -72,7 +72,7 @@ export default {
   background: linear-gradient(transparent 70%, #ffff00 0%);
 }
 .l-introduction {
-  padding-bottom: 7.25rem;
+  padding-bottom: 2rem;
 }
 .introduction__inner {
   padding-left: 1.25rem;
@@ -133,9 +133,6 @@ introduction-img {
 }
 
 @media screen and (min-width: 768px) {
-  .l-introduction {
-    padding-bottom: 7.25rem;
-  }
   .introduction__inner {
     padding-left: 1.25rem;
     padding-right: 1.25rem;

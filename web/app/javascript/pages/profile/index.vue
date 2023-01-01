@@ -163,9 +163,6 @@ export default {
 </script>
 
 <style scoped>
-.l-profile {
-  padding-bottom: 8rem;
-}
 .profile-back-ground {
   background-color: #d8eefe;
   padding-bottom: 8rem;
@@ -230,6 +227,9 @@ export default {
 }
 
 @media screen and (min-width: 750px) {
+  .l-profile {
+    padding-bottom: 2rem;
+  }
   .everyday-behaviors__block {
     display: flex;
     justify-content: space-between;

@@ -114,8 +114,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.l-calendar {
-  padding-bottom: 7rem;
-}
-</style>
+<style scoped></style>

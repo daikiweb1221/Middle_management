@@ -41,9 +41,8 @@ export default {
 .subordinate__name {
   display: block;
   text-align: center;
-  /* color: #094067;
-  font-weight: 700; */
   font-size: 1rem;
+  font-weight: initial !important;
 }
 
 @media screen and (max-width: 767px) {

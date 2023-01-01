@@ -104,7 +104,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #d8eefe;
-  padding-bottom: 8rem;
+  padding-bottom: 2rem;
 }
 
 .inner {
