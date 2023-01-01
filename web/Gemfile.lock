@@ -140,6 +140,8 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
@@ -224,6 +226,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -274,6 +278,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   letter_opener_web
   listen (~> 3.3)
+  meta-tags
   net-imap
   net-pop
   net-smtp
@@ -282,6 +287,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7)
   sass-rails (>= 6)
+  sitemap_generator
   sorcery
   spring
   turbolinks (~> 5)

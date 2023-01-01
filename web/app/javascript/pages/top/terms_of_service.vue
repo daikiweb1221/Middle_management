@@ -181,6 +181,16 @@
 <script>
 export default {
   name: "TermsOfService",
+
+  head() {
+    return {
+      title: {
+        inner: "利用規約",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 
