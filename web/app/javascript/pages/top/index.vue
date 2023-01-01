@@ -179,7 +179,6 @@ export default {
 </script>
 
 <style scoped>
-
 .l-top {
   padding-bottom: 2rem;
 }
