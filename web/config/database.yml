@@ -18,7 +18,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   # 本番環境はオフにする
-  # host: db
+  host: db
   username: postgres
   password: password
   # pool: 5
