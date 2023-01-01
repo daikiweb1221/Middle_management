@@ -144,21 +144,16 @@ export default {
 
 <style scoped>
 .l-question-cont {
-  padding: 7rem 1.25rem;
+  padding: 2rem 1.25rem;
 }
 .question-wrap {
   /* text-align: center; */
-  position: relative;
   width: 100%;
   height: 100%;
 }
 .question-cont {
   max-width: 750px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  margin: auto;
 }
 
 .example-cont {
@@ -183,7 +178,6 @@ export default {
 @media screen and (max-width: 767px) {
   .question-text-cont {
     font-size: 1rem;
-    padding-top: 7.5rem;
   }
 }
 </style>

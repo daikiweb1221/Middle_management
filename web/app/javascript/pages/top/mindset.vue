@@ -148,6 +148,7 @@ export default {
 .mindset__under-cont {
   text-align: center;
   background-color: #d8eefe !important;
+  padding-bottom: 2rem;
 }
 
 .mindset__under-title-wrap {
@@ -170,7 +171,6 @@ export default {
 }
 .mindset__btn-wrap {
   padding-top: 2rem;
-  padding-bottom: 8rem;
   text-align: center;
 }
 
@@ -238,7 +238,6 @@ export default {
   }
   .mindset__btn-wrap {
     padding-top: 2rem;
-    padding-bottom: 8rem;
   }
 }
 
@@ -252,7 +251,7 @@ export default {
   }
 }
 
-/* 画面幅が560px以下の時は */
+
 @media screen and (max-width: 767px) {
   .ps-br {
     display: none; /* PCの改行を隠して */

@@ -4,6 +4,8 @@ import store from "../store";
 import TopIndex from "../pages/top";
 import TopIntroduction from "../pages/top/introduction";
 import TopMindSet from "../pages/top/mindset";
+import Privacy from "../pages/top/privacy";
+import TermsOfService from "../pages/top/terms_of_service";
 import Guide from "../pages/top/guide";
 import IdealBossChecks from "../pages/ideal_boss_checks";
 import IdealBossChecksNotLogin from "../pages/ideal_boss_checks/not-login";
@@ -47,6 +49,16 @@ const router = new Router({
       component: TopMindSet,
       name: "TopMindSet",
       meta: { requiredAuth: true },
+    },
+    {
+      path: "/privacy",
+      component: Privacy,
+      name: "Privacy",
+    },
+    {
+      path: "/terms_of_service",
+      component: TermsOfService,
+      name: "TermsOfService",
     },
     {
       path: "/ideal_boss_checks",

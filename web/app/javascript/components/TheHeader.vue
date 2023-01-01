@@ -9,12 +9,14 @@
     <div v-else-if="this.$route.path === '/login'"></div>
     <div v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"></div>
     <div v-else-if="this.$route.path === '/users_password_edit'"></div>
+    <div v-else-if="this.$route.path === '/privacy'"></div>
+    <div v-else-if="this.$route.path === '/terms_of_service'"></div>
     <template v-else>
       <v-navigation-drawer app v-model="drawer" clipped>
         <v-container>
           <v-list-item>
             <v-list-item-content>
-              <v-list-item-title style="font-size: 1rem; color: #094067">
+              <v-list-item-title style="font-size: 1rem">
                 メニューリスト
               </v-list-item-title>
             </v-list-item-content>
@@ -75,6 +77,9 @@
       </v-navigation-drawer>
     </template>
     <div v-if="this.$route.path === '/'"></div>
+    <div v-else-if="this.$route.path === '/introduction'"></div>
+    <div v-else-if="this.$route.path === '/mindset'"></div>
+    <div v-else-if="this.$route.path === '/everyday_behavior_register'"></div>
     <div v-else-if="this.$route.path !== '/'">
       <v-app-bar class="header" dark app clipped-left>
         <template v-if="this.$route.path === '/introduction'"></template>
@@ -89,6 +94,8 @@
           v-else-if="this.$route.path === '/ideal_boss_checks/not-login'"
         ></div>
         <div v-else-if="this.$route.path === '/users_password_edit'"></div>
+        <div v-else-if="this.$route.path === '/privacy'"></div>
+        <div v-else-if="this.$route.path === '/terms_of_service'"></div>
         <template v-else>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
         </template>
@@ -99,7 +106,9 @@
         <div v-else-if="this.$route.path === '/mindset'"></div>
         <template v-else>
           <router-link style="text-decoration: none; color: white" to="/"
-            ><v-toolbar-title>Middle Management</v-toolbar-title></router-link
+            ><v-toolbar-title class="header-title"
+              >Middle Management</v-toolbar-title
+            ></router-link
           ></template
         >
         <v-spacer></v-spacer>
@@ -113,9 +122,6 @@
 
           <template v-else>
             <template v-if="!authUser">
-              <!-- <v-btn class="font-weight-bold" text :to="{ name: 'RegisterIndex' }"
-              >新規登録</v-btn
-            > -->
               <v-btn class="font-weight-bold" text :to="{ name: 'LoginIndex' }"
                 >ログイン</v-btn
               >
@@ -228,8 +234,18 @@ export default {
 .v-list-item--active {
   background-color: #d8eefe !important;
 }
-/* .v-list-item-title {
-  font-weight: normal !important;
-  color: #5f6c7b !important;
-} */
+
+@media screen and (max-width: 767px) {
+  .ps-br {
+    display: none; /* PCの改行を隠して */
+  }
+
+  .sp-br {
+    display: block; /* SPを改行する */
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+}
 </style>

@@ -131,6 +131,7 @@ export default {
   background-size: cover;
   height: 100%;
   background-position: center center;
+  padding-bottom: 2rem;
 }
 .inner {
   padding-left: 1.25rem;
@@ -159,7 +160,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   margin-top: 4.375rem;
-  padding-bottom: 10rem;
 }
 
 .sub-title__wrap {
