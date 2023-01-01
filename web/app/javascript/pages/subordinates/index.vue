@@ -71,7 +71,7 @@
 
     <div
       class="mt-5"
-      style="position: fixed; right: 30px; z-index: 6; bottom: 52px"
+      style="position: fixed; right: 30px; z-index: 6; bottom: 75px"
     >
       <SubordinateCreateModal @create-subordinate="handleCreateSubordinate" />
     </div>
