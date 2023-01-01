@@ -72,6 +72,16 @@
 <script>
 export default {
   name: "Privacy",
+
+  head() {
+    return {
+      title: {
+        inner: "プライバシーポリシー",
+        separator: "|",
+        complement: "Middle Management",
+      },
+    };
+  },
 };
 </script>
 
