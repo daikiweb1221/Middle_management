@@ -7,7 +7,7 @@
       <div class="ideal__title-cont">
         <h1 class="ideal__title">Let's Check!!</h1>
       </div>
-      <div class="container position-center">
+      <div class="position-center">
         <h3 class="ideal-sub-title text-center">
           - あなたの影響力をチェックしてみましょう -
         </h3>
@@ -256,21 +256,15 @@ export default {
   background-size: cover;
   height: 100%;
   background-position: center center;
-  /* padding-bottom: 8rem; */
 }
 
 .position-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 25px;
+  padding-top: 5rem;
   width: 100%;
 }
 
 .quiz-font {
   color: #094067;
-  /* font-weight: 700; */
 }
 
 .question-font {
@@ -327,7 +321,7 @@ export default {
 .rank-description {
   text-align: center;
   padding: 0 25px 25px 25px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700 !important;
   color: #094067;
 }
@@ -352,8 +346,11 @@ export default {
 }
 
 @media screen and (max-width: 767px) {
+  .position-center {
+    padding-top: 3.125rem;
+  }
   .rank-description {
-    text-align: center;
+    text-align: left;
     padding: 0 25px 25px 25px;
     font-size: 0.75rem;
     font-weight: 700 !important;
@@ -372,7 +369,7 @@ export default {
     font-size: 1.3rem;
   }
   .ideal-sub-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
   }
 
