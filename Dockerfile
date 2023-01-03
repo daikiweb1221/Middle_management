@@ -8,6 +8,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get update -qq \
     # credentials.yml.enc編集用にvimを追加
     # && apt-get install -y vim \
+    # cronをインストール
+    && apt-get install -y cron \
     && apt-get install -y nodejs yarn postgresql-client
 
 RUN rm -rf /var/lib/apt/lists/*
