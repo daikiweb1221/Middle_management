@@ -30,6 +30,9 @@ RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile ass
 && yarn cache clean \
 && rm -rf /app/node_modules /app/tmp/cache
 # ---
+# wheneverでcrontab書き込み
+RUN bundle exec whenever --update-crontab
+RUN service cron start
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
