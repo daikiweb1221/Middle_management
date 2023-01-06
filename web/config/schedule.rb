@@ -13,14 +13,14 @@ ENV.each { |k, v| env(k, v) }
 set :output, "#{Rails.root}/log/cron.log"
 
 #毎日0時ごとに（:hour）実行する先程設定したrakeタスクを記入
-# every 1.days, at: '0:00 am' do
-#   rake 'reset_communications:reset_communications'
-# end
-
-# 1分毎に回すテスト
-every 1.minute do
+every 1.days, at: '0:00 am' do
   rake 'reset_communications:reset_communications'
 end
+
+# 1分毎に回すテスト
+# every 1.minute do
+#   rake 'reset_communications:reset_communications'
+# end
 
 # Use this file to easily define all of your cron jobs.
 #
