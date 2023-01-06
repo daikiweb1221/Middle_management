@@ -36,5 +36,4 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-RUN Rails.env
 CMD ["rails", "server", "-b", "0.0.0.0"]
