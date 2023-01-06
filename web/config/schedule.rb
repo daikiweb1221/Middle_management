@@ -2,12 +2,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/environment')
 
 # cronを実行する環境変数
-rails_env = ENV['RAILS_ENV'] || :production
-# 開発環境↓
-#:development
+# rails_env = ENV['RAILS_ENV'] || :production || :development
 
-# cronを実行する環境変数をセット
-set :environment, rails_env
+# 実行環境に応じて変更
+set :environment, :production
 # Docker用環境変数
 ENV.each { |k, v| env(k, v) }
 

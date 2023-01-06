@@ -33,6 +33,7 @@ RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile ass
 # wheneverでcrontab書き込み
 RUN bundle exec whenever --update-crontab
 RUN service cron start
+RUN service cron status
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
