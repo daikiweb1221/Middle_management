@@ -17,6 +17,10 @@ every 1.day, at: '3:00 pm' do
   rake 'reset_communications:reset_communications'
 end
 
+every 1.day, at: '3:00 pm' do
+  rake 'remaind_birthday:remaind_birthday_mail'
+end
+
 # 1分毎に回すテスト
 # every 1.minute do
 #   rake 'reset_communications:reset_communications'
