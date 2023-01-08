@@ -180,7 +180,7 @@ export default {
 
 <style scoped>
 .l-top {
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 .sub-header__btn-wrap {
   text-align: right;

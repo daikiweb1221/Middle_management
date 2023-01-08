@@ -246,6 +246,7 @@ export default {
 .l-guide {
   background-color: #d8eefe;
   padding-bottom: 2rem;
+  height: 100%;
 }
 .inner {
   padding-left: 1.25rem;
@@ -321,6 +322,7 @@ export default {
   .sp-br {
     display: none; /* SPの改行を隠す */
   }
+
   .main-btn {
     height: initial !important;
     min-width: 4rem !important;
