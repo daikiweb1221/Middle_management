@@ -44,6 +44,8 @@
   - 自身の影響力を A〜G ランクで判定することができます。
 - メンバー登録・編集・削除
   - メンバー登録することで誕生日の把握や後述する褒めポイントの追加、またコミュニケーションの見える化ができます。
+- 誕生日リマインドメール機能
+  - メンバーの誕生日を登録しておくことで、誕生日当日にリマインドメールが送られます。これで誕生日を忘れる心配もございません。
 - 褒めポイント作成・削除
   - 自己重要感を上げるための褒めポイントを追加や削除することができます。
 - マイページ機能
@@ -51,8 +53,9 @@
   - 最初に挙げた 5 つの要素をマイページから常に確認ができるため定期的にリマインドすることができます。
 - 各ユーザーの理想の上司像閲覧機能
   - 他のユーザーが思う話を聞くに値する人（最初に挙げていただく 5 つの要素）の特徴を見ることができます。
-- コミュニケーション見える化機能
+- コミュニケーション見える化機能・デイリーでリセット機能
   - ライクボタンを押下することで登録メンバーとその日にコミュニケーションが取れたかどうかを管理することができます。
+  - コミュニケーション済メンバーは日毎にリセットされます。
 - スケジュール登録機能
   - カレンダーへスケージュール登録・編集・削除ができます。予定ごとに色分けをしてスケジュール登録が可能です。あなたの予定や部下とのスケジュールを登録することができます。
 
@@ -99,9 +102,11 @@
     <summary>主要gem</summary>
     <ul>
       <li><a href="https://github.com/rails/webpacker">webpacker</a></li>
-      <li><a href="https://github.com/fgrehm/letter_opener_web">letter_opener_web</a></li>
       <li><a href="https://github.com/Sorcery/sorcery">sorcery</a></li>
       <li><a href="https://github.com/rubyconfig/config">config</a></li>
+      <li><a href="https://github.com/javan/whenever">whenever</a></li>
+      <li><a href="https://github.com/kpumuk/meta-tags">meta-tags</a></li>
+      <li><a href="https://github.com/kjvarga/sitemap_generator">sitemap_generator</a></li>
     </ul>
   </deatails>
 </ul>
